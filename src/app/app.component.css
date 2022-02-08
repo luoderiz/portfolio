@@ -1,0 +1,105 @@
+/* CSS HEX
+--baby-powder: #F8F9F0;
+--key-lime: #d8df8aff;
+--acid-green: #B5C035;
+--apple-green: #8FB037;
+--green-ryb: #69A039;
+--may-green: #43903B;
+--sea-green: #1c803dff;
+--hunter-green: #205329;
+--pine-tree: #242615ff;
+--old-rose: #cb8589ff;
+--antique-fuchsia: #9d6a89ff;
+    --bs-gray-dark: #343a40
+        --bs-body-color: #212529;
+ */
+
+ /*
+ #f0ea93;
+ #b27e3d;
+Bermuda: #70dcb3;
+Ocean Green Pearl: #50b792;
+#398274;
+#457e61;
+#8fbb72;
+#82a742;
+#354c35;
+
+ */
+
+html {
+  background-color: #2c3237;
+}
+
+p {
+  color: #242615ff;
+}
+
+h2 {
+  color: #1c803dff
+} 
+
+h3, h4 {
+  color: #8FB037;
+} 
+
+header {
+  padding-block: 20px;
+  background-color: #8DBB7D;
+  color: #242615ff;
+  text-align: center;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: #343a40;
+}
+
+a {
+  color: #4EB48E;
+}
+
+#treasure-map { 
+  width: auto;
+  height: calc(100vw/1.558);
+  margin: 0;
+  background-image: url(../assets/img/treasure-map-full-effects-1.png);
+  background-color: #212529;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-attachment: local;
+}
+
+#treasure-map .row {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  height: calc( (100vw / 1.558) / 12);
+}
+
+#treasure-map .img {
+  max-width: calc(100vw/12);
+}
+
+#treasure-map .row .col {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#teacher {
+  max-width: calc((100vw/12)*0.6);
+}
+
+#hs-teacher {
+  max-width: calc((100vw/12)*0.8);
+}
+
+#degree {
+  max-width: calc((100vw/12)*0.8);
+}
+
+#argentinaprograma{
+  max-width: calc((100vw/12)*0.6);
+}
