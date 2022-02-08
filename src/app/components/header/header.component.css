@@ -1,0 +1,11 @@
+header {
+    padding-block: 20px;
+    background-color: #8DBB7D;
+    color: #242615ff;
+    text-align: center;
+  }
+  
+  .bi {
+    vertical-align: -.125em;
+    fill: #343a40;
+  }
