@@ -1,5 +1,6 @@
 a {
-    color: #4EB48E;
+    color: #4e8b75;
+    text-align: right;
   }
   
   #treasure-map { 
@@ -30,19 +31,21 @@ a {
     justify-content: center;
     align-items: center;
   }
-  
-  #teacher {
-    max-width: calc((100vw/12)*0.6);
+
+  #lighthouse {
+    max-width: calc((100vw/12)*0.9);
+    align-content: right;
+    vertical-align: top;
   }
-  
-  #hs-teacher {
-    max-width: calc((100vw/12)*0.8);
+
+  #well {
+    max-width: calc((100vw/12)*0.75);
   }
-  
-  #degree {
-    max-width: calc((100vw/12)*0.8);
+
+  #mountain,  #bridge  {
+    max-width: calc((100vw/12)*0.85);
   }
-  
-  #argentinaprograma{
-    max-width: calc((100vw/12)*0.6);
+
+  #turtle, #dolphin, #windmill {
+    max-width: calc((100vw/12)*0.9);
   }
