@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   layout: string[] = ["Sobre mí", "Educación y Experiencia", "Hard & soft skills", "Proyectos"];
+  static layout: any;
   
   constructor() { }
 
