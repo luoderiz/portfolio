@@ -15,6 +15,8 @@ export class CardComponent implements OnInit {
 
 }
 
+/*
+
 let Aboutme = [
   "competency: example of computer skills and duty + result achieved",
 ];
@@ -42,60 +44,6 @@ let Languageskills = [
   "Francés A2",
 ];
 
-let aboutmeCard = {
-  layout: "NavbarComponent.layout[0]",
-  cardtitle: "NavbarComponent.layout[0]",
-  carditem1: Aboutme,
-};
-
-
-let workexperienceCard: CardComponent = {
-  layout: "NavbarComponent.layout[1]",
-  cardtype: ["work","field", "area"],
-  cardtitle: "position",
-  carditem1: ["employer"],
-  carditem2: ["period"],
-  carditem3: ["details"],
-};
-
-let educationCard: CardComponent = {
-  layout: "NavbarComponent.layout[1]",
-  cardtype: ["study", "field"],
-  cardtitle: "degree",
-  carditem1: ["institution"],
-  carditem2: ["city"],
-  carditem3: ["since", "to"],
-};
-
-let softskillsCard: CardComponent = {
-  layout: "NavbarComponent.layout[2]",
-  cardtype: ["softskills"],
-  cardtitle: "soft skills",
-  carditem1: Softskills,
-};
-
-let hardskillsCard: CardComponent = {
-  layout: "NavbarComponent.layout[2]",
-  cardtype: ["hardskills"],
-  cardtitle: "hard skills",
-  carditem1: Hardskills,
-};
-
-let languageskillsCard: CardComponent = {
-  layout: "NavbarComponent.layout[2]",
-  cardtype: ["languageskills"],
-  cardtitle: "language skills",
-  carditem1: Languageskills,
-};
-
-let projectsCard: CardComponent = {
-  layout: "NavbarComponent.layout[3]",
-  cardtitle: "projects",
-  carditem1: [""],
-}; 
-
-
-/*
   let Workexperience = [
   {
     position: "profesora de lengua y literatura en educación secundaria",
@@ -236,4 +184,61 @@ let Education = [
     field: "informática",
   },
 ];
+
+CARDS 
+
+
+
+let aboutmeCard = {
+  layout: "NavbarComponent.layout[0]",
+  cardtitle: "NavbarComponent.layout[0]",
+  carditem1: Aboutme,
+};
+
+
+let workexperienceCard: CardComponent = {
+  layout: "NavbarComponent.layout[1]",
+  cardtype: ["work","field", "area"],
+  cardtitle: "position",
+  carditem1: ["employer"],
+  carditem2: ["period"],
+  carditem3: ["details"],
+};
+
+let educationCard: CardComponent = {
+  layout: "NavbarComponent.layout[1]",
+  cardtype: ["study", "field"],
+  cardtitle: "degree",
+  carditem1: ["institution"],
+  carditem2: ["city"],
+  carditem3: ["since", "to"],
+};
+
+let softskillsCard: CardComponent = {
+  layout: "NavbarComponent.layout[2]",
+  cardtype: ["softskills"],
+  cardtitle: "soft skills",
+  carditem1: Softskills,
+};
+
+let hardskillsCard: CardComponent = {
+  layout: "NavbarComponent.layout[2]",
+  cardtype: ["hardskills"],
+  cardtitle: "hard skills",
+  carditem1: Hardskills,
+};
+
+let languageskillsCard: CardComponent = {
+  layout: "NavbarComponent.layout[2]",
+  cardtype: ["languageskills"],
+  cardtitle: "language skills",
+  carditem1: Languageskills,
+};
+
+let projectsCard: CardComponent = {
+  layout: "NavbarComponent.layout[3]",
+  cardtitle: "projects",
+  carditem1: [""],
+}; 
+
 */

@@ -2,3 +2,8 @@ svg .bi {
     vertical-align: -.125em;
     fill: #343a40;
   }
+
+  a {
+    color: #4e8b75;
+    text-align: right;
+  }

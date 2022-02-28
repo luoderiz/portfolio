@@ -1,39 +1,21 @@
-a {
-    color: #4e8b75;
-    text-align: right;
-  }
-  
-  #mainmap { 
-    width: auto;
-    height: calc(100vw/3.373);
-    margin: 0;
-    background-image: url(../../../assets/img/mapadeviaje.jpg);
-    background-color: #212529;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: local;
-  }
+#background { 
+  max-height: calc(75vw/3.015);
+  background-image: url(../../../assets/img/mapadeviajecortado.jpg);
+  background-color: #212529;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: local;
+}
 
-  #mainmap {
-    height: calc(100vw/3.373);
-    margin: 0;
-  }
-  
-  #mainmap .img-fluid {
-    max-height: calc((100vw/3.373)/12);
-  }
+#background .img-fluid {
+  max-height: calc((75vw/3.015)/9);
+}
 
-  #mainmap .row .col {
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
-    height: calc((100vw/3.373)/12);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #path {
-    max-width: calc(((100vw/3.015)/12)*0.8);
-    align-content: right;
-    vertical-align: top;
-  }
+#background .row .col {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  height: calc((75vw/3.015)/9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
