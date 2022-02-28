@@ -7,72 +7,54 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MainmapComponent implements OnInit {
-  lighthouse: any = 
-    {
-      icon: "Lighthouse",
-      imageUrl: "../../../assets/icons/lighthouse.png",
-      layout: "NavbarComponent.layout[1]",
-    };
+  path1 = {
+    icon: "Degree",
+    imageUrl: "../../../assets/icons/education/degree.png",
+  };
 
-  turtle: any =
-    {
-      icon: "Turtle",
-      imageUrl: "../../../assets/icons/turtle.png",
-      layout: "NavbarComponent.layout[1]",
-    };
-
-  mountain: any =
-    {
-      icon: "Mountain",
-      imageUrl: "../../../assets/icons/mountain.png",
-      layout: "NavbarComponent.layout[1]",
-    };
-
-  dolphin: any =
-    {
-      icon: "Dolphin",
-      imageUrl: "../../../assets/icons/dolphin.png",
-      layout: "NavbarComponent.layout[1]",
-    };
-
-  bridge: any =
-    {
-      icon: "Bridge",
-      imageUrl: "../../../assets/icons/bridge.png",
-      layout: "NavbarComponent.layout[1]",
-    };
+  path2 = {
+    icon: "Growth",
+    imageUrl: "../../../assets/icons/careeradvancement/growth.png",
+  };
   
-  windmill: any =
-    {
-      icon: "Windmill",
-      imageUrl: "../../../assets/icons/windmill.png",
-      layout: "NavbarComponent.layout[1]",
-    };
-
-  submarine: any =
-    {
-      icon: "Submarine",
-      imageUrl: "../../../assets/icons/submarine.png",
-      layout: "NavbarComponent.layout[1]",
-    };
-
-  cart: any =
-    {
-      icon: "Cart",
-      imageUrl: "../../../assets/icons/cart.png",
-      layout: "NavbarComponent.layout[1]",
-    };
-
-  well: any =
-    {
-      icon: "Well",
-      imageUrl: "../../../assets/icons/well.png",
-      layout: "NavbarComponent.layout[1]",
-    };
+  path3 = {
+    icon: "Career2",
+    imageUrl: "../../../assets/icons/careeradvancement/career2.png",
+  };
+  
+  path4 = {
+    icon: "Creativity",
+    imageUrl: "../../../assets/icons/careeradvancement/creativity.png",
+  };
+  
+  path5 = {
+    icon: "User",
+    imageUrl: "../../../assets/icons/careeradvancement/user.png",
+  };
+  
+  path6 = {
+    icon: "Leadership",
+    imageUrl: "../../../assets/icons/careeradvancement/leadership.png",
+  };
+  
+  path7 = {
+    icon: "Career",
+    imageUrl: "../../../assets/icons/careeradvancement/career.png",
+  }; 
+  
+  path8 = {
+    icon: "Search",
+    imageUrl: "../../../assets/icons/careeradvancement/search.png",
+  };
+  
+  path9 = {
+    icon: "Certificate",
+    imageUrl: "../../../assets/icons/education/certificate.png",
+  }; 
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  
-}
+
+};

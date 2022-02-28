@@ -3,49 +3,37 @@ a {
     text-align: right;
   }
   
-  #treasure-map { 
+  #mainmap { 
     width: auto;
-    height: calc(100vw/1.558);
+    height: calc(100vw/3.373);
     margin: 0;
-    background-image: url(../../../assets/img/treasure-map-full-effects-1.png);
+    background-image: url(../../../assets/img/mapadeviaje.jpg);
     background-color: #212529;
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     background-attachment: local;
   }
-  
-  #treasure-map .row {
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
-    height: calc( (100vw / 1.558) / 12);
+
+  #mainmap {
+    height: calc(100vw/3.373);
+    margin: 0;
   }
   
-  #treasure-map .img {
-    max-width: calc(100vw/12);
+  #mainmap .img-fluid {
+    max-height: calc((100vw/3.373)/12);
   }
-  
-  #treasure-map .row .col {
+
+  #mainmap .row .col {
     padding: 0 0 0 0;
     margin: 0 0 0 0;
+    height: calc((100vw/3.373)/12);
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
-  #lighthouse {
-    max-width: calc((100vw/12)*0.9);
+  
+  #path {
+    max-width: calc(((100vw/3.015)/12)*0.8);
     align-content: right;
     vertical-align: top;
-  }
-
-  #well {
-    max-width: calc((100vw/12)*0.75);
-  }
-
-  #mountain,  #bridge  {
-    max-width: calc((100vw/12)*0.85);
-  }
-
-  #turtle, #dolphin, #windmill {
-    max-width: calc((100vw/12)*0.9);
   }
