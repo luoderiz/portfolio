@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-mainmap',
   templateUrl: './mainmap.component.html',
-  styleUrls: ['./mainmap.component.css']
+  styleUrls: ['./mainmap.component.css'],
 })
 
-export class MainmapComponent implements OnInit {
+export class MainmapComponent {
   currentPosition: number = 0;
 
   path0 = {
@@ -58,11 +58,6 @@ export class MainmapComponent implements OnInit {
     icon: "Key",
     imageUrl: "../../../assets/icons/careeradvancement/key.png"
   };
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   sendPath(pathNumber: number): void {
     this.currentPosition = pathNumber;
