@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MainmapComponent implements OnInit {
+  path0 = {
+    icon: "Certificate",
+    imageUrl: "../../../assets/icons/education/certificate.png",
+  }; 
+
   path1 = {
     icon: "Degree",
     imageUrl: "../../../assets/icons/education/degree.png",
@@ -46,15 +51,18 @@ export class MainmapComponent implements OnInit {
     icon: "Search",
     imageUrl: "../../../assets/icons/careeradvancement/search.png",
   };
-  
+
   path9 = {
-    icon: "Certificate",
-    imageUrl: "../../../assets/icons/education/certificate.png",
-  }; 
+    icon: "Key",
+    imageUrl: "../../../assets/icons/careeradvancement/key.png"
+  };
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  sendPath(pathNumber: number): void {
+    console.log(pathNumber);
+  }
 };

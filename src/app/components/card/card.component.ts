@@ -8,7 +8,8 @@ import { IWorkexperience } from './workexperience';
 })
 
 export class CardComponent implements OnInit {
-
+  pathNumber: number = 0;
+  
   workexperience: IWorkexperience[] = [
     {
        position: "profesora de lengua y literatura en educación secundaria",

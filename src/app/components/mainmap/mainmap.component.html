@@ -16,7 +16,7 @@
           <div class="row row-cols-9">
             <div class="col">2a</div>
             <div class="col">
-              <img [src]='path1.imageUrl' class="img-fluid" [alt]='path1.icon' id='path1'> 
+              <img [src]='path1.imageUrl' class="img-fluid" [alt]='path1.icon' id='path1' (click)='sendPath(1)'> 
             </div>
             <div class="col">2c</div>
             <div class="col">2d</div>
@@ -27,10 +27,12 @@
             <div class="col">2i</div>
           </div>
           <div class="row row-cols-9">
-            <div class="col">3a</div>
+            <div class="col">
+              <img [src]='path0.imageUrl' class="img-fluid" [alt]='path0.icon' id='path0' (click)='sendPath(0)'>
+            </div>
             <div class="col">3b</div>
             <div class="col">
-              <img [src]='path2.imageUrl' class="img-fluid" [alt]='path2.icon' id="path2"> 
+              <img [src]='path2.imageUrl' class="img-fluid" [alt]='path2.icon' id="path2" (click)='sendPath(2)'> 
             </div>
             <div class="col">3d</div>
             <div class="col">3e</div>
@@ -38,7 +40,7 @@
             <div class="col">3g</div>
             <div class="col">3h</div>
             <div class="col">        
-              <img [src]='path8.imageUrl' class="img-fluid" [alt]='path8.icon' id="path8"> 
+              <img [src]='path8.imageUrl' class="img-fluid" [alt]='path8.icon' id="path8" (click)='sendPath(8)'> 
             </div>
           </div>
           <div class="row row-cols-9">
@@ -46,17 +48,19 @@
             <div class="col">4b</div>
             <div class="col">4c</div>
             <div class="col">
-              <img [src]='path3.imageUrl' class="img-fluid" [alt]='path3.icon' id="path3"> 
+              <img [src]='path3.imageUrl' class="img-fluid" [alt]='path3.icon' id="path3" (click)='sendPath(3)'> 
             </div>
             <div class="col">
-              <img [src]='path4.imageUrl' class="img-fluid" [alt]='path4.icon' id="path4"> 
+              <img [src]='path4.imageUrl' class="img-fluid" [alt]='path4.icon' id="path4" (click)='sendPath(4)'> 
             </div>
             <div class="col">4f</div>
             <div class="col">
-              <img [src]='path5.imageUrl' class="img-fluid" [alt]='path5.icon' id="path5">  
+              <img [src]='path6.imageUrl' class="img-fluid" [alt]='path6.icon' id="path6" (click)='sendPath(6)'> 
+
             </div>
             <div class="col">
-              <img [src]='path6.imageUrl' class="img-fluid" [alt]='path6.icon' id="path6"> 
+              <img [src]='path7.imageUrl' class="img-fluid" [alt]='path7.icon' id="path7" (click)='sendPath(7)'> 
+
             </div>
             <div class="col">4i</div>
           </div>
@@ -67,7 +71,7 @@
             <div class="col">5d</div>
             <div class="col">5e</div>
             <div class="col">
-              <img [src]='path7.imageUrl' class="img-fluid" [alt]='path7.icon' id="path7"> 
+              <img [src]='path5.imageUrl' class="img-fluid" [alt]='path5.icon' id="path5" (click)='sendPath(5)'>  
             </div>
             <div class="col">5g</div>
             <div class="col">5h</div>
