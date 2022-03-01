@@ -8,7 +8,6 @@ import { IWorkexperience } from './workexperience';
 })
 
 export class CardComponent implements OnInit {
-  id: string = "";
 
   workexperience: IWorkexperience[] = [
     {

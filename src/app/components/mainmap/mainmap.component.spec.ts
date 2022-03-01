@@ -1,5 +1,3 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MainmapComponent } from './mainmap.component';
 
 describe('MainmapComponent', () => {

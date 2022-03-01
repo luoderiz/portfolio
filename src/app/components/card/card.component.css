@@ -1,20 +1,35 @@
 #card {
   margin: 0;
-  padding: 7% 5% 5% 5%;
+  padding: 2% 2% 2% 2%;
   height: calc(75vw/3.015);
   background-color: #8b9e6e;
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: local;
-  color: #242615ff;
-  font-size: 1.2 rem;
-  text-align: left;
+  color: #242615;
   }
+
+.row {
+  max-height: calc((75vw/3.015)/3);
+}
 
 h1 {
   text-align: center;
+  font-size: 2vw;
+}
+
+h2 {
+  font-size: 1.8vw;
+  text-align: justify;
+}
+
+h3 {
+  font-size: 1.7vw;
+  text-align: justify;
+
 }
 
 p {
-  font-size: 2.4 rem;
+  font-size: 1.5vw;
+  text-align: justify;
 }
