@@ -1,3 +1,17 @@
+#mainmapBox {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#cardBox {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 #background { 
   max-height: calc(75vw/3.015);
   background-image: url(../../../assets/img/mapadeviajecortado.jpg);

@@ -1,84 +1,95 @@
-<div class="container-fluid" id="background">
-    <div class="row row-cols-9">
-      <div class="col">1a</div>
-      <div class="col">1b</div>
-      <div class="col">1c</div>
-      <div class="col">1d</div>
-      <div class="col">1e</div>
-      <div class="col">1f</div>
-      <div class="col">1g</div>
-      <div class="col">1h</div>
-      <div class="col">1i</div>
-    </div>
-    <div class="row row-cols-9">
-      <div class="col">2a</div>
-      <div class="col">
-        <img [src]='path1.imageUrl' class="img-fluid" [alt]='path1.icon' id='path1'> 
+<div class="container-fluid">
+  <div class="row row-cols-12">
+      <div class="col-9" id="mainmapBox">
+        <div class="container-fluid" id="background">
+          <div class="row row-cols-9">
+            <div class="col">1a</div>
+            <div class="col">1b</div>
+            <div class="col">1c</div>
+            <div class="col">1d</div>
+            <div class="col">1e</div>
+            <div class="col">1f</div>
+            <div class="col">1g</div>
+            <div class="col">1h</div>
+            <div class="col">1i</div>
+          </div>
+          <div class="row row-cols-9">
+            <div class="col">2a</div>
+            <div class="col">
+              <img [src]='path1.imageUrl' class="img-fluid" [alt]='path1.icon' id='path1'> 
+            </div>
+            <div class="col">2c</div>
+            <div class="col">2d</div>
+            <div class="col">2e</div>
+            <div class="col">2f</div>
+            <div class="col">2g</div>
+            <div class="col">2h</div>
+            <div class="col">2i</div>
+          </div>
+          <div class="row row-cols-9">
+            <div class="col">3a</div>
+            <div class="col">3b</div>
+            <div class="col">
+              <img [src]='path2.imageUrl' class="img-fluid" [alt]='path2.icon' id="path2"> 
+            </div>
+            <div class="col">3d</div>
+            <div class="col">3e</div>
+            <div class="col">3f</div>
+            <div class="col">3g</div>
+            <div class="col">3h</div>
+            <div class="col">        
+              <img [src]='path8.imageUrl' class="img-fluid" [alt]='path8.icon' id="path8"> 
+            </div>
+          </div>
+          <div class="row row-cols-9">
+            <div class="col">4a</div>
+            <div class="col">4b</div>
+            <div class="col">4c</div>
+            <div class="col">
+              <img [src]='path3.imageUrl' class="img-fluid" [alt]='path3.icon' id="path3"> 
+            </div>
+            <div class="col">
+              <img [src]='path4.imageUrl' class="img-fluid" [alt]='path4.icon' id="path4"> 
+            </div>
+            <div class="col">4f</div>
+            <div class="col">
+              <img [src]='path5.imageUrl' class="img-fluid" [alt]='path5.icon' id="path5">  
+            </div>
+            <div class="col">
+              <img [src]='path6.imageUrl' class="img-fluid" [alt]='path6.icon' id="path6"> 
+            </div>
+            <div class="col">4i</div>
+          </div>
+          <div class="row row-cols-9">
+            <div class="col">5a</div>
+            <div class="col">5b</div>
+            <div class="col">5c</div>
+            <div class="col">5d</div>
+            <div class="col">5e</div>
+            <div class="col">
+              <img [src]='path7.imageUrl' class="img-fluid" [alt]='path7.icon' id="path7"> 
+            </div>
+            <div class="col">5g</div>
+            <div class="col">5h</div>
+            <div class="col">5i</div>
+          </div>
+          <div class="row row-cols-9">
+            <div class="col">6a</div>
+            <div class="col">6b</div>
+            <div class="col">6c</div>
+            <div class="col">6d</div>
+            <div class="col">6e</div>
+            <div class="col">6f</div>
+            <div class="col">6g</div>
+            <div class="col">6h</div>
+            <div class="col">6i</div>
+          </div>
       </div>
-      <div class="col">2c</div>
-      <div class="col">2d</div>
-      <div class="col">2e</div>
-      <div class="col">2f</div>
-      <div class="col">2g</div>
-      <div class="col">2h</div>
-      <div class="col">2i</div>
-    </div>
-    <div class="row row-cols-9">
-      <div class="col">3a</div>
-      <div class="col">3b</div>
-      <div class="col">
-        <img [src]='path2.imageUrl' class="img-fluid" [alt]='path2.icon' id="path2"> 
       </div>
-      <div class="col">3d</div>
-      <div class="col">3e</div>
-      <div class="col">3f</div>
-      <div class="col">3g</div>
-      <div class="col">3h</div>
-      <div class="col">        
-        <img [src]='path8.imageUrl' class="img-fluid" [alt]='path8.icon' id="path8"> 
+      <div class="col-3" id="cardBox">
+          <app-card></app-card>
       </div>
-    </div>
-    <div class="row row-cols-9">
-      <div class="col">4a</div>
-      <div class="col">4b</div>
-      <div class="col">4c</div>
-      <div class="col">
-        <img [src]='path3.imageUrl' class="img-fluid" [alt]='path3.icon' id="path3"> 
-      </div>
-      <div class="col">
-        <img [src]='path4.imageUrl' class="img-fluid" [alt]='path4.icon' id="path4"> 
-      </div>
-      <div class="col">4f</div>
-      <div class="col">
-        <img [src]='path5.imageUrl' class="img-fluid" [alt]='path5.icon' id="path5">  
-      </div>
-      <div class="col">
-        <img [src]='path6.imageUrl' class="img-fluid" [alt]='path6.icon' id="path6"> 
-      </div>
-      <div class="col">4i</div>
-    </div>
-    <div class="row row-cols-9">
-      <div class="col">5a</div>
-      <div class="col">5b</div>
-      <div class="col">5c</div>
-      <div class="col">5d</div>
-      <div class="col">5e</div>
-      <div class="col">
-        <img [src]='path7.imageUrl' class="img-fluid" [alt]='path7.icon' id="path7"> 
-      </div>
-      <div class="col">5g</div>
-      <div class="col">5h</div>
-      <div class="col">5i</div>
-    </div>
-    <div class="row row-cols-9">
-      <div class="col">6a</div>
-      <div class="col">6b</div>
-      <div class="col">6c</div>
-      <div class="col">6d</div>
-      <div class="col">6e</div>
-      <div class="col">6f</div>
-      <div class="col">6g</div>
-      <div class="col">6h</div>
-      <div class="col">6i</div>
-    </div>
-</div>
+  </div>
+  </div>
+
+

@@ -5,8 +5,7 @@ export interface IWorkexperience {
     employer: string;
     details: string;
   }
-
-
+  
 /*
 
   {
