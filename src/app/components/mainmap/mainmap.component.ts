@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MainmapComponent implements OnInit {
+  currentPosition: number = 0;
+
   path0 = {
     icon: "Certificate",
     imageUrl: "../../../assets/icons/education/certificate.png",
@@ -63,6 +65,6 @@ export class MainmapComponent implements OnInit {
   }
 
   sendPath(pathNumber: number): void {
-    console.log(pathNumber);
+    this.currentPosition = pathNumber;
   }
 };

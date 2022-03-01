@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IWorkexperience } from './workexperience';
 
 @Component({
@@ -8,8 +8,8 @@ import { IWorkexperience } from './workexperience';
 })
 
 export class CardComponent implements OnInit {
-  pathNumber: number = 0;
-  
+  @Input() pathNumber: number = 0;
+
   workexperience: IWorkexperience[] = [
     {
        position: "profesora de lengua y literatura en educación secundaria",
@@ -95,7 +95,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }
 
 /*

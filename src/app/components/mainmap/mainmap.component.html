@@ -16,7 +16,7 @@
           <div class="row row-cols-9">
             <div class="col">2a</div>
             <div class="col">
-              <img [src]='path1.imageUrl' class="img-fluid" [alt]='path1.icon' id='path1' (click)='sendPath(1)'> 
+              <img [src]='path1.imageUrl' class="img-fluid" [alt]='path1.icon' id='path1' (click)='sendPath(1)' > 
             </div>
             <div class="col">2c</div>
             <div class="col">2d</div>
@@ -91,7 +91,7 @@
       </div>
       </div>
       <div class="col-3" id="cardBox">
-          <app-card></app-card>
+          <app-card [pathNumber]='currentPosition'></app-card>
       </div>
   </div>
   </div>
