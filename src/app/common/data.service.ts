@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IWorkexperience } from '../components/card/workexperience';
+import { IMilestone } from '../components/milestone/milestone';
 
 @Injectable({
   providedIn: 'root'
@@ -53,21 +54,21 @@ export class DataService {
         position: "profesora de biología en educación secundaria",
         periodFrom: "09/2019",
         periodTo: "05/2021",
-        employer: "Escuela Técnica N°32 D.E. 14 &quot;Gral. José de San Martín&quot;",
+        employer: "Escuela Técnica N°32 D.E. 14 \"Gral. José de San Martín\"",
         details: "Primer año. Proyecto Interareal Secundaria del Futuro.",
       },
       {
         position: "profesora de lengua y literatura en educación secundaria",
         periodFrom: "09/2019",
         periodTo: "02/2021",
-        employer: "Escuela de Comercio N°18 D.E. 5 &quot;Ing. Reino de Suecia&quot;",
+        employer: "Escuela de Comercio N°18 D.E. 5 \"Ing. Reino de Suecia\"",
         details: "Primer y segundo año",
       },
       {
         position: "profesora de lengua y literatura en educación secundaria",
         periodFrom: "09/2019",
         periodTo: "actualidad",
-        employer: "Escuela Técnica N°9 D.E. 7 &quot;Ing. Luis A. Huergo&quot;",
+        employer: "Escuela Técnica N°9 D.E. 7 \"Ing. Luis A. Huergo\"",
         details: "Cuarto año",
       },
       {
@@ -81,12 +82,56 @@ export class DataService {
         position: "profesora de lengua y literatura en educación secundaria",
         periodFrom: "02/2022",
         periodTo: "actualidad",
-        employer: "Escuela Normal Superior N°2 D.E. 6 &quot;Mariano Acosta&quot;",
+        employer: "Escuela Normal Superior N°2 D.E. 6 \"Mariano Acosta\"",
         details: "Cuarto año",
       }
     ];
 
-  getWorkExperience(): IWorkexperience[] {
+    allMilestones: IMilestone[] = 
+    [
+      {
+        icon: "Certificate",
+        imageUrl: "../../assets/icons/education/certificate.png",
+      }, 
+      {
+        icon: "Degree",
+        imageUrl: "../../assets/icons/education/degree.png",
+      },
+      {
+        icon: "Growth",
+        imageUrl: "../../assets/icons/careeradvancement/growth.png",
+      },
+      {
+        icon: "Career2",
+        imageUrl: "../../assets/icons/careeradvancement/career2.png",
+      },
+      {
+        icon: "Creativity",
+        imageUrl: "../../assets/icons/careeradvancement/creativity.png",
+      },
+      {
+        icon: "User",
+        imageUrl: "../../assets/icons/careeradvancement/user.png",
+      },
+      {
+        icon: "Leadership",
+        imageUrl: "../../assets/icons/careeradvancement/leadership.png",
+      },
+      {
+        icon: "Career",
+        imageUrl: "../../assets/icons/careeradvancement/career.png",
+      },
+      {
+        icon: "Search",
+        imageUrl: "../../assets/icons/careeradvancement/search.png",
+      },
+      {
+        icon: "Key",
+        imageUrl: "../../assets/icons/careeradvancement/key.png"
+      }   
+    ];
+  
+    getWorkExperience(): IWorkexperience[] {
     return this.allWorkExperience;
   };
 
@@ -94,4 +139,65 @@ export class DataService {
     return this.allWorkExperience[pathNumber];
   };
 
+  getMilestones(): IMilestone[] {
+    return this.allMilestones;
+  };
+
+  getCurrentMilestone(pathNumber: number): IMilestone {
+    return this.allMilestones[pathNumber];
+  }
 };
+
+/*     workExperienceMilestone: [] = [
+      path0 = {
+        icon: "Certificate",
+        imageUrl: "../../../assets/icons/education/certificate.png",
+      }; 
+    
+      path1 = {
+        icon: "Degree",
+        imageUrl: "../../../assets/icons/education/degree.png",
+      };
+    
+      path2 = {
+        icon: "Growth",
+        imageUrl: "../../../assets/icons/careeradvancement/growth.png",
+      };
+      
+      path3 = {
+        icon: "Career2",
+        imageUrl: "../../../assets/icons/careeradvancement/career2.png",
+      };
+      
+      path4 = {
+        icon: "Creativity",
+        imageUrl: "../../../assets/icons/careeradvancement/creativity.png",
+      };
+      
+      path5 = {
+        icon: "User",
+        imageUrl: "../../../assets/icons/careeradvancement/user.png",
+      };
+      
+      path6 = {
+        icon: "Leadership",
+        imageUrl: "../../../assets/icons/careeradvancement/leadership.png",
+      };
+      
+      path7 = {
+        icon: "Career",
+        imageUrl: "../../../assets/icons/careeradvancement/career.png",
+      }; 
+      
+      path8 = {
+        icon: "Search",
+        imageUrl: "../../../assets/icons/careeradvancement/search.png",
+      };
+    
+      path9 = {
+        icon: "Key",
+        imageUrl: "../../../assets/icons/careeradvancement/key.png"
+      };    
+    ]
+ */    
+

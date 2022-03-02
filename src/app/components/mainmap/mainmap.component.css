@@ -21,10 +21,6 @@
   background-attachment: local;
 }
 
-#background .img-fluid {
-  max-height: calc((75vw/3.015)/6);
-}
-
 #background .row .col {
   padding: 0 0 0 0;
   margin: 0 0 0 0;
