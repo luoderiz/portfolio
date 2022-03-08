@@ -7,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NavbarComponent implements OnInit {
+  menuPosition: number = 0;
+
+  sendMenuId(htmlId: number): void {
+  this.menuPosition = htmlId;
+  }
 
   constructor() { }
 
   ngOnInit(): void {
-
   };
 }

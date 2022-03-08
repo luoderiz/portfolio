@@ -1,11 +1,33 @@
 import { Injectable } from '@angular/core';
 import { IWorkexperience } from '../components/card/workexperience';
 import { IMilestone } from '../components/milestone/milestone';
+import { IMenu } from '../components/navbutton/menu';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+  allMenues: IMenu[] =
+  [
+    {
+      menuId: 0,
+      menuText: "Sobre mí",
+    },
+    {
+      menuId: 1,
+      menuText: "Skills",
+    },
+    {
+      menuId: 2,
+      menuText: "Formación y experiencia",
+    },
+    {
+      menuId: 3,
+      menuText: "Proyectos",
+    },
+  ];
+
   allWorkExperience: IWorkexperience[] =
     [
       {
@@ -131,7 +153,15 @@ export class DataService {
       }   
     ];
   
-    getWorkExperience(): IWorkexperience[] {
+  getAllMenues(): IMenu[] {
+    return this.allMenues;
+  };
+
+  getSpecifictMenu(menuPosition: number): IMenu {
+    return this.allMenues[menuPosition];
+  };
+
+  getWorkExperience(): IWorkexperience[] {
     return this.allWorkExperience;
   };
 
@@ -147,6 +177,8 @@ export class DataService {
     return this.allMilestones[pathNumber];
   }
 };
+
+
 
 /*     workExperienceMilestone: [] = [
       path0 = {

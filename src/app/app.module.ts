@@ -8,6 +8,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { MilestoneComponent } from './components/milestone/milestone.component';
+import { NavbuttonComponent } from './components/navbutton/navbutton.component';
+// import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,13 @@ import { MilestoneComponent } from './components/milestone/milestone.component';
     FooterComponent,
     CardComponent,
     MilestoneComponent,
+    NavbuttonComponent,
   ],
   imports: [
     BrowserModule,
+/*     RouterModule.forRoot([
+      {path: 'aboutme', component: MainmapComponent}
+    ]) */
   ],
   providers: [],
   bootstrap: [AppComponent]
