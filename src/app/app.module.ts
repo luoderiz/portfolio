@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { MilestoneComponent } from './components/milestone/milestone.component';
 import { NavbuttonComponent } from './components/navbutton/navbutton.component';
+import { DataService } from './common/data.service';
 // import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -28,7 +29,7 @@ import { NavbuttonComponent } from './components/navbutton/navbutton.component';
       {path: 'aboutme', component: MainmapComponent}
     ]) */
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
