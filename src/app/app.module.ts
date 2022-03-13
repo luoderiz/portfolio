@@ -10,7 +10,9 @@ import { CardComponent } from './components/card/card.component';
 import { MilestoneComponent } from './components/milestone/milestone.component';
 import { NavbuttonComponent } from './components/navbutton/navbutton.component';
 import { DataService } from './common/data.service';
-// import { RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,17 @@ import { DataService } from './common/data.service';
     CardComponent,
     MilestoneComponent,
     NavbuttonComponent,
+    WelcomeComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
-/*     RouterModule.forRoot([
-      {path: 'aboutme', component: MainmapComponent}
-    ]) */
+    RouterModule.forRoot([
+      {path: 'aboutme', component: MainmapComponent},
+      {path: 'skills', component: MainmapComponent},
+      {path: 'profesional', component: MainmapComponent},
+      {path: 'projects', component: MainmapComponent},
+    ]) 
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

@@ -1,12 +1,42 @@
 import { Injectable } from '@angular/core';
 import { IWorkexperience } from '../components/card/workexperience';
 import { IMilestone } from '../components/milestone/milestone';
+import { IAboutMe } from '../components/card/aboutme';
 import { IMenu } from '../components/navbutton/menu';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+  allAboutMe: IAboutMe[] = 
+  [
+    {
+      fact1: "Soy de Ramos Mejía, Provincia de Buenos Aires",
+      fact2: "Actualmente vivo en Caballito, Ciudad de Buenos Aires",
+      fact3: "",
+    },
+    {
+      fact1: "algo",
+      fact2: "",
+      fact3: "",
+    },
+    {
+      fact1: "",
+      fact2: "que ",
+      fact3: "",
+    },
+    {
+      fact1: "",
+      fact2: "",
+      fact3: "y",
+    },
+    {
+      fact1: "",
+      fact2: "",
+      fact3: "",
+    },
+  ];
 
   allMenues: IMenu[] =
   [
@@ -161,6 +191,14 @@ export class DataService {
     return this.allMenues[menuPosition];
   };
 
+  getMilestones(): IMilestone[] {
+    return this.allMilestones;
+  };
+
+  getCurrentMilestone(pathNumber: number): IMilestone {
+    return this.allMilestones[pathNumber];
+  }
+
   getWorkExperience(): IWorkexperience[] {
     return this.allWorkExperience;
   };
@@ -169,13 +207,14 @@ export class DataService {
     return this.allWorkExperience[pathNumber];
   };
 
-  getMilestones(): IMilestone[] {
-    return this.allMilestones;
+  getAboutMe(): IAboutMe[] {
+    return this.allAboutMe;
   };
 
-  getCurrentMilestone(pathNumber: number): IMilestone {
-    return this.allMilestones[pathNumber];
-  }
+  getCurrentAboutMe(pathNumber: number): IAboutMe {
+    return this.allAboutMe[pathNumber];
+  };
+
 };
 
 

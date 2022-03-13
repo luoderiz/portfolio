@@ -8,8 +8,8 @@ import { DataService } from 'src/app/common/data.service';
   styleUrls: ['./milestone.component.css'],
 })
 export class MilestoneComponent implements OnInit {
-  @Input() cardIndicator: number = 8;
-  @Input() position: number = (8);
+  @Input() cardIndicator: number = 0;
+  @Input() position: number = (0);
 
   path: IMilestone = {icon: "", imageUrl: ""};
 

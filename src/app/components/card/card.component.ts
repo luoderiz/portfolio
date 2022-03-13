@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { DataService } from 'src/app/common/data.service';
 import { IWorkexperience } from './workexperience';
+import { IAboutMe } from './aboutme';
 
 @Component({
   selector: 'app-card',
@@ -8,14 +9,16 @@ import { IWorkexperience } from './workexperience';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnChanges {
-  @Input() cardIndicator: number = 8;
+  @Input() cardIndicator: number = 0;
 
   workexperience: IWorkexperience = {position: "", periodFrom: "", periodTo: "", employer: "", details: ""};
+  aboutme: IAboutMe = {fact1: "", fact2: "", fact3: ""};
 
   constructor(private dataService: DataService) { }
 
   ngOnChanges(): void {
     this.workexperience = this.dataService.getCurrentWorkExperience(this.cardIndicator);
+    this.aboutme = this.dataService.getCurrentAboutMe(this.cardIndicator);
   }
 
 }

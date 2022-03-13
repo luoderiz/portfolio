@@ -13,8 +13,6 @@ export class NavbarComponent implements OnInit {
   this.menuPosition = htmlId;
   }
 
-  constructor() { }
-
   ngOnInit(): void {
   };
 }
