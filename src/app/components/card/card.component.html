@@ -1,5 +1,4 @@
-
-<div class="container-fluid" id="card">
+<div  *ngIf="cardType === 'profesional'" class="container-fluid" id="profesionalCard">
   <div class="row">
     <h1>{{workexperience.position}}</h1>
   </div>
@@ -10,21 +9,20 @@
     <h2>{{workexperience.periodFrom}} - {{workexperience.periodTo}}</h2>
   </div>
   <div class="row">
-    <p>{{workexperience.details}}</p>
+    <h3>{{workexperience.details}}</h3>
   </div>
 </div>
 
-<!-- <ng-container>
-<div class="container-fluid" id="card">
+<div *ngIf="cardType === 'aboutme'" class="container-fluid" id="aboutmeCard">
   <div class="row">
-    <h1>{{aboutme.fact1}}</h1>
+    <h2>{{aboutme.fact1}}</h2>
   </div>
   <div class="row">
     <h2>{{aboutme.fact2}}</h2>
   </div>
   <div class="row">
-    <h2>{{aboutme.fact3}} - {{workexperience.periodTo}}</h2>
+    <h2>{{aboutme.fact3}}</h2>
   </div>
 </div>
-</ng-container>
- -->
+
+

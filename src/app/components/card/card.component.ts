@@ -2,6 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { DataService } from 'src/app/common/data.service';
 import { IWorkexperience } from './workexperience';
 import { IAboutMe } from './aboutme';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -11,15 +12,28 @@ import { IAboutMe } from './aboutme';
 export class CardComponent implements OnChanges {
   @Input() cardIndicator: number = 0;
 
+  cardType: string = "";
+
   workexperience: IWorkexperience = {position: "", periodFrom: "", periodTo: "", employer: "", details: ""};
   aboutme: IAboutMe = {fact1: "", fact2: "", fact3: ""};
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
+  
+  ngOnInit(): void {
+    this.cardType = String(this.activatedRoute.snapshot.url[0].path);
+  }
 
   ngOnChanges(): void {
-    this.workexperience = this.dataService.getCurrentWorkExperience(this.cardIndicator);
-    this.aboutme = this.dataService.getCurrentAboutMe(this.cardIndicator);
-  }
+    if (this.cardType === "aboutme") {
+      this.aboutme = this.dataService.getCurrentAboutMe(this.cardIndicator);
+    } else if (this.cardType === "profesional") {
+      this.workexperience = this.dataService.getCurrentWorkExperience(this.cardIndicator)
+/*     } else if (this.cardType === "skills") {
+      this.skills = this.dataService.getCurrentSkills(this.cardIndicator)
+    } else (this.cardType === "projects") {
+      this.projects = this.dataService.getCurrentProjects(this.cardIndicator)
+ */};
+};
 
 }
 

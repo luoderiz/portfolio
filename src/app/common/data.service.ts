@@ -144,43 +144,98 @@ export class DataService {
       {
         icon: "Certificate",
         imageUrl: "../../assets/icons/education/certificate.png",
+        type: "profesional",
       }, 
       {
         icon: "Degree",
         imageUrl: "../../assets/icons/education/degree.png",
+        type: "profesional",
       },
       {
         icon: "Growth",
         imageUrl: "../../assets/icons/careeradvancement/growth.png",
+        type: "profesional",
       },
       {
         icon: "Career2",
         imageUrl: "../../assets/icons/careeradvancement/career2.png",
+        type: "profesional",
       },
       {
         icon: "Creativity",
         imageUrl: "../../assets/icons/careeradvancement/creativity.png",
+        type: "profesional",
       },
       {
         icon: "User",
         imageUrl: "../../assets/icons/careeradvancement/user.png",
+        type: "profesional",
       },
       {
         icon: "Leadership",
         imageUrl: "../../assets/icons/careeradvancement/leadership.png",
+        type: "profesional",
       },
       {
         icon: "Career",
         imageUrl: "../../assets/icons/careeradvancement/career.png",
+        type: "profesional",
       },
       {
         icon: "Search",
         imageUrl: "../../assets/icons/careeradvancement/search.png",
+        type: "profesional",
       },
       {
         icon: "Key",
-        imageUrl: "../../assets/icons/careeradvancement/key.png"
-      }   
+        imageUrl: "../../assets/icons/careeradvancement/key.png",
+        type: "profesional",
+      },
+      {
+        icon: "House",
+        imageUrl: "../../assets/icons/house.png",
+        type: "aboutme",
+      },  
+      {
+        icon: "Airplane",
+        imageUrl: "../../assets/icons/airplane.png",
+        type: "aboutme",
+      },
+      {
+        icon: "Apple",
+        imageUrl: "../../assets/icons/apple.png",
+        type: "aboutme",
+      },
+      {
+        icon: "Windmill",
+        imageUrl: "../../assets/icons/windmill.png",
+        type: "aboutme",
+      },  
+      {
+        icon: "Dolphin",
+        imageUrl: "../../assets/icons/dolphin.png",
+        type: "aboutme",
+      },
+      {
+        icon: "",
+        imageUrl: "",
+        type: "aboutme",
+      },
+      {
+        icon: "",
+        imageUrl: "",
+        type: "aboutme",
+      },  
+      {
+        icon: "",
+        imageUrl: "",
+        type: "aboutme",
+      },
+      {
+        icon: "",
+        imageUrl: "",
+        type: "aboutme",
+      },
     ];
   
   getAllMenues(): IMenu[] {
@@ -191,13 +246,15 @@ export class DataService {
     return this.allMenues[menuPosition];
   };
 
-  getMilestones(): IMilestone[] {
-    return this.allMilestones;
-  };
+  getMilestones(type: string): IMilestone[] {
+    return this.allMilestones.filter(
+        (aMilestone: IMilestone) => aMilestone.type === type  
+        )
+    };
 
-  getCurrentMilestone(pathNumber: number): IMilestone {
-    return this.allMilestones[pathNumber];
-  }
+  getCurrentMilestone(pathNumber: number, type: string): IMilestone {
+    return this.getMilestones(type)[pathNumber];
+  };
 
   getWorkExperience(): IWorkexperience[] {
     return this.allWorkExperience;

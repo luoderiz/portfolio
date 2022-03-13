@@ -1,4 +1,4 @@
-#card {
+#profesionalCard {
   margin: 0;
   padding: 2% 2% 2% 2%;
   height: calc(75vw/3.015);
@@ -6,10 +6,79 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: local;
-  color: #242615;
+  color: #343a40;
   }
 
-.row {
+#profesionalCard .row {
+  max-height: calc((75vw/3.015)/3);
+  margin-inline: 2%;
+  padding-inline-start: 1%;
+  padding-inline-end: 1%;
+}
+
+#profesionalCard h1 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+#profesionalCard h2 {
+  font-size: 1.4rem;
+  text-align: justify;
+}
+
+#profesionalCard h3 {
+  font-size: 1.2rem;
+  text-align: justify;
+
+}
+
+#profesionalCard p {
+  font-size: 1rem;
+  text-align: justify;
+}
+
+
+#aboutmeCard {
+  margin: 0;
+  padding: 4% 4% 4% 4%;
+  height: calc(75vw/3.015);
+  background-color: #8DBB7D;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  color:  #343a40;
+  }
+
+#aboutmeCard .row {
+  max-height: calc((75vw/3.015)/3);
+  margin-inline: 2%;
+  padding-inline-start: 1%;
+  padding-inline-end: 1%;
+
+}
+
+#aboutmeCard h1 {
+  text-align: justify;
+  font-size: 1.6rem;
+}
+
+#aboutmeCard h2 {
+  font-size: 1.4rem;
+  text-align: justify;
+}
+
+#aboutmeCard h3 {
+  font-size: 1.2rem;
+  text-align: justify;
+
+}
+
+#aboutmeCard p {
+  font-size: 1rem;
+  text-align: justify;
+}
+  
+/* .row {
   max-height: calc((75vw/3.015)/3);
 }
 
@@ -33,3 +102,4 @@ p {
   font-size: 1.5vw;
   text-align: justify;
 }
+ */
