@@ -30,10 +30,12 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+      {path: 'welcome', component: WelcomeComponent},
       {path: 'aboutme', component: MainmapComponent},
       {path: 'skills', component: MainmapComponent},
       {path: 'profesional', component: MainmapComponent},
       {path: 'projects', component: MainmapComponent},
+      {path: 'pagenotfound', component: NotfoundComponent},
     ]) 
   ],
   providers: [DataService],

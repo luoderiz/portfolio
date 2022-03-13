@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
+  pageTitle: string = "Bienvenidos a mi portfolio";
+  pageSubTitle: string = "Proyecto elaborado en el marco de #ArgentinaPrograma";
+  pageImage: string = "../../../assets/img/APLogo.png";
+
   constructor() { }
 
   ngOnInit(): void {

@@ -1,0 +1,22 @@
+#welcome {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    max-height: calc(100vw/3.015);
+    background-color: #8DBB7D;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    font-size: 3vw;
+    color:  #343a40;
+  }
+ 
+  #background .row .col {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    height: calc((100vw/3.015)/4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
