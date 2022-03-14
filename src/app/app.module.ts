@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -35,7 +35,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
       {path: 'skills', component: MainmapComponent},
       {path: 'profesional', component: MainmapComponent},
       {path: 'projects', component: MainmapComponent},
-      {path: 'pagenotfound', component: NotfoundComponent},
+      {path: '', redirectTo: 'welcome', pathMatch: "full"},
+      {path: '**', component: NotfoundComponent, pathMatch: "full"}
     ]) 
   ],
   providers: [DataService],
