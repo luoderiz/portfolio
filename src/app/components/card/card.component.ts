@@ -11,30 +11,43 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CardComponent implements OnChanges {
   @Input() cardIndicator: number = 0;
-
+  errorMessage: any;
   cardType: string = "";
 
-  workexperience: IWorkexperience = {position: "", periodFrom: "", periodTo: "", employer: "", details: ""};
+  allWorkexperience!: IWorkexperience[];
+  allAboutme!: IAboutMe[];
+  workexperience: IWorkexperience = {position: "", periodFrom: "", periodTo: "", employer: "", details: "", type: ""};
   aboutme: IAboutMe = {fact1: "", fact2: "", fact3: ""};
 
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
   
   ngOnInit(): void {
     this.cardType = String(this.activatedRoute.snapshot.url[0].path);
+
+    this.dataService.getWorkExperience().subscribe({
+      next: allWorkexperience => {
+        this.allWorkexperience = allWorkexperience;
+        this.workexperience = this.allWorkexperience[this.cardIndicator];
+      },
+      error: err => this.errorMessage = err,
+    });
+
+    this.dataService.getAboutme().subscribe({
+      next: allAboutme => {
+        this.allAboutme = allAboutme;
+        this.aboutme = this.allAboutme[this.cardIndicator];
+      },
+      error: err => this.errorMessage = err,
+    });
   }
 
   ngOnChanges(): void {
     if (this.cardType === "aboutme") {
-      this.aboutme = this.dataService.getCurrentAboutMe(this.cardIndicator);
+      this.aboutme = this.allAboutme[this.cardIndicator];
     } else if (this.cardType === "profesional") {
-      this.workexperience = this.dataService.getCurrentWorkExperience(this.cardIndicator)
-/*     } else if (this.cardType === "skills") {
-      this.skills = this.dataService.getCurrentSkills(this.cardIndicator)
-    } else (this.cardType === "projects") {
-      this.projects = this.dataService.getCurrentProjects(this.cardIndicator)
- */};
-};
-
+      this.workexperience = this.allWorkexperience[this.cardIndicator];
+    };
+  }
 }
 
 /*

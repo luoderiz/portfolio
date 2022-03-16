@@ -1,5 +1,6 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -37,7 +38,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
       {path: 'projects', component: MainmapComponent},
       {path: '', redirectTo: 'welcome', pathMatch: "full"},
       {path: '**', component: NotfoundComponent, pathMatch: "full"}
-    ]) 
+    ]),
+    HttpClientModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

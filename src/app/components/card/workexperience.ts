@@ -4,6 +4,7 @@ export interface IWorkexperience {
     periodTo: string;
     employer: string;
     details: string;
+    type: string;
   };
   
 /* let WorkExperience = [
