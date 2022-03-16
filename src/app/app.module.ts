@@ -11,6 +11,7 @@ import { CardComponent } from './components/card/card.component';
 import { MilestoneComponent } from './components/milestone/milestone.component';
 import { NavbuttonComponent } from './components/navbutton/navbutton.component';
 import { DataService } from './common/data.service';
+import { VisualService } from './common/visual.service';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
@@ -41,7 +42,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     ]),
     HttpClientModule,
   ],
-  providers: [DataService],
+  providers: [DataService, VisualService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

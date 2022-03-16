@@ -1,6 +1,6 @@
-import { Component, OnChanges, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IMilestone } from './milestone';
-import { DataService } from 'src/app/common/data.service';
+import { VisualService } from 'src/app/common/visual.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -17,13 +17,9 @@ export class MilestoneComponent implements OnInit {
 
   ngOnInit(): void {
     this.type = String(this.activatedRoute.snapshot.url[0].path);
-    this.path = this.dataService.getCurrentMilestone(this.position, this.type);
-
-    console.log( this.type + "  type" );
-    console.log( String(this.activatedRoute.snapshot.url[0].path) + "  path");
-    console.log( this.dataService.getCurrentMilestone(this.position, this.type) + " GET MILESTONE position y type" );
+    this.path = this.visualService.getCurrentMilestone(this.position, this.type);
   }
 
-  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
+  constructor(private visualService: VisualService, private activatedRoute: ActivatedRoute) { }
 
 };

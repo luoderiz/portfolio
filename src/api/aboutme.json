@@ -1,27 +1,47 @@
 [
   {
-    "fact1": "Soy de Ramos Mejía, Provincia de Buenos Aires",
-    "fact2": "Actualmente vivo en Caballito, Ciudad de Buenos Aires",
-    "fact3": ""
-  },
-  {
-    "fact1": "algo",
-    "fact2": "njknkll",
-    "fact3": ""
-  },
-  {
-    "fact1": "",
-    "fact2": "que ",
-    "fact3": ""
-  },
-  {
-    "fact1": "",
-    "fact2": " bmnbk jkbkjhb",
-    "fact3": "y"
-  },
-  {
-    "fact1": "",
+    "fact1": "Nací y me crié en Ramos Mejía, Provincia de Buenos Aires",
     "fact2": "",
-    "fact3": " nm nm"
+    "fact3": ""
+  },
+  {
+    "fact1": "Actualmente vivo en Caballito, Ciudad de Buenos Aires",
+    "fact2": "",
+    "fact3": ""
+  },
+  {
+    "fact1": "Me gustan los juegos de todo tipo",
+    "fact2": "",
+    "fact3": ""
+  },
+  {
+    "fact1": "Viajo siempre que puedo",
+    "fact2": "",
+    "fact3": ""
+  },
+  {
+    "fact1": "Soy muy curiosa, me encanta aprender cosas nuevas",
+    "fact2": "",
+    "fact3": ""
+  },
+  {
+    "fact1": "Valoro muchísimo a quienes tengo cerca",
+    "fact2": "",
+    "fact3": ""
+  },
+  {
+    "fact1": "Disfruto muchísimo de las actividades al aire libre",
+    "fact2": "",
+    "fact3": ""
+  },
+  {
+    "fact1": "Me encantan las historias de ciencia ficción",
+    "fact2": "",
+    "fact3": ""
+  },
+  {
+    "fact1": "La literatura argentina es sin dudas mi preferida ",
+    "fact2": "",
+    "fact3": ""
   }
 ]

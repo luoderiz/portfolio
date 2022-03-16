@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IMenu } from './menu';
-import { DataService } from 'src/app/common/data.service';
+import { VisualService } from 'src/app/common/visual.service';
 
 @Component({
   selector: 'app-navbutton',
@@ -12,10 +12,10 @@ export class NavbuttonComponent implements OnInit {
   @Input() htmlId: number = 0;
   menu: IMenu = {menuId: 0, menuText: "Sobre mí"};
 
-  constructor(private dataService: DataService) { }
+  constructor(private visualService: VisualService) { }
 
   ngOnInit(): void {
-    this.menu = this.dataService.getSpecifictMenu(this.htmlId);
+    this.menu = this.visualService.getSpecifictMenu(this.htmlId);
   }
 
 }
