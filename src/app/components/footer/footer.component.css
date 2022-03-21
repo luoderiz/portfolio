@@ -7,3 +7,10 @@ svg .bi {
     color: #4e8b75;
     text-align: end;
   }
+
+  .footer {
+    padding: 1vw;
+    margin: 0;
+    font-size: 1.5vw;
+  }
+

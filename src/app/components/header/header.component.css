@@ -1,12 +1,22 @@
 header {
-    padding-block: 20px;
-    background-color: #8DBB7D;
-    color: #343a40;
-    text-align: center;
-  }
+  padding-block: 1vw;
+  background-color: #8DBB7D;
+  color: #343a40;
+  text-align: center;
+  font-size: medium;
+}
   
-  .bi {
-    vertical-align: -.125em;
-    fill: #343a40;
-  }
+.bi {
+  vertical-align: -.125em;
+  fill: #343a40;
+  width: 2.4vw;
+  height: 2.4vw;
+}
 
+#welcome {
+  font-size: 3.5vw;
+}
+
+#subtitle {
+  font-size: 2vw;
+}

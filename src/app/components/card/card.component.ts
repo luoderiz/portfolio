@@ -67,18 +67,6 @@ let Softskills = [
   "mediación y resolución de conflictos",
 ];
 
-let Hardskills = [
-  "HTML, Javascript, CSS",
-  "Copywriting",
-  "Copyediting",
-  "Storytelling",
-];
-  
-let Languageskills = [
-  "Inglés C1",
-  "Francés A2",
-];
-
   let Workexperience = [
   {
     position: "profesora de lengua y literatura en educación secundaria",
