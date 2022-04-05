@@ -16,7 +16,7 @@ export class CardComponent implements OnChanges {
 
   allWorkexperience!: IWorkexperience[];
   allAboutme!: IAboutMe[];
-  workexperience: IWorkexperience = {position: "", periodFrom: "", periodTo: "", employer: "", details: "", type: ""};
+  workexperience: IWorkexperience = {id: 0, position: "", dateFrom: "2008-03-01", dateTo: "2008-03-01", institutionName: "", institutionCity: "", details: "", tag: [""]};
   aboutme: IAboutMe = {fact1: "", fact2: "", fact3: ""};
 
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }

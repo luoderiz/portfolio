@@ -1,9 +1,10 @@
 export interface IWorkexperience {
+    id: number;
     position: string;
-    periodFrom: string;
-    periodTo: string;
-    employer: string;
+    dateFrom: string;
+    dateTo: string;
+    institutionName: string;
+    institutionCity: string;
     details: string;
-    type: string;
+    tag: Array<string>;
   };
-  

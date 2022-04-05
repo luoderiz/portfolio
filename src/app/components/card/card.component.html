@@ -3,10 +3,13 @@
     <h1>{{workexperience.position}}</h1>
   </div>
   <div class="row">
-    <h2>{{workexperience.employer}}</h2>
+    <h2>{{workexperience.institutionName}}</h2>
   </div>
   <div class="row">
-    <h2>{{workexperience.periodFrom}} - {{workexperience.periodTo}}</h2>
+    <h2>{{workexperience.institutionCity}}</h2>
+  </div>
+  <div class="row">
+    <h2>{{workexperience.dateFrom | customDate}} - {{workexperience.dateTo | customDate}}</h2>
   </div>
   <div class="row">
     <h3>{{workexperience.details}}</h3>

@@ -1,79 +1,105 @@
 [
   {
-    "position": "vendedora",
-    "periodFrom": "04/2007",
-    "periodTo": "12/2007",
-    "employer": "Juguetería City Kids",
-    "details": "Atención al cliente. Asesoramiento y ventas."
+      "id": 1,
+      "position": "Profesora auxiliar de ingles en nivel primario",
+      "dateFrom": "2007-04-01",
+      "dateTo": "2007-12-01",
+      "details": "Primer grado. Tres divisiones con 35 alumnos.",
+      "tags": ["educación", "primaria", "inglés"],
+      "institutionName": "Instituto Santa Cruz",
+      "institutionCity": "Ciudad de Buenos Aires"
   },
   {
-    "position": "profesora auxiliar de ingles en nivel primario",
-    "periodFrom": "04/2007",
-    "periodTo": "12/2007",
-    "employer": "Instituto Santa Cruz",
-    "details": "Primer grado. Tres divisiones con 35 alumnos."
+      "id": 2,
+      "position": "Profesora de inglés en nivel primario",
+      "dateFrom": "2008-02-01",
+      "dateTo": "2012-02-01",
+      "details": "Segundo grado. Un curso de 35 alumnos.",
+      "tags": ["educación", "primaria", "inglés"],
+      "institution_name": "Instituto Santa Cruz",
+      "institution_city": "Ciudad de Buenos Aires"
   },
   {
-    "position": "profesora de inglés en nivel primario",
-    "periodFrom": "02/2008",
-    "periodTo": "02/2012",
-    "employer": "Instituto Santa Cruz",
-    "details": "Segundo grado. Un curso de 35 alumnos."
+      "id": 3,
+      "position": "Profesora de educación primaria",
+      "dateFrom": "2017-02-01",
+      "dateTo": "2019-12-01",
+      "details": "Maestra por área en sexto grado.Enseñanza de prácticas del lenguaje. Tres cursos de 35 alumnos.",
+      "tags": ["educación", "primaria", "grado"],
+      "institution_name": "Instituto Santa Cruz",
+      "institution_city": "Ciudad de Buenos Aires"
   },
   {
-    "position": "profesora de educación primaria",
-    "periodFrom": "02/2017", 
-    "periodTo": "12/2019",
-    "employer": "Instituto Santa Cruz",
-    "details": "Maestra por área en sexto grado.Enseñanza de prácticas del lenguaje. Tres cursos de 35 alumnos."
+      "id": 4,
+      "position": "Profesora de educación primaria",
+      "dateFrom": "2016-02-01",
+      "dateTo": "2016-12-01",
+      "details": "Maestra de segundo grado. Enseñanza de todas las áreas curriculares. Un curso de 42 alumnos.",
+      "tags": ["educación", "primaria", "grado"],
+      "institution_name": "Instituto San Francisco de Sales",
+      "institution_city": "Ciudad de Buenos Aires"
   },
   {
-    "position": "profesora de educación primaria",
-    "periodFrom": "02/2016",
-    "periodTo": "12/2016",
-    "employer": "Instituto San Francisco de Sales",
-    "details": "Maestra de segundo grado. Enseñanza de todas las áreas curriculares. Un curso de 42 alumnos."
+      "id": 5,
+      "position": "Profesora de educación primaria",
+      "dateFrom": "2011-02-01",
+      "dateTo": "2015-12-01",
+      "details": "Maestra de cuarto grado. Enseñanza de todas las áreas curriculares. Un curso de 35 alumnos.",
+      "tags": ["educación", "primaria", "grado"],
+      "institution_name": "Instituto Santa Cruz",
+      "institution_city": "Ciudad de Buenos Aires"
   },
   {
-    "position": "profesora de educación primaria",
-    "periodFrom": "02/2011",
-    "periodTo": "12/2015",
-    "employer": "Instituto Santa Cruz",
-    "details": "Maestra de cuarto grado. Enseñanza de todas las áreas curriculares. Un curso de 35 alumnos."
+      "id": 6,
+      "position": "Profesora de biología en educación secundaria",
+      "dateFrom": "2019-09-01",
+      "dateTo": "2021-05-01",
+      "details": "Primer año. Proyecto Interareal Secundaria del Futuro.",
+      "tags": ["educación", "secundaria", "biología"],
+      "institution_name": "ET32",
+      "institution_city": "Ciudad de Buenos Aires"
+
   },
   {
-    "position": "profesora de biología en educación secundaria",
-    "periodFrom": "09/2019",
-    "periodTo": "05/2021",
-    "employer": "Escuela Técnica N°32 D.E. 14 \"Gral. José de San Martín\"",
-    "details": "Primer año. Proyecto Interareal Secundaria del Futuro."
+      "id": 7,
+      "position": "Profesora de lengua y literatura en educación secundaria",
+      "dateFrom": "2019-09-01",
+      "dateTo": "2021-02-01",
+      "details": "Primer y segundo año",
+      "tags": ["educación", "secundaria", "lengua"],
+      "institution_name": "Comercial",
+      "institution_city": "Ciudad de Buenos Aires"
+
   },
   {
-    "position": "profesora de lengua y literatura en educación secundaria",
-    "periodFrom": "09/2019",
-    "periodTo": "02/2021",
-    "employer": "Escuela de Comercio N°18 D.E. 5 \"Ing. Reino de Suecia\"",
-    "details": "Primer y segundo año"
+      "id": 8,
+      "position": "Profesora de lengua y literatura en educación secundaria",
+      "dateFrom": "2019-09-01",
+      "dateTo": null,
+      "details": "Cuarto año",
+      "tags": ["educación", "secundaria", "lengua"],
+      "institution_name": "ET9",
+      "institution_city": "Ciudad de Buenos Aires"
+
   },
   {
-    "position": "profesora de lengua y literatura en educación secundaria",
-    "periodFrom": "09/2019",
-    "periodTo": "actualidad",
-    "employer": "Escuela Técnica N°9 D.E. 7 \"Ing. Luis A. Huergo\"",
-    "details": "Cuarto año"
+      "id": 9,
+      "position": "Profesora de lengua y literatura en educación secundaria",
+      "dateFrom": "2021-03-01",
+      "dateTo": null,
+      "details": "Tercer y cuarto año",
+      "tags": ["educación", "secundaria", "lengua"],
+      "institution_name": "Santa ana",
+      "institution_city": "Ciudad de Buenos Aires"
   },
   {
-    "position": "profesora de lengua y literatura en educación secundaria",
-    "periodFrom": "03/2021",
-    "periodTo": "actualidad",
-    "employer": "Instituto Santa Ana y San Joaquín",
-    "details": "Tercer y cuarto año"
-  },
-  {
-    "position": "profesora de lengua y literatura en educación secundaria",
-    "periodFrom": "02/2022",
-    "periodTo": "actualidad",
-    "employer": "Escuela Normal Superior N°2 D.E. 6 \"Mariano Acosta\"",
-    "details": "Quinto año"
+      "id": 10,
+      "position": "Profesora de lengua y literatura en educación secundaria",
+      "dateFrom": "2022-02-01",
+      "dateTo": "2022-03-01",
+      "details": "Quinto año",
+      "tags": ["educación", "secundaria", "lengua"],
+      "institution_name": "Acosta",
+      "institution_city": "Ciudad de Buenos Aires"
   }
 ]
