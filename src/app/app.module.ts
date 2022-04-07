@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { CustomDatePipe } from './common/customdate.pipe';
+import { BookComponent } from './components/book/book.component';
 
 @NgModule({
   declarations: [
@@ -28,16 +29,19 @@ import { CustomDatePipe } from './common/customdate.pipe';
     NavbuttonComponent,
     WelcomeComponent,
     NotfoundComponent,
-    CustomDatePipe
+    CustomDatePipe,
+    BookComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: 'welcome', component: WelcomeComponent},
       {path: 'aboutme', component: MainmapComponent},
-      {path: 'skills', component: MainmapComponent},
+      {path: 'hardskills', component: MainmapComponent},
+      {path: 'softskills', component: MainmapComponent},
       {path: 'profesional', component: MainmapComponent},
       {path: 'projects', component: MainmapComponent},
+      {path: 'book', component: BookComponent},  
       {path: '', redirectTo: 'welcome', pathMatch: "full"},
       {path: '**', component: NotfoundComponent, pathMatch: "full"}
     ]),

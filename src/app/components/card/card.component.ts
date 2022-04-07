@@ -2,6 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { DataService } from 'src/app/common/data.service';
 import { IWorkexperience } from './workexperience';
 import { IAboutMe } from './aboutme';
+import { ISkill } from './skill';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -17,7 +18,12 @@ export class CardComponent implements OnChanges {
   allWorkexperience!: IWorkexperience[];
   allAboutme!: IAboutMe[];
   workexperience: IWorkexperience = {id: 0, position: "", dateFrom: "2008-03-01", dateTo: "2008-03-01", institutionName: "", institutionCity: "", details: "", tag: [""]};
-  aboutme: IAboutMe = {fact1: "", fact2: "", fact3: ""};
+  aboutme: IAboutMe = {id: 0, about: ""};
+
+  allSoftSkill!: ISkill[];
+  softSkill: ISkill = {id: 0, skill: ""};
+  allHardSkill!: ISkill[];
+  hardSkill: ISkill = {id: 0, skill: ""};
 
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
   
@@ -39,6 +45,23 @@ export class CardComponent implements OnChanges {
       },
       error: err => this.errorMessage = err,
     });
+
+    this.dataService.getSoftSkill().subscribe({
+      next: allSoftSkill => {
+        this.allSoftSkill = allSoftSkill;
+        this.softSkill = this.allSoftSkill[this.cardIndicator];
+      },
+      error: err => this.errorMessage = err,
+    });
+
+    this.dataService.getHardSkill().subscribe({
+      next: allHardSkill => {
+        this.allHardSkill = allHardSkill;
+        this.hardSkill = this.allHardSkill[this.cardIndicator];
+      },
+      error: err => this.errorMessage = err,
+    });
+    
   }
 
   ngOnChanges(): void {

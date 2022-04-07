@@ -1,22 +1,28 @@
 #welcome {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    height: calc(100vw/3.015);
-    background-color: #8DBB7D;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: local;
-    font-size: 3vw;
-    color:  #343a40;
-  }
- 
-#background .row .col {
-  padding: 0 0 0 0;
-  margin: 0 0 0 0;
-  height: calc((100vw/3.015)/4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  height: calc(100vw/3.5);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-color: #343a40;
+  color: #8DBB7D;
+  font-size: 3vw;
+  text-align: center;
+}
+
+.row .col {
+padding: 5vw;
+margin: 0 0 0 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+image {
+size: 50%;
 }

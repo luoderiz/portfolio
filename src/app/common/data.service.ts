@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IWorkexperience } from '../components/card/workexperience';
 import { IAboutMe } from '../components/card/aboutme';
+import { ISkill } from '../components/card/skill';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -12,7 +13,8 @@ import { catchError, tap } from 'rxjs/operators';
 export class DataService {
   private workexperienceUrl: string = 'api/workexperience.json';
   private aboutmeUrl: string = 'api/aboutme.json';
-
+  private softSkillUrl: string = 'api/softskill.json';
+  private hardSkillUrl: string = 'api/hardskill.json';
 
   constructor(private http: HttpClient) {}
 
@@ -25,6 +27,20 @@ export class DataService {
 
   getAboutme(): Observable<IAboutMe[]> {
     return this.http.get<IAboutMe[]>(this.aboutmeUrl).pipe(
+      tap( data => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  getSoftSkill(): Observable<ISkill[]> {
+    return this.http.get<ISkill[]>(this.softSkillUrl).pipe(
+      tap( data => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  getHardSkill(): Observable<ISkill[]> {
+    return this.http.get<ISkill[]>(this.hardSkillUrl).pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );

@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "softskill": "actitud crítica y reflexiva" 
+    },
+    {
+        "id": 2,
+        "softskill": "habilidades organizativas" 
+    },
+    {
+        "id": 3,
+        "softskill": "anticipación de emergentes" 
+    },
+    {
+        "id": 4,
+        "softskill": "colaboración y trabajo en equipo" 
+    },
+    {
+        "id": 5,
+        "softskill": "iniciativa e innovación" 
+    },
+    {
+        "id": 6,
+        "softskill": "escucha activa" 
+    },
+    {
+        "id": 7,
+        "softskill": "empatía e integridad" 
+    },
+    {
+        "id": 8,
+        "softskill": "mediación y resolución de conflictos" 
+    }
+]

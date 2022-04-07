@@ -16,8 +16,8 @@
       "dateTo": "2012-02-01",
       "details": "Segundo grado. Un curso de 35 alumnos.",
       "tags": ["educación", "primaria", "inglés"],
-      "institution_name": "Instituto Santa Cruz",
-      "institution_city": "Ciudad de Buenos Aires"
+      "institutionName": "Instituto Santa Cruz",
+      "institutionCity": "Ciudad de Buenos Aires"
   },
   {
       "id": 3,
@@ -26,8 +26,8 @@
       "dateTo": "2019-12-01",
       "details": "Maestra por área en sexto grado.Enseñanza de prácticas del lenguaje. Tres cursos de 35 alumnos.",
       "tags": ["educación", "primaria", "grado"],
-      "institution_name": "Instituto Santa Cruz",
-      "institution_city": "Ciudad de Buenos Aires"
+      "institutionName": "Instituto Santa Cruz",
+      "institutionCity": "Ciudad de Buenos Aires"
   },
   {
       "id": 4,
@@ -36,8 +36,8 @@
       "dateTo": "2016-12-01",
       "details": "Maestra de segundo grado. Enseñanza de todas las áreas curriculares. Un curso de 42 alumnos.",
       "tags": ["educación", "primaria", "grado"],
-      "institution_name": "Instituto San Francisco de Sales",
-      "institution_city": "Ciudad de Buenos Aires"
+      "institutionName": "Instituto San Francisco de Sales",
+      "institutionCity": "Ciudad de Buenos Aires"
   },
   {
       "id": 5,
@@ -46,8 +46,8 @@
       "dateTo": "2015-12-01",
       "details": "Maestra de cuarto grado. Enseñanza de todas las áreas curriculares. Un curso de 35 alumnos.",
       "tags": ["educación", "primaria", "grado"],
-      "institution_name": "Instituto Santa Cruz",
-      "institution_city": "Ciudad de Buenos Aires"
+      "institutionName": "Instituto Santa Cruz",
+      "institutionCity": "Ciudad de Buenos Aires"
   },
   {
       "id": 6,
@@ -56,8 +56,8 @@
       "dateTo": "2021-05-01",
       "details": "Primer año. Proyecto Interareal Secundaria del Futuro.",
       "tags": ["educación", "secundaria", "biología"],
-      "institution_name": "ET32",
-      "institution_city": "Ciudad de Buenos Aires"
+      "institutionName": "ET32",
+      "institutionCity": "Ciudad de Buenos Aires"
 
   },
   {
@@ -67,8 +67,8 @@
       "dateTo": "2021-02-01",
       "details": "Primer y segundo año",
       "tags": ["educación", "secundaria", "lengua"],
-      "institution_name": "Comercial",
-      "institution_city": "Ciudad de Buenos Aires"
+      "institutionName": "Comercial",
+      "institutionCity": "Ciudad de Buenos Aires"
 
   },
   {
@@ -78,8 +78,8 @@
       "dateTo": null,
       "details": "Cuarto año",
       "tags": ["educación", "secundaria", "lengua"],
-      "institution_name": "ET9",
-      "institution_city": "Ciudad de Buenos Aires"
+      "institutionName": "ET9",
+      "institutionCity": "Ciudad de Buenos Aires"
 
   },
   {
@@ -89,8 +89,8 @@
       "dateTo": null,
       "details": "Tercer y cuarto año",
       "tags": ["educación", "secundaria", "lengua"],
-      "institution_name": "Santa ana",
-      "institution_city": "Ciudad de Buenos Aires"
+      "institutionName": "Santa ana",
+      "institutionCity": "Ciudad de Buenos Aires"
   },
   {
       "id": 10,
@@ -99,7 +99,7 @@
       "dateTo": "2022-03-01",
       "details": "Quinto año",
       "tags": ["educación", "secundaria", "lengua"],
-      "institution_name": "Acosta",
-      "institution_city": "Ciudad de Buenos Aires"
+      "institutionName": "Acosta",
+      "institutionCity": "Ciudad de Buenos Aires"
   }
 ]

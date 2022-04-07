@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "hardskill": "HTML, CSS"
+    },
+    {
+        "id": 2,
+        "hardskill": "Copywriting, Copyediting, Storytelling"
+    },
+    {
+        "id": 3,
+        "hardskill": "Angular"
+    },
+    {
+        "id": 4,
+        "hardskill": "Typescript, Javascript"
+    },
+    {
+        "id": 5,
+        "hardskill": "SQL"
+    },
+    {
+        "id": 6,
+        "hardskill": "Java"
+    },
+    {
+        "id": 7,
+        "hardskill": "Springboot"
+    },
+    {
+        "id": 8,
+        "hardskill": "REST"
+    },
+    {
+        "id": 9,
+        "hardskill": "Inglés C1"
+    },
+    {
+        "id": 10,
+        "hardskill": "Francés A2"
+    }
+]

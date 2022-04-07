@@ -34,16 +34,24 @@ export class VisualService {
       },
       {
         menuId: 1,
-        menuText: "Skills",
+        menuText: "Soft Skills",
       },
       {
         menuId: 2,
-        menuText: "Formación y experiencia",
+        menuText: "Hard Skills",
       },
       {
         menuId: 3,
+        menuText: "Formación y experiencia",
+      },
+      {
+        menuId: 4,
         menuText: "Proyectos",
       },
+      {
+        menuId: 5,
+        menuText: "Cambiar a modo bitácora",
+      }
     ];
   
     allMilestones: IMilestone[] = [

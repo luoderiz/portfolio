@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class WelcomeComponent implements OnInit {
 
   pageTitle: string = "Bienvenidos a mi portfolio";
-  pageSubTitle: string = "Proyecto elaborado en el marco de #ArgentinaPrograma";
-  pageImage: string = "../../../assets/img/APLogo.png";
+  pageDescription: string = "Algunos de mis recorridos de vida";
+  pageMapAlternative: string = "Navegar los itinerarios en el mapa";
+  pageBookAlternative: string = "Versión alternativa: diario de viaje";
 
   constructor() { }
 

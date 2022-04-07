@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "degree": "Profesora para el Nivel Primario o Equivalentes",
+        "dateFrom": "2008-03-01",
+        "dateTo": "2010-11-01",
+        "institutionName": "Profesorado Sagrado Corazón",
+        "institutionCity": "Ciudad de Buenos Aires"
+    },
+    {
+        "id": 2,
+        "degree": "Licenciada en Letras",
+        "dateFrom": "2007-03-01",
+        "dateTo": "2019-10-01",
+        "institutionName": "Universidad de Buenos Aires",
+        "institutionCity": "Ciudad de Buenos Aires"
+    },
+    {
+        "id": 3,
+        "degree": "Profesora de Enseñanza Media y Superior en Letras",
+        "dateFrom": "2007-03-01",
+        "dateTo": "2020-12-01",
+        "institutionName": "Universidad de Buenos Aires",
+        "institutionCity": "Ciudad de Buenos Aires"
+    },
+    {
+        "id": 4,
+        "degree": "Licenciatura en Computación",
+        "dateFrom": "2021-03-01",
+        "dateTo": null,
+        "institutionName": "Universidad de Buenos Aires",
+        "institutionCity": "Ciudad de Buenos Aires"
+    },
+    {
+        "id": 5,
+        "degree": "Certificada &#35;Sé Programar. Argentina Programa.",
+        "dateFrom": "2021-08-01",
+        "dateTo": "2021-10-01",
+        "institutionName": "CESSI & Ministerio de Desarrollo Productivo",
+        "institutionCity": "Ciudad de Buenos Aires"
+    },
+    {
+        "id": 6,
+        "degree": "Certificación &#35;Yo Programo. Argentina Programa.",
+        "dateFrom": "2021-12-01",
+        "dateTo": null,
+        "institutionName": "CESSI & Ministerio de Desarrollo Productivo",
+        "institutionCity": "Ciudad de Buenos Aires"
+    }
+]
