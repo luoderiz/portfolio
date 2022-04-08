@@ -267,7 +267,7 @@ export class VisualService {
     },
     {
       icon: "Lilly",
-      imageUrl: "../../assets/icons/plants/lilly/.png",
+      imageUrl: "../../assets/icons/plants/lilly.png",
       type: "projects"
     },
     {
@@ -284,6 +284,6 @@ export class VisualService {
       icon: "Orquid",
       imageUrl: "../../assets/icons/plants/orquid.png",
       type: "projects"
-    },
+    }
   ]
 }
