@@ -8,9 +8,10 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './milestone.component.html',
   styleUrls: ['./milestone.component.css'],
 })
+
 export class MilestoneComponent implements OnInit {
   @Input() cardIndicator: number = 0;
-  @Input() position: number = (0);
+  @Input() position: number = 0;
   @Input() type: string = "";
 
   path: IMilestone = {icon: "", imageUrl: "", type: ""};
@@ -22,4 +23,4 @@ export class MilestoneComponent implements OnInit {
 
   constructor(private visualService: VisualService, private activatedRoute: ActivatedRoute) { }
 
-};
+}

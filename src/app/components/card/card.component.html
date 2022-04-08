@@ -1,4 +1,4 @@
-  <div  *ngIf="cardType === 'profesional'" class="container-fluid" id="profesionalCard">
+  <div *ngIf="cardType === 'profesional'" class="container-fluid" id="profesionalCard">
   <div class="row">
     <h1>{{workexperience.position}}</h1>
   </div>
@@ -22,8 +22,20 @@
   </div>
 </div>
 
-<div *ngIf="cardType === 'skills'" class="container-fluid" id="skillsCard">
+<div *ngIf="cardType === 'softskills'" class="container-fluid" id="softSkillsCard">
   <div class="row">
-    <h1>{{hardSkill.skill}}</h1>
+    <h2>{{softSkill.skill}}</h2>
+  </div>
+</div>
+
+<div *ngIf="cardType === 'hardskills'" class="container-fluid" id="HardSkillsCard">
+  <div class="row">
+    <h2>{{hardSkill.skill}}</h2>
+  </div>
+</div>
+
+<div *ngIf="cardType === 'projects'" class="container-fluid" id="projectsCard">
+  <div class="row">
+    <h2>{{projects}}</h2>
   </div>
 </div>

@@ -88,5 +88,50 @@
     "icon": "Windmill",
     "imageUrl": "../../assets/icons/windmill.png",
     "type": "aboutme"
+  },
+  {
+    "icon": "Bird",
+    "imageUrl": "../../assets/icons/origami/bird.png",
+    "type": "softskills"
+  },
+  {
+    "icon": "Boat",
+    "imageUrl": "../../assets/icons/origami/boat.png",
+    "type": "softskills"
+  },
+  {
+    "icon": "Butterfly",
+    "imageUrl": "../../assets/icons/origami/butterfly.png",
+    "type": "softskills"
+  },
+  {
+    "icon": "Crab",
+    "imageUrl": "../../assets/icons/origami/crab.png",
+    "type": "softskills"
+  },
+  {
+    "icon": "Fox",
+    "imageUrl": "../../assets/icons/origami/fox.png",
+    "type": "softskills"
+  },
+  {
+    "icon": "Fish",
+    "imageUrl": "../../assets/icons/fish.png",
+    "type": "hardskills"
+  },
+  {
+    "icon": "Seahorse",
+    "imageUrl": "../../assets/icons/origami/seahorse.png",
+    "type": "hardskills"
+  },
+  {
+    "icon": "Swan",
+    "imageUrl": "../../assets/icons/swan.png",
+    "type": "hardskills"
+  },
+  {
+    "icon": "Walrus",
+    "imageUrl": "../../assets/icons/walrus.png",
+    "type": "hardskills"
   }
 ]

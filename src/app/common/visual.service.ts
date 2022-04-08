@@ -34,11 +34,11 @@ export class VisualService {
       },
       {
         menuId: 1,
-        menuText: "Soft Skills",
+        menuText: "Soft skills",
       },
       {
         menuId: 2,
-        menuText: "Hard Skills",
+        menuText: "Hard skills",
       },
       {
         menuId: 3,
@@ -101,8 +101,8 @@ export class VisualService {
       type: "profesional"
     },
     {
-      icon: "Baby-crib",
-      imageUrl: "../../assets/icons/baby-crib.png",
+      icon: "Family",
+      imageUrl: "../../assets/icons/family.png",
       type: "aboutme"
     },  
     {
@@ -144,6 +144,146 @@ export class VisualService {
       icon: "Windmill",
       imageUrl: "../../assets/icons/windmill.png",
       type: "aboutme"
-    }
+    },
+    {
+      icon: "Bird",
+      imageUrl: "../../assets/icons/origami/bird.png",
+      type: "softskills"
+    },
+    {
+      icon: "Boat",
+      imageUrl: "../../assets/icons/origami/boat.png",
+      type: "softskills"
+    },
+    {
+      icon: "Butterfly",
+      imageUrl: "../../assets/icons/origami/butterfly.png",
+      type: "softskills"
+    },
+    {
+      icon: "Crab",
+      imageUrl: "../../assets/icons/origami/crab.png",
+      type: "softskills"
+    },
+    {
+      icon: "Fox",
+      imageUrl: "../../assets/icons/origami/fox.png",
+      type: "softskills"
+    },
+    {
+      icon: "Kangaroo",
+      imageUrl: "../../assets/icons/origami/kangaroo.png",
+      type: "softskills"
+    },
+    {
+      icon: "Panda",
+      imageUrl: "../../assets/icons/origami/panda.png",
+      type: "softskills"
+    },
+    {
+      icon: "Cactus",
+      imageUrl: "../../assets/icons/origami/cactus.png",
+      type: "softskills"
+    },
+    {
+      icon: "Alpaca",
+      imageUrl: "../../assets/icons/origami/alpaca.png",
+      type: "softskills"
+    },
+    {
+      icon: "Dove",
+      imageUrl: "../../assets/icons/origami/dove.png",
+      type: "softskills"
+    },
+    {
+      icon: "Fish",
+      imageUrl: "../../assets/icons/origami/fish.png",
+      type: "hardskills"
+    },
+    {
+      icon: "Seahorse",
+      imageUrl: "../../assets/icons/origami/seahorse.png", 
+      type: "hardskills"
+    },
+    {
+      icon: "Swan",
+      imageUrl: "../../assets/icons/origami/swan.png",
+      type: "hardskills"
+    },
+    {
+      icon: "Walrus",
+      imageUrl: "../../assets/icons/origami/walrus.png",
+      type: "hardskills"
+    },
+    {
+      icon: "Dolphin",
+      imageUrl: "../../assets/icons/origami/dolphin.png",
+      type: "hardskills"
+    },
+    {
+      icon: "Cat",
+      imageUrl: "../../assets/icons/origami/cat.png",
+      type: "hardskills"
+    },
+    {
+      icon: "Bear",
+      imageUrl: "../../assets/icons/origami/bear.png",
+      type: "hardskills"
+    },
+    {
+      icon: "Elephant",
+      imageUrl: "../../assets/icons/origami/elephant.png",
+      type: "hardskills"
+    },
+    {
+      icon: "Dinosaur",
+      imageUrl: "../../assets/icons/origami/dinosaur.png",
+      type: "hardskills"
+    },    
+    {
+      icon: "Parrot",
+      imageUrl: "../../assets/icons/origami/parrot.png",
+      type: "hardskills"
+    },
+    {
+      icon: "Penguin",
+      imageUrl: "../../assets/icons/origami/penguin.png",
+      type: "hardskills"
+    },
+    {
+      icon: "Squirrel",
+      imageUrl: "../../assets/icons/origami/squirrel.png",
+      type: "hardskills"
+    },
+    {
+      icon: "Bambu",
+      imageUrl: "../../assets/icons/plants/bambu.png",
+      type: "projects"
+    },
+    {
+      icon: "Flower",
+      imageUrl: "../../assets/icons/plants/flower.png",
+      type: "projects"
+    },
+    {
+      icon: "Lilly",
+      imageUrl: "../../assets/icons/plants/lilly/.png",
+      type: "projects"
+    },
+    {
+      icon: "Herbs",
+      imageUrl: "../../assets/icons/plants/herbs.png",
+      type: "projects"
+    },
+    {
+      icon: "Tulip",
+      imageUrl: "../../assets/icons/plants/tulip.png",
+      type: "projects"
+    },
+    {
+      icon: "Orquid",
+      imageUrl: "../../assets/icons/plants/orquid.png",
+      type: "projects"
+    },
   ]
 }

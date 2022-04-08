@@ -1,42 +1,42 @@
 [
     {
         "id": 1,
-        "hardskill": "HTML, CSS"
+        "skill": "HTML, CSS"
     },
     {
         "id": 2,
-        "hardskill": "Copywriting, Copyediting, Storytelling"
+        "skill": "Copywriting, Copyediting, Storytelling"
     },
     {
         "id": 3,
-        "hardskill": "Angular"
+        "skill": "Angular"
     },
     {
         "id": 4,
-        "hardskill": "Typescript, Javascript"
+        "skill": "Typescript, Javascript"
     },
     {
         "id": 5,
-        "hardskill": "SQL"
+        "skill": "SQL"
     },
     {
         "id": 6,
-        "hardskill": "Java"
+        "skill": "Java"
     },
     {
         "id": 7,
-        "hardskill": "Springboot"
+        "skill": "Springboot"
     },
     {
         "id": 8,
-        "hardskill": "REST"
+        "skill": "REST"
     },
     {
         "id": 9,
-        "hardskill": "Inglés C1"
+        "skill": "Inglés C1"
     },
     {
         "id": 10,
-        "hardskill": "Francés A2"
+        "skill": "Francés A2"
     }
 ]

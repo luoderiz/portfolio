@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class MainmapComponent implements OnInit {
   currentPosition: number = 0;
-  position: number = (0);
+  position: number = 0;
   type: string = "";
 
   sendPath(pathNumber: number): void {
