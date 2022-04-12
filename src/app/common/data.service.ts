@@ -22,35 +22,35 @@ export class DataService {
 
   getWorkExperience(): Observable<IWorkexperience[]> {
     return this.http.get<IWorkexperience[]>(this.workexperienceUrl).pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
+      //tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getAboutme(): Observable<IAboutMe[]> {
     return this.http.get<IAboutMe[]>(this.aboutmeUrl).pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
+      //tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getSoftSkill(): Observable<ISkill[]> {
     return this.http.get<ISkill[]>(this.softSkillUrl).pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
+      //tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getHardSkill(): Observable<ISkill[]> {
     return this.http.get<ISkill[]>(this.hardSkillUrl).pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
+      //tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getProjects(): Observable<IProject[]> {
     return this.http.get<IProject[]>(this.projectsUrl).pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
+      //tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }

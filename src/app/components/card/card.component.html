@@ -36,6 +36,9 @@
 
 <div *ngIf="cardType === 'projects'" class="container-fluid" id="projectsCard">
   <div class="row">
-    <h2>{{projects.project}}</h2>
+    <a href="{{projects.projectUrl}}"><h2>{{projects.projectName}}</h2></a>
+  </div>
+  <div class="row">
+    <p>{{projects.projectDescription}}</p>
   </div>
 </div>

@@ -29,7 +29,7 @@ export class CardComponent implements OnChanges {
   hardSkill: ISkill = {id: 0, skill: ""};
 
   allProjects!: IProject[];
-  projects: IProject = {id: 0, project: ""};
+  projects: IProject = {id: 0, projectName: "", projectUrl: "", projectDescription: ""};
 
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
   

@@ -1,4 +1,6 @@
 export interface IProject {
     id: number;
-    project: string;
+    projectName: string;
+    projectUrl: string;
+    projectDescription: string;
   }
