@@ -2,44 +2,45 @@
 
 <article>
     <section>
-        <h2>Sobre mí</h2>
-        <div *ngFor="let about of allAboutme; let i= index">
-            <p>{{allAboutme[i].about}}.</p>
-        </div>
+        <h2 class="title">Sobre mí</h2>
+            <ul class="group" *ngFor="let about of allAboutme; let i= index">
+                <li>{{allAboutme[i].about}}.</li>
+            </ul>
     </section>
-
+    <div class="jumbotron"> </div>
     <section>
-        <h2>Formación y experiencia</h2>
-        <div *ngFor="let workexperience of allWorkexperience; let i= index">
-            <h3>{{allWorkexperience[i].position}}</h3>
-            <p>{{allWorkexperience[i].dateFrom  | customDate}} - {{allWorkexperience[i].dateTo  | customDate}}</p>
-            <p>{{allWorkexperience[i].institutionName}}</p>
-            <p>{{allWorkexperience[i].institutionCity}}</p>
-            <p>{{allWorkexperience[i].details}}</p> 
-        </div>
+        <h2 class="title">Formación y experiencia</h2>
+        <ul class="block" *ngFor="let workexperience of allWorkexperience; let i= index">
+            <h3 class="subtitle">{{allWorkexperience[i].position}}</h3>
+            <li>{{allWorkexperience[i].dateFrom  | customDate}} - {{allWorkexperience[i].dateTo  | customDate}}</li>
+            <li>{{allWorkexperience[i].institutionName}}</li>
+            <li>{{allWorkexperience[i].institutionCity}}</li>
+            <li>{{allWorkexperience[i].details}}</li> 
+        </ul>
     </section>
-
+    <div class="jumbotron"> </div>
     <section>
-        <h2>Hard Skills</h2>    
-        <div *ngFor="let hardSkill of allHardSkill; let i= index">
-            <h3>{{allHardSkill[i].skill}}</h3>                          
-        </div>            
+        <h2 class="title">Hard Skills</h2>    
+        <ul class="group" *ngFor="let hardSkill of allHardSkill; let i= index">
+            <li>{{allHardSkill[i].skill}}</li>                          
+        </ul>            
     </section>
-
+    <div class="jumbotron"> </div>
     <section>
-        <h2>Soft Skills</h2>
-        <div *ngFor="let softskills of allSoftSkill; let i= index">
-            <h3>{{allSoftSkill[i].skill}}</h3>                          
-        </div>            
+        <h2 class="title">Soft Skills</h2>
+        <ul class="group" *ngFor="let softskills of allSoftSkill; let i= index">
+            <li>{{allSoftSkill[i].skill}}</li>                          
+        </ul>            
 
     </section>
-
+    <div class="jumbotron"> </div>
     <section >
-        <h2>Proyectos</h2>
-        <div *ngFor="let aProject of allProjects; let i= index">
-            <h3><a href="{{allProjects[i].projectUrl}}" target="_blank">{{allProjects[i].projectName}}</a></h3>
-            <p>{{allProjects[i].projectDescription}}</p>
-        </div>
+        <h2 class="title">Proyectos</h2>
+        <ul class="block" *ngFor="let aProject of allProjects; let i= index">
+            <h3  class="subtitle">{{allProjects[i].projectName}}</h3>
+            <li>{{allProjects[i].projectDescription}}</li>
+            <li>Ver en <a href="{{allProjects[i].projectUrl}}" target="_blank">{{allProjects[i].projectName}}</a></li>
+        </ul>
     </section>
 
 </article>
