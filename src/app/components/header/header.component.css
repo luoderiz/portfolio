@@ -20,3 +20,14 @@ header {
 #subtitle {
   font-size: 2vw;
 }
+
+#icons p {
+  color: #232527;
+  font-weight: 600;
+  font-size: 1vw;
+  text-transform: uppercase;
+}
+
+#icons img {
+  width: 4vw;
+}

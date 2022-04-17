@@ -16,6 +16,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { CustomDatePipe } from './common/customdate.pipe';
 import { BookComponent } from './components/book/book.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BookComponent } from './components/book/book.component';
     WelcomeComponent,
     NotfoundComponent,
     CustomDatePipe,
-    BookComponent
+    BookComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import { BookComponent } from './components/book/book.component';
       {path: 'profesional', component: MainmapComponent},
       {path: 'projects', component: MainmapComponent},
       {path: 'book', component: BookComponent},  
+      {path: 'login', component: LoginComponent},
       {path: '', redirectTo: 'welcome', pathMatch: "full"},
       {path: '**', component: NotfoundComponent, pathMatch: "full"}
     ]),
