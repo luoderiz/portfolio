@@ -1,30 +1,63 @@
 
-<body class="text-center">
-<main class="form-signin">
-<form>
-  <img class="mb-4" src="../../../assets/icons/footprint.png" alt="Footsteps" width="70">
-  <h1 class="h3 mb-3 fw-normal">Please log in</h1>
-<!--   
-    <div class="form-floating">
-    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-    <label for="floatingInput">Mail</label>
-  </div> 
--->
-  <div class="form-floating">
-    <input type="username" class="form-control" id="username" placeholder="Username" required minlength="3" maxlength="12">
-    <label for="username">Username</label>
-  </div>
-  <div class="form-floating">
-    <input type="password" class="form-control" id="password" placeholder="Password" required minlength="8" maxlength="20">
-    <label for="password">Password</label>
-  </div>
+<body>
+  <main>
+    <form novalidate
+      [formGroup]="loginForm"
+      (ngSubmit)="save()">
 
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
-</form>
-</main>
+      <img class="img-fluid mx-auto d-block" src="../../../assets/icons/edit/doublekey.png" alt="Access key" width="60vw">
+      <h1 class="h3 mb-3 fw-normal text-center">Please log in</h1>
+
+      <div class="form-floating">
+        <label for="username">Username</label>
+        <input class="form-control" 
+           id="username" 
+           type="text"
+           placeholder="Username" 
+           formControlName="userName">
+        <div *ngIf="(loginForm.get('userName')?.touched || loginForm.get('userName')?.dirty) && !loginForm.get('userName')?.valid" class="alert alert-danger">
+          <span class="invalid-feedback" *ngIf="loginForm.get('userName')?.errors?.['required']">
+            Please enter your username.
+          </span>
+          <span class="invalid-feedback" *ngIf="loginForm.get('userName')?.errors?.['minlength']">
+            The username must be longer than 3 characters.
+          </span>
+          <span class="invalid-feedback" *ngIf="loginForm.get('userName')?.errors?.['maxlength']">
+          The username must be shorter than 12 characters.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-floating">
+        <label for="password">Password</label>
+        <input class="form-control" 
+           id="password" 
+           type="text"
+           placeholder="Password" 
+           formControlName="userPassword">
+        <div *ngIf="(loginForm.get('userPassword')?.touched || loginForm.get('userPassword')?.dirty) && !loginForm.get('userPassword')?.valid"  class="alert alert-danger">
+          <span class="invalid-feedback" *ngIf="loginForm.get('userPassword')?.errors?.['required']">
+            Please enter your password.
+          </span>
+          <span class="invalid-feedback" *ngIf="loginForm.get('userPassword')?.errors?.['minlength']">
+            The password must be longer than 8 characters.
+          </span>
+          <span class="invalid-feedback" *ngIf="loginForm.get('userPassword')?.errors?.['maxlength']">
+            The password must be shorter than 20 characters.
+          </span>
+        </div>
+      </div>
+     
+      <div class="checkbox mb-3">
+        <label>
+          <input class="form-control" id="remember-me" type="checkbox" value="remember-me" formControlName="rememberMe"> Remember me
+        </label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit">
+        Log in
+      </button>
+
+    </form>
+  </main>
 </body>

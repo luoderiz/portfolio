@@ -17,6 +17,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { CustomDatePipe } from './common/customdate.pipe';
 import { BookComponent } from './components/book/book.component';
 import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LoginComponent } from './components/login/login.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'welcome', component: WelcomeComponent},
       {path: 'aboutme', component: MainmapComponent},
