@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Login } from './login';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,33 +8,43 @@ import { Login } from './login';
 })
 
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
-  login: Login = new Login();
-  
-  ngOnInit(): void {
-     this.loginForm = new FormGroup({
-      userName: new FormControl("", [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(12),
-      ]),
-      userPassword: new FormControl("", [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(20)
-      ]),
-      rememberMe: new FormControl(Boolean)
-    });
+  loginForm: FormGroup;
 
-  this.loginForm.get('userName')?.valueChanges.subscribe(
-    value => console.log(value)
-  )
-  this.loginForm.get('userPassword')?.valueChanges.subscribe(
-    value => console.log(value)
-  ) 
+  constructor(private formbuilder: FormBuilder) { 
+    this.loginForm = this.formbuilder.group(
+      {
+        userEmail:['', [Validators.required, Validators.email]],
+        userPassword:['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
+        deviceInfo: this.formbuilder.group({
+          deviceId: [""],
+          deviceType: [""],
+          notificationToken: [""]
+        })
+
+      }
+    )
   }
 
-  save(){}
+  get UserEmail() {
+    return this.loginForm.get('userEmail');
+  }
 
-  constructor(private formbuilder: FormBuilder) { }
+  get UserPassword() {
+    return this.loginForm.get('userPassword');
+  }
+
+  ngOnInit(): void {
+    this.loginForm.get('userEmail')?.valueChanges.subscribe(
+      value => console.log(value)
+    )
+    this.loginForm.get('userPassword')?.valueChanges.subscribe(
+      value => console.log(value)
+    )  
+  }
+
+
+
+  
+  
+
 }
