@@ -37,6 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'welcome', component: WelcomeComponent},
@@ -50,7 +51,6 @@ import { ReactiveFormsModule } from '@angular/forms';
       {path: '', redirectTo: 'welcome', pathMatch: "full"},
       {path: '**', component: NotfoundComponent, pathMatch: "full"}
     ]),
-    HttpClientModule,
   ],
   providers: [DataService, VisualService],
   bootstrap: [AppComponent]

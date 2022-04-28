@@ -12,9 +12,9 @@
         <h2 class="title">Formación y experiencia</h2>
         <ul class="block" *ngFor="let workexperience of allWorkexperience; let i= index">
             <h3 class="subtitle">{{allWorkexperience[i].position}}</h3>
-            <li>{{allWorkexperience[i].dateFrom  | customDate}} - {{allWorkexperience[i].dateTo  | customDate}}</li>
-            <li>{{allWorkexperience[i].institutionName}}</li>
-            <li>{{allWorkexperience[i].institutionCity}}</li>
+            <li>{{allWorkexperience[i].date_from  | customDate}} - {{allWorkexperience[i].date_to  | customDate}}</li>
+            <li>{{allWorkexperience[i].name}}</li>
+            <li>{{allWorkexperience[i].city}}</li>
             <li>{{allWorkexperience[i].details}}</li> 
         </ul>
     </section>
@@ -37,9 +37,9 @@
     <section >
         <h2 class="title">Proyectos</h2>
         <ul class="block" *ngFor="let aProject of allProjects; let i= index">
-            <h3  class="subtitle">{{allProjects[i].projectName}}</h3>
-            <li>{{allProjects[i].projectDescription}}</li>
-            <li>Ver en <a href="{{allProjects[i].projectUrl}}" target="_blank">{{allProjects[i].projectName}}</a></li>
+            <h3  class="subtitle">{{allProjects[i].name}}</h3>
+            <li>{{allProjects[i].details}}</li>
+            <li>Ver en <a href="{{allProjects[i].url}}" target="_blank">{{allProjects[i].name}}</a></li>
         </ul>
     </section>
 

@@ -1,0 +1,26 @@
+ul {
+    align-items: center;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    float: left;
+}
+
+li {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    padding-left: 0.2vw;
+    float: left;
+}
+
+ img {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    float: left;
+}
+
+img {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 4vw;
+    height: auto;
+}

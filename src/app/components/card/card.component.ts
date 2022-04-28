@@ -16,20 +16,23 @@ export class CardComponent implements OnChanges {
   errorMessage: any;
   cardType: string = "";
 
+  allEducation!: any;
+  education: any;
+
   allWorkexperience!: IWorkexperience[];
-  workexperience: IWorkexperience = {id: 0, position: "", dateFrom: "2008-03-01", dateTo: "2008-03-01", institutionName: "", institutionCity: "", details: "", tag: [""]};
+  workexperience: IWorkexperience = {id: 0, position: "", date_from: "2008-03-01", date_to: "2008-03-01", name: "", city: "", details: "", tag: [""]};
 
   allAboutme!: IAboutMe[];
-  aboutme: IAboutMe = {id: 0, about: ""};
+  aboutme: IAboutMe = {id:1, about:"",person_id:1};
 
   allSoftSkill!: ISkill[];
-  softSkill: ISkill = {id: 0, skill: ""};
+  softSkill: ISkill = {id:1, skill:"", person_id:1};
 
   allHardSkill!: ISkill[];
-  hardSkill: ISkill = {id: 0, skill: ""};
+  hardSkill: ISkill = {id:1, skill:"", person_id:1};
 
   allProjects!: IProject[];
-  projects: IProject = {id: 0, projectName: "", projectUrl: "", projectDescription: ""};
+  projects: IProject = {id:1, name:"", url:"", details:"", person_id:1};
 
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
   
@@ -43,6 +46,7 @@ export class CardComponent implements OnChanges {
       },
       error: err => this.errorMessage = err,
     });
+
 
     this.dataService.getAboutme().subscribe({
       next: allAboutme => {
@@ -88,6 +92,9 @@ export class CardComponent implements OnChanges {
       this.softSkill = this.allSoftSkill[this.cardIndicator];
     } else if (this.cardType === "projects") {
       this.projects = this.allProjects[this.cardIndicator];
+    } else if (this.cardType === "education") {
+      this.education = this.allEducation[this.cardIndicator];
     }
-  }
+
+    }
 }
