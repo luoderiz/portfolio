@@ -46,6 +46,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       {path: 'softskills', component: MainmapComponent},
       {path: 'profesional', component: MainmapComponent},
       {path: 'projects', component: MainmapComponent},
+      {path: 'education', component: MainmapComponent},
       {path: 'book', component: BookComponent},  
       {path: 'login', component: LoginComponent},
       {path: '', redirectTo: 'welcome', pathMatch: "full"},

@@ -4,6 +4,9 @@ import { IAboutMe } from '../card/aboutme';
 import { IWorkexperience } from '../card/workexperience';
 import { ISkill } from '../card/skill';
 import { IProject } from '../card/project';
+import { IEducation } from '../card/education';
+import { IMenu } from '../navbutton/menu';
+import { VisualService } from 'src/app/common/visual.service';
 
 @Component({
   selector: 'app-book',
@@ -11,31 +14,45 @@ import { IProject } from '../card/project';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-  @Input() cardIndicator!: number;
+  allMenues!: IMenu[];
+ 
+  educationTitle!: string;
+  workexperienceTitle!: string;
+  aboutmeTitle!: string;
+  hardskillTitle!: string;
+  softskillTitle!: string;
+  projectsTitle!: string;
 
+  allEducation!: IEducation[];
   allWorkexperience!: IWorkexperience[];
-  workexperience: IWorkexperience = {id: 0, position: "", date_from: "2008-03-01", date_to: "2008-03-01", name: "", city: "", details: "", tag: [""]};
-
   allAboutme!: IAboutMe[];
-  aboutme: IAboutMe = {id: 0, about: "", person_id: 0};
-
   allSoftSkill!: ISkill[];
-  softSkill: ISkill = {id: 0, skill: "", person_id: 0};
-
   allHardSkill!: ISkill[];
-  hardSkill: ISkill = {id: 0, skill: "", person_id: 0};
-
   allProjects!: IProject[];
-  projects: IProject = {id: 0, name: "", url: "", details: "", person_id: 0};
   errorMessage: any;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private visualService: VisualService) { }
 
   ngOnInit(): void {
+
+    this.allMenues = this.visualService.getAllMenues();
+    this.aboutmeTitle = this.allMenues[0].menuText;
+    this.educationTitle = this.allMenues[1].menuText;
+    this.workexperienceTitle = this.allMenues[2].menuText;
+    this.hardskillTitle = this.allMenues[3].menuText;
+    this.softskillTitle = this.allMenues[4].menuText;
+    this.projectsTitle = this.allMenues[5].menuText;
+
+    this.dataService.getEducation().subscribe({
+      next: allEducation => {
+        this.allEducation = allEducation;
+      },
+      error: err => this.errorMessage = err,
+    });
+
     this.dataService.getWorkExperience().subscribe({
       next: allWorkexperience => {
         this.allWorkexperience = allWorkexperience;
-        this.workexperience = this.allWorkexperience[this.cardIndicator];
       },
       error: err => this.errorMessage = err,
     });
@@ -43,7 +60,6 @@ export class BookComponent implements OnInit {
     this.dataService.getAboutme().subscribe({
       next: allAboutme => {
         this.allAboutme = allAboutme;
-        this.aboutme = this.allAboutme[this.cardIndicator];
       },
       error: err => this.errorMessage = err,
     });
@@ -51,7 +67,6 @@ export class BookComponent implements OnInit {
     this.dataService.getSoftSkill().subscribe({
       next: allSoftSkill => {
         this.allSoftSkill = allSoftSkill;
-        this.softSkill = this.allSoftSkill[this.cardIndicator];
       },
       error: err => this.errorMessage = err,
     });
@@ -59,15 +74,13 @@ export class BookComponent implements OnInit {
     this.dataService.getHardSkill().subscribe({
       next: allHardSkill => {
         this.allHardSkill = allHardSkill;
-        this.hardSkill = this.allHardSkill[this.cardIndicator];
       },
       error: err => this.errorMessage = err,
     });
-    
+
     this.dataService.getProjects().subscribe({
       next: allProjects => {
         this.allProjects = allProjects;
-        this.projects = this.allProjects[this.cardIndicator];
       },
       error: err => this.errorMessage = err,
     });

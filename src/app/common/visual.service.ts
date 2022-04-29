@@ -34,115 +34,115 @@ export class VisualService {
       },
       {
         menuId: 1,
-        menuText: "Soft skills",
+        menuText: "Formación",
       },
       {
         menuId: 2,
-        menuText: "Hard skills",
+        menuText: "Recorridos profesionales",
       },
       {
         menuId: 3,
-        menuText: "Formación y experiencia",
+        menuText: "Hard skills",
       },
       {
         menuId: 4,
-        menuText: "Proyectos",
+        menuText: "Soft skills",
       },
       {
         menuId: 5,
-        menuText: "Cambiar a modo bitácora",
+        menuText: "Proyectos",
       }
     ];
   
     allMilestones: IMilestone[] = [
     {
       icon: "Certificate",
-      imageUrl: "../../assets/icons/education/certificate.png",
+      imageUrl: "../../assets/icons/profesional/businesswoman.png",
       type: "profesional"
     }, 
     {
       icon: "Degree",
-      imageUrl: "../../assets/icons/education/degree.png",
+      imageUrl: "../../assets/icons/profesional/network1.png",
       type: "profesional"
     },
     {
       icon: "Growth",
-      imageUrl: "../../assets/icons/careeradvancement/growth.png",
+      imageUrl: "../../assets/icons/profesional/growth.png",
       type: "profesional"
     },
     {
       icon: "Career2",
-      imageUrl: "../../assets/icons/careeradvancement/career2.png",
+      imageUrl: "../../assets/icons/profesional/career2.png",
       type: "profesional"
     },
     {
       icon: "Creativity",
-      imageUrl: "../../assets/icons/careeradvancement/creativity.png",
+      imageUrl: "../../assets/icons/profesional/creativity.png",
       type: "profesional"
     },
     {
       icon: "User",
-      imageUrl: "../../assets/icons/careeradvancement/user.png",
+      imageUrl: "../../assets/icons/profesional/connection.png",
       type: "profesional"
     },
     {
       icon: "Leadership",
-      imageUrl: "../../assets/icons/careeradvancement/leadership.png",
+      imageUrl: "../../assets/icons/profesional/leadership.png",
       type: "profesional"
     },
     {
       icon: "Career",
-      imageUrl: "../../assets/icons/careeradvancement/career.png",
+      imageUrl: "../../assets/icons/profesional/career.png",
       type: "profesional"
     },
     {
       icon: "Search",
-      imageUrl: "../../assets/icons/careeradvancement/search.png",
+      imageUrl: "../../assets/icons/profesional/success.png",
       type: "profesional"
     },
     {
       icon: "Family",
-      imageUrl: "../../assets/icons/family.png",
+      imageUrl: "../../assets/icons/about/family.png",
       type: "aboutme"
     },  
     {
       icon: "House",
-      imageUrl: "../../assets/icons/house.png",
+      imageUrl: "../../assets/icons/about/house.png",
       type: "aboutme"
     },
     {
       icon: "Park",
-      imageUrl: "../../assets/icons/park.png",
+      imageUrl: "../../assets/icons/about/park.png",
       type: "aboutme"
     },
     {
       icon: "Postcard",
-      imageUrl: "../../assets/icons/postcard.png",
+      imageUrl: "../../assets/icons/about/postcard.png",
       type: "aboutme"
     },  
     {
       icon: "Book",
-      imageUrl: "../../assets/icons/book.png",
+      imageUrl: "../../assets/icons/about/book.png",
       type: "aboutme"
     },
     {
       icon: "Hug",
-      imageUrl: "../../assets/icons/hug.png",
+      imageUrl: "../../assets/icons/about/hug.png",
       type: "aboutme"
     },
     {
       icon: "Hiking",
-      imageUrl: "../../assets/icons/hiking.png",
+      imageUrl: "../../assets/icons/about/hiking.png",
       type: "aboutme"
     },
     {
       icon: "Ufo",
-      imageUrl: "../../assets/icons/ufo.png",
+      imageUrl: "../../assets/icons/about/ufo.png",
       type: "aboutme"
     },
     {
       icon: "Windmill",
-      imageUrl: "../../assets/icons/windmill.png",
+      imageUrl: "../../assets/icons/about/windmill.png",
       type: "aboutme"
     },
     {
@@ -284,6 +284,66 @@ export class VisualService {
       icon: "Orquid",
       imageUrl: "../../assets/icons/plants/orquid.png",
       type: "projects"
-    }
+    },
+    {
+      icon: "Sakura",
+      imageUrl: "../../assets/icons/plants/sakura.png",
+      type: "projects"
+    },
+    {
+      icon: "Bonsai",
+      imageUrl: "../../assets/icons/plants/bonsai.png",
+      type: "projects"
+    },
+    {
+      icon: "Rose",
+      imageUrl: "../../assets/icons/plants/rose.png",
+      type: "projects"
+    },
+    {
+      icon: "Certificate",
+      imageUrl: "../../assets/icons/education/certificate.png",
+      type: "education"
+    },
+    {
+      icon: "Certificate",
+      imageUrl: "../../assets/icons/education/certificate2.png",
+      type: "education"
+    },
+    {
+      icon: "Certificate",
+      imageUrl: "../../assets/icons/education/certificate3.png",
+      type: "education"
+    },
+    {
+      icon: "Degree",
+      imageUrl: "../../assets/icons/education/degree.png",
+      type: "education"
+    },
+    {
+      icon: "Degree",
+      imageUrl: "../../assets/icons/education/degree2.png",
+      type: "education"
+    },
+    {
+      icon: "Degree",
+      imageUrl: "../../assets/icons/education/degree3.png",
+      type: "education"
+    },
+    {
+      icon: "Diploma",
+      imageUrl: "../../assets/icons/education/diploma.png",
+      type: "education"
+    },
+    {
+      icon: "Diploma",
+      imageUrl: "../../assets/icons/education/diploma2.png",
+      type: "education"
+    },
+    {
+      icon: "Diploma",
+      imageUrl: "../../assets/icons/education/diploma3.png",
+      type: "education"
+    },
   ]
 }

@@ -1,18 +1,29 @@
 .footer {
-  padding: 1vh;
+  padding: 0.2vw;
   margin: 0;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
 }
-
-svg .bi {
-    vertical-align: -.125em;
-    fill: #343a40;
-  }
-
+ 
 a {
   color: #4e8b75;
 }
 
 img {
-  height: 3vw;
+  height: 3.5vw;
+  width: auto;
+  vertical-align: -0.125vw;
+}
+
+#ap {
+ padding-left: 0%; 
+ padding-right: 0%;
+ float: left;
+}
+
+p {
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  padding-left: 0%;
+  padding-right: 0%;
+  margin: 0%;
 }

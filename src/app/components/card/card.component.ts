@@ -5,6 +5,7 @@ import { IAboutMe } from './aboutme';
 import { ISkill } from './skill';
 import { IProject } from './project';
 import { ActivatedRoute } from '@angular/router';
+import { IEducation } from './education';
 
 @Component({
   selector: 'app-card',
@@ -16,23 +17,49 @@ export class CardComponent implements OnChanges {
   errorMessage: any;
   cardType: string = "";
 
-  allEducation!: any;
-  education: any;
+  allEducation!: IEducation[];
+  education: IEducation = {
+    id: 0,
+    degree: "",
+    date_from: "",
+    date_to: "",
+    institution_name: "",
+    institution_city: "",
+    tag: [""],
+    person_id:1};
 
   allWorkexperience!: IWorkexperience[];
-  workexperience: IWorkexperience = {id: 0, position: "", date_from: "2008-03-01", date_to: "2008-03-01", name: "", city: "", details: "", tag: [""]};
+  workexperience: IWorkexperience = {
+    id: 0, position: "", 
+    date_from: "", 
+    date_to: "2", 
+    institution_name: "", 
+    institution_city: "", 
+    details: "", 
+    tag: [""],
+    person_id:1};
 
   allAboutme!: IAboutMe[];
-  aboutme: IAboutMe = {id:1, about:"",person_id:1};
+  aboutme: IAboutMe = {id:1, 
+    about:"",
+    person_id:1};
 
   allSoftSkill!: ISkill[];
-  softSkill: ISkill = {id:1, skill:"", person_id:1};
+  softSkill: ISkill = {id:1, 
+    skill:"", 
+    person_id:1};
 
   allHardSkill!: ISkill[];
-  hardSkill: ISkill = {id:1, skill:"", person_id:1};
+  hardSkill: ISkill = {id:1, 
+    skill:"", 
+    person_id:1};
 
   allProjects!: IProject[];
-  projects: IProject = {id:1, name:"", url:"", details:"", person_id:1};
+  projects: IProject = {id:1, 
+    name:"", 
+    url:"", 
+    details:"", 
+    person_id:1};
 
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
   
