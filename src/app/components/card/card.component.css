@@ -1,3 +1,10 @@
+.editbox{
+  float: left;
+}
+.cardbox{
+  float: right;
+}
+
 .container-fluid {
   margin: 0 0 0 0;
   padding: 1 2vw 1 1;

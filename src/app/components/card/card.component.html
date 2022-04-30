@@ -1,61 +1,67 @@
-<div *ngIf="cardType === 'profesional'" class="container-fluid" id="profesionalCard">
-  <div class="row">
-    <h1>{{workexperience.position}}</h1>
-  </div>
-  <div class="row">
-    <h2>{{workexperience.institution_name}}</h2>
-  </div>
-  <div class="row">
-    <h3>{{workexperience.institution_city}}</h3>
-  </div>
-  <div class="row">
-    <h3>{{workexperience.date_from | customDate}} - {{workexperience.date_to | customDate}}</h3>
-  </div>
-  <div class="row">
-    <p>{{workexperience.details }}</p>
-  </div>
+<div id="editbox">
+<app-edit></app-edit>
 </div>
 
-<div *ngIf="cardType === 'education'" class="container-fluid" id="profesionalCard">
-  <div class="row">
-    <h1>{{education.degree }}</h1>
+<div id="cardbox">
+  <div *ngIf="cardType === 'profesional'" class="container-fluid" id="profesionalCard">
+    <div class="row">
+      <h1>{{workexperience.position}}</h1>
+    </div>
+    <div class="row">
+      <h2>{{workexperience.institution.name}}</h2>
+    </div>
+    <div class="row">
+      <h3>{{workexperience.institution.city}}</h3>
+    </div>
+    <div class="row">
+      <h3>{{workexperience.date_from | customDate}} - {{workexperience.date_to | customDate}}</h3>
+    </div>
+    <div class="row">
+      <p>{{workexperience.details }}</p>
+    </div>
   </div>
-  <div class="row">
-    <h2>{{education.institution_name }}</h2>
+  
+  <div *ngIf="cardType === 'education'" class="container-fluid" id="profesionalCard">
+    <div class="row">
+      <h1>{{education.degree }}</h1>
+    </div>
+    <div class="row">
+      <h2>{{education.institution.name }}</h2>
+    </div>
+    <div class="row">
+      <h3>{{education.institution.city }}</h3>
+    </div>
+    <div class="row">
+      <h3>{{education.date_from | customDate}} - {{education.date_to | customDate}}</h3>
+    </div>
   </div>
-  <div class="row">
-    <h3>{{education.institution_city }}</h3>
+  
+  <div *ngIf="cardType === 'aboutme'" class="container-fluid" id="aboutmeCard">
+    <div class="row">
+      <h2>{{aboutme.about }}</h2>
+    </div>
   </div>
-  <div class="row">
-    <h3>{{education.date_from | customDate}} - {{education.date_to | customDate}}</h3>
+  
+  <div *ngIf="cardType === 'softskills'" class="container-fluid" id="softSkillsCard">
+    <div class="row">
+      <h2>{{softSkill.skill }}</h2>
+    </div>
   </div>
-</div>
-
-<div *ngIf="cardType === 'aboutme'" class="container-fluid" id="aboutmeCard">
-  <div class="row">
-    <h2>{{aboutme.about }}</h2>
+  
+  <div *ngIf="cardType === 'hardskills'" class="container-fluid" id="HardSkillsCard">
+    <div class="row">
+      <h2>{{hardSkill.skill }}</h2>
+    </div>
   </div>
-</div>
-
-<div *ngIf="cardType === 'softskills'" class="container-fluid" id="softSkillsCard">
-  <div class="row">
-    <h2>{{softSkill.skill }}</h2>
-  </div>
-</div>
-
-<div *ngIf="cardType === 'hardskills'" class="container-fluid" id="HardSkillsCard">
-  <div class="row">
-    <h2>{{hardSkill.skill }}</h2>
-  </div>
-</div>
-
-<div *ngIf="cardType === 'projects'" class="container-fluid" id="projectsCard">
-  <div class="row">
-    <a href="{{projects.url }}">
-      <h2>{{projects.name }}</h2>
-    </a>
-  </div>
-  <div class="row">
-    <p>{{projects.details }}</p>
-  </div>
+  
+  <div *ngIf="cardType === 'projects'" class="container-fluid" id="projectsCard">
+    <div class="row">
+      <a href="{{projects.url }}">
+        <h2>{{projects.name }}</h2>
+      </a>
+    </div>
+    <div class="row">
+      <p>{{projects.details }}</p>
+    </div>
+  </div>  
 </div>

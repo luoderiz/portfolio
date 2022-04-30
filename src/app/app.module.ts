@@ -18,6 +18,7 @@ import { CustomDatePipe } from './common/customdate.pipe';
 import { BookComponent } from './components/book/book.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NotfoundComponent,
     CustomDatePipe,
     BookComponent,
-    LoginComponent
+    LoginComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

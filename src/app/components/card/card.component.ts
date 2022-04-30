@@ -6,7 +6,7 @@ import { ISkill } from './skill';
 import { IProject } from './project';
 import { ActivatedRoute } from '@angular/router';
 import { IEducation } from './education';
-
+import { IInstitution } from './institution';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -23,21 +23,25 @@ export class CardComponent implements OnChanges {
     degree: "",
     date_from: "",
     date_to: "",
-    institution_name: "",
-    institution_city: "",
-    tag: [""],
-    person_id:1};
+    institution: {id: 1,
+      name: "",
+      city: ""},
+    person_id:1,
+    tag: [""]};
+
+
 
   allWorkexperience!: IWorkexperience[];
   workexperience: IWorkexperience = {
     id: 0, position: "", 
     date_from: "", 
     date_to: "2", 
-    institution_name: "", 
-    institution_city: "", 
-    details: "", 
-    tag: [""],
-    person_id:1};
+    details: "",
+    institution: {id: 1,
+    name: "",
+    city: ""},
+    person_id:1,
+    tag: [""]};
 
   allAboutme!: IAboutMe[];
   aboutme: IAboutMe = {id:1, 
@@ -74,6 +78,13 @@ export class CardComponent implements OnChanges {
       error: err => this.errorMessage = err,
     });
 
+    this.dataService.getEducation().subscribe({
+      next: allEducation => {
+        this.allEducation = allEducation;
+        this.education = this.allEducation[this.cardIndicator];
+      },
+      error: err => this.errorMessage = err,
+    });
 
     this.dataService.getAboutme().subscribe({
       next: allAboutme => {

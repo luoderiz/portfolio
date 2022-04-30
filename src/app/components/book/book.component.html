@@ -13,8 +13,8 @@
         <ul class="block" *ngFor="let workexperience of allWorkexperience; let i= index">
             <h3 class="subtitle">{{allWorkexperience[i].position}}</h3>
             <li>{{allWorkexperience[i].date_from  | customDate}} - {{allWorkexperience[i].date_to  | customDate}}</li>
-            <li>{{allWorkexperience[i].institution_name}}</li>
-            <li>{{allWorkexperience[i].institution_city}}</li>
+            <li>{{allWorkexperience[i].institution.name}}</li>
+            <li>{{allWorkexperience[i].institution.city}}</li>
             <li>{{allWorkexperience[i].details}}</li> 
         </ul>
     </section>
@@ -24,8 +24,8 @@
         <ul class="block" *ngFor="let education of allEducation; let i= index">
             <h3 class="subtitle">{{allEducation[i].degree}}</h3>
             <li>{{allEducation[i].date_from  | customDate}} - {{allWorkexperience[i].date_to  | customDate}}</li>
-            <li>{{allEducation[i].institution_name}}</li>
-            <li>{{allEducation[i].institution_city}}</li>
+            <li>{{allEducation[i].institution.name}}</li>
+            <li>{{allEducation[i].institution.city}}</li>
         </ul>
     </section>
     <div class="jumbotron"> </div>
