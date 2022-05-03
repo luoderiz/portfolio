@@ -2,22 +2,26 @@
 <body>
   <main>
     <form novalidate
-      [formGroup]="loginForm">
+      [formGroup]="loginForm" 
+      (ngSubmit)="onSubmit()" > 
       <img class="img-fluid mx-auto d-block" src="../../../assets/icons/edit/lock.png" alt="Access key" width="60vw">
       <h1 class="h3 mb-3 fw-normal text-center">Please log in</h1>
       <div class="form">
-        <label for="email">email</label>
+        <label for="username">username</label>
         <input class="form-control" 
-           id="email" 
-           type="email"
-           placeholder="email" 
-           formControlName="userEmail">
-        <div *ngIf="(UserEmail?.touched || UserEmail?.dirty) && !UserEmail?.valid" class="alert alert-danger">
-          <span  class="alert alert-danger" role="alert" *ngIf="UserEmail?.hasError('required')">
-            Please enter your email.
+           id="username" 
+           type="text"
+           placeholder="Username" 
+           formControlName="username">
+        <div *ngIf="(UserName?.touched || UserName?.dirty) && !UserName?.valid" class="alert alert-danger">
+          <span  class="alert alert-danger" role="alert" *ngIf="UserName?.errors?.['required']">
+            Please enter your username.
           </span>
-          <span  class="alert alert-danger" role="alert" *ngIf="UserEmail?.hasError('email')">
-            The email must be valid.
+          <span  class="alert alert-danger" role="alert" *ngIf="UserName?.errors?.['minlength']">
+            The username must be longer than 4 characters.
+          </span>
+          <span  class="alert alert-danger" role="alert" *ngIf="UserName?.errors?.['maxlength']">
+            The username must be shorter than 20 characters.
           </span>
         </div>
       </div>
@@ -28,22 +32,25 @@
            id="password" 
            type="password"
            placeholder="Password" 
-           formControlName="userPassword">
+           formControlName="password">
         <div *ngIf="(UserPassword?.touched || UserPassword?.dirty) && !UserPassword?.valid"  class="alert alert-danger">
-          <span  class="alert alert-danger" role="alert" *ngIf="loginForm.get('userPassword')?.errors?.['required']">
+          <span  class="alert alert-danger" role="alert" *ngIf="UserPassword?.errors?.['required']">
             Please enter your password.
           </span>
-          <span  class="alert alert-danger" role="alert" *ngIf="loginForm.get('userPassword')?.errors?.['minlength']">
+          <span  class="alert alert-danger" role="alert" *ngIf="UserPassword?.errors?.['minlength']">
             The password must be longer than 8 characters.
           </span>
-          <span  class="alert alert-danger" role="alert" *ngIf="loginForm.get('userPassword')?.errors?.['maxlength']">
+          <span  class="alert alert-danger" role="alert" *ngIf="UserPassword?.errors?.['maxlength']">
             The password must be shorter than 20 characters.
           </span>
         </div>
       </div>
     
 
-      <button class="w-100 btn btn-lg btn-primary" type="submit">
+      <button 
+      class="w-100 btn btn-lg btn-primary" 
+      type="submit"
+      [disabled]="loginForm.invalid">
         Log in
       </button>
 
