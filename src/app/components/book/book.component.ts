@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/common/data.service';
-import { IAboutMe } from '../card/aboutme';
+import { IAbout } from '../card/about';
 import { IWorkexperience } from '../card/workexperience';
 import { ISkill } from '../card/skill';
 import { IProject } from '../card/project';
@@ -15,17 +15,17 @@ import { VisualService } from 'src/app/common/visual.service';
 })
 export class BookComponent implements OnInit {
   allMenues!: IMenu[];
- 
+
   educationTitle!: string;
   workexperienceTitle!: string;
-  aboutmeTitle!: string;
+  aboutTitle!: string;
   hardskillTitle!: string;
   softskillTitle!: string;
   projectsTitle!: string;
 
   allEducation!: IEducation[];
   allWorkexperience!: IWorkexperience[];
-  allAboutme!: IAboutMe[];
+  allAbout!: IAbout[];
   allSoftSkill!: ISkill[];
   allHardSkill!: ISkill[];
   allProjects!: IProject[];
@@ -36,7 +36,7 @@ export class BookComponent implements OnInit {
   ngOnInit(): void {
 
     this.allMenues = this.visualService.getAllMenues();
-    this.aboutmeTitle = this.allMenues[0].menuText;
+    this.aboutTitle = this.allMenues[0].menuText;
     this.educationTitle = this.allMenues[1].menuText;
     this.workexperienceTitle = this.allMenues[2].menuText;
     this.hardskillTitle = this.allMenues[3].menuText;
@@ -57,9 +57,9 @@ export class BookComponent implements OnInit {
       error: err => this.errorMessage = err,
     });
 
-    this.dataService.getAboutme().subscribe({
-      next: allAboutme => {
-        this.allAboutme = allAboutme;
+    this.dataService.getAbout().subscribe({
+      next: allAbout => {
+        this.allAbout = allAbout;
       },
       error: err => this.errorMessage = err,
     });

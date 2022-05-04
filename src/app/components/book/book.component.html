@@ -2,9 +2,9 @@
 
 <article>
     <section>
-        <h2 class="title">{{aboutmeTitle}}</h2>
-            <ul class="group" *ngFor="let about of allAboutme; let i= index">
-                <li>{{allAboutme[i].about}}.</li>
+        <h2 class="title">{{aboutTitle}}</h2>
+            <ul class="group" *ngFor="let about of allAbout; let i= index">
+                <li>{{allAbout[i].about}}.</li>
             </ul>
     </section>
     <div class="jumbotron"> </div>
@@ -15,7 +15,7 @@
             <li>{{allWorkexperience[i].date_from  | customDate}} - {{allWorkexperience[i].date_to  | customDate}}</li>
             <li>{{allWorkexperience[i].institution.name}}</li>
             <li>{{allWorkexperience[i].institution.city}}</li>
-            <li>{{allWorkexperience[i].details}}</li> 
+            <li>{{allWorkexperience[i].details}}</li>
         </ul>
     </section>
     <div class="jumbotron"> </div>
@@ -30,21 +30,21 @@
     </section>
     <div class="jumbotron"> </div>
     <section>
-        <h2 class="title">{{hardskillTitle}}</h2>    
+        <h2 class="title">{{hardskillTitle}}</h2>
         <ul class="group" *ngFor="let hardSkill of allHardSkill; let i= index">
-            <li>{{allHardSkill[i].skill}}</li>                          
-        </ul>            
+            <li>{{allHardSkill[i].skill}}</li>
+        </ul>
     </section>
     <div class="jumbotron"> </div>
     <section>
         <h2 class="title">{{softskillTitle}} </h2>
         <ul class="group" *ngFor="let softskills of allSoftSkill; let i= index">
-            <li>{{allSoftSkill[i].skill}}</li>                          
-        </ul>            
+            <li>{{allSoftSkill[i].skill}}</li>
+        </ul>
     </section>
 
     <div class="jumbotron"> </div>
-    
+
 
     <section >
         <h2 class="title">{{projectsTitle}}</h2>

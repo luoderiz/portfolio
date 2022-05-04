@@ -47,15 +47,14 @@ import { EditComponent } from './components/edit/edit.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'welcome', component: WelcomeComponent},
-      {path: 'aboutme', component: MainmapComponent},
+      {path: 'about', component: MainmapComponent},
       {path: 'hardskills', component: MainmapComponent},
       {path: 'softskills', component: MainmapComponent},
-      {path: 'profesional', component: MainmapComponent},
+      {path: 'professional', component: MainmapComponent},
       {path: 'projects', component: MainmapComponent},
       {path: 'education', component: MainmapComponent},
-      {path: 'book', component: BookComponent},  
+      {path: 'book', component: BookComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegisterComponent},
       {path: '', redirectTo: 'welcome', pathMatch: "full"},
       {path: '**', component: NotfoundComponent, pathMatch: "full"}
     ]),

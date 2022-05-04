@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { DataService } from 'src/app/common/data.service';
 import { IWorkexperience } from './workexperience';
-import { IAboutMe } from './aboutme';
+import { IAbout } from './about';
 import { ISkill } from './skill';
 import { IProject } from './project';
 import { ActivatedRoute } from '@angular/router';
@@ -29,13 +29,11 @@ export class CardComponent implements OnChanges {
     person_id:1,
     tag: [""]};
 
-
-
   allWorkexperience!: IWorkexperience[];
   workexperience: IWorkexperience = {
-    id: 0, position: "", 
-    date_from: "", 
-    date_to: "2", 
+    id: 0, position: "",
+    date_from: "",
+    date_to: "2",
     details: "",
     institution: {id: 1,
     name: "",
@@ -43,30 +41,30 @@ export class CardComponent implements OnChanges {
     person_id:1,
     tag: [""]};
 
-  allAboutme!: IAboutMe[];
-  aboutme: IAboutMe = {id:1, 
+  allAbout!: IAbout[];
+  about: IAbout = {id:1,
     about:"",
     person_id:1};
 
   allSoftSkill!: ISkill[];
-  softSkill: ISkill = {id:1, 
-    skill:"", 
+  softSkill: ISkill = {id:1,
+    skill:"",
     person_id:1};
 
   allHardSkill!: ISkill[];
-  hardSkill: ISkill = {id:1, 
-    skill:"", 
+  hardSkill: ISkill = {id:1,
+    skill:"",
     person_id:1};
 
   allProjects!: IProject[];
-  projects: IProject = {id:1, 
-    name:"", 
-    url:"", 
-    details:"", 
+  projects: IProject = {id:1,
+    name:"",
+    url:"",
+    details:"",
     person_id:1};
 
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
-  
+
   ngOnInit(): void {
     this.cardType = String(this.activatedRoute.snapshot.url[0].path);
 
@@ -86,10 +84,10 @@ export class CardComponent implements OnChanges {
       error: err => this.errorMessage = err,
     });
 
-    this.dataService.getAboutme().subscribe({
-      next: allAboutme => {
-        this.allAboutme = allAboutme;
-        this.aboutme = this.allAboutme[this.cardIndicator];
+    this.dataService.getAbout().subscribe({
+      next: allAbout => {
+        this.allAbout = allAbout;
+        this.about = this.allAbout[this.cardIndicator];
       },
       error: err => this.errorMessage = err,
     });
@@ -109,7 +107,7 @@ export class CardComponent implements OnChanges {
       },
       error: err => this.errorMessage = err,
     });
-    
+
     this.dataService.getProjects().subscribe({
       next: allProjects => {
         this.allProjects = allProjects;
@@ -120,9 +118,9 @@ export class CardComponent implements OnChanges {
   }
 
   ngOnChanges(): void {
-    if (this.cardType === "aboutme") {
-      this.aboutme = this.allAboutme[this.cardIndicator];
-    } else if (this.cardType === "profesional") {
+    if (this.cardType === "about") {
+      this.about = this.allAbout[this.cardIndicator];
+    } else if (this.cardType === "professional") {
       this.workexperience = this.allWorkexperience[this.cardIndicator];
     } else if (this.cardType === "hardskills") {
       this.hardSkill = this.allHardSkill[this.cardIndicator];

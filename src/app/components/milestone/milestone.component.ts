@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IMilestone } from './milestone';
 import { VisualService } from 'src/app/common/visual.service';
 import { ActivatedRoute } from '@angular/router';
-import { IAboutMe } from '../card/aboutme';
+import { IAbout } from '../card/about';
 import { IWorkexperience } from '../card/workexperience';
 import { ISkill } from '../card/skill';
 import { IProject } from '../card/project';
@@ -18,22 +18,22 @@ export class MilestoneComponent implements OnInit {
   @Input() position!: number;
   @Input() type: string = "";
 
-/*   @Input() allAboutme!: IAboutMe[];
+/*   @Input() allAbout!: IAboutMe[];
   @Input() allWorkexperience!: IWorkexperience[];
   @Input() allSoftSkills!: ISkill[];
   @Input() allHardSkills!: ISkill[];
   @Input() allProjects!: IProject[];
  allInformationList: any;
- */  
+ */
 
   path: IMilestone = {icon: "", imageUrl: "", type: ""};
 
   ngOnInit(): void {
     this.type = String(this.activatedRoute.snapshot.url[0].path);
     this.path = this.visualService.getCurrentMilestone(this.position, this.type);
-/*     if (this.type === "aboutme") {
-      this.allInformationList = this.allAboutme;
-    } else if (this.type === "profesional") {
+/*     if (this.type === "about") {
+      this.allInformationList = this.allAbout;
+    } else if (this.type === "professional") {
       this.allInformationList = this.allWorkexperience;
     } else if (this.type === "hardskills") {
       this.allInformationList = this.allHardSkills;

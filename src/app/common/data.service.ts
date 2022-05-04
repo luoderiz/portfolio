@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { IWorkexperience } from '../components/card/workexperience';
-import { IAboutMe } from '../components/card/aboutme';
+import { IAbout } from '../components/card/about';
 import { ISkill } from '../components/card/skill';
 import { IProject } from '../components/card/project';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
+import {IEducation} from "../components/card/education";
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +18,14 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getEducation(): Observable<any>{
-    return this.http.get<IAboutMe[]>(this.dataServiceUrl+'/education').pipe(
+    return this.http.get<IEducation[]>(this.dataServiceUrl+'/education').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
-  getAboutme(): Observable<IAboutMe[]> {
-    return this.http.get<IAboutMe[]>(this.dataServiceUrl+'/about').pipe(
+  getAbout(): Observable<IAbout[]> {
+    return this.http.get<IAbout[]>(this.dataServiceUrl+'/about').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );

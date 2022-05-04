@@ -15,7 +15,7 @@ export class NavbuttonComponent implements OnInit {
   constructor(private visualService: VisualService) { }
 
   ngOnInit(): void {
-    this.menu = this.visualService.getSpecifictMenu(this.htmlId);
+    this.menu = this.visualService.getSpecificMenu(this.htmlId);
   }
 
 }

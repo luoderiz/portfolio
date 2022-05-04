@@ -7,25 +7,25 @@ import { IMenu } from '../components/navbutton/menu';
 })
 
 export class VisualService {
-    
+
     getAllMenues(): IMenu[] {
         return this.allMenues;
       };
-    
-      getSpecifictMenu(menuPosition: number): IMenu {
+
+      getSpecificMenu(menuPosition: number): IMenu {
         return this.allMenues[menuPosition];
       };
-    
+
       getMilestones(type: string): IMilestone[] {
         return this.allMilestones.filter(
-            (aMilestone: IMilestone) => aMilestone.type === type  
+            (aMilestone: IMilestone) => aMilestone.type === type
             )
         };
-    
+
       getCurrentMilestone(pathNumber: number, type: string): IMilestone {
         return this.getMilestones(type)[pathNumber];
       };
-    
+
     allMenues: IMenu[] =
     [
       {
@@ -53,97 +53,97 @@ export class VisualService {
         menuText: "Proyectos",
       }
     ];
-  
+
     allMilestones: IMilestone[] = [
     {
       icon: "Certificate",
-      imageUrl: "../../assets/icons/profesional/businesswoman.png",
-      type: "profesional"
-    }, 
+      imageUrl: "../../assets/icons/professional/businesswoman.png",
+      type: "professional"
+    },
     {
       icon: "Degree",
-      imageUrl: "../../assets/icons/profesional/network1.png",
-      type: "profesional"
+      imageUrl: "../../assets/icons/professional/network1.png",
+      type: "professional"
     },
     {
       icon: "Growth",
-      imageUrl: "../../assets/icons/profesional/growth.png",
-      type: "profesional"
+      imageUrl: "../../assets/icons/professional/growth.png",
+      type: "professional"
     },
     {
       icon: "Career2",
-      imageUrl: "../../assets/icons/profesional/career2.png",
-      type: "profesional"
+      imageUrl: "../../assets/icons/professional/career2.png",
+      type: "professional"
     },
     {
       icon: "Creativity",
-      imageUrl: "../../assets/icons/profesional/creativity.png",
-      type: "profesional"
+      imageUrl: "../../assets/icons/professional/creativity.png",
+      type: "professional"
     },
     {
       icon: "User",
-      imageUrl: "../../assets/icons/profesional/connection.png",
-      type: "profesional"
+      imageUrl: "../../assets/icons/professional/connection.png",
+      type: "professional"
     },
     {
       icon: "Leadership",
-      imageUrl: "../../assets/icons/profesional/leadership.png",
-      type: "profesional"
+      imageUrl: "../../assets/icons/professional/leadership.png",
+      type: "professional"
     },
     {
       icon: "Career",
-      imageUrl: "../../assets/icons/profesional/career.png",
-      type: "profesional"
+      imageUrl: "../../assets/icons/professional/career.png",
+      type: "professional"
     },
     {
       icon: "Search",
-      imageUrl: "../../assets/icons/profesional/success.png",
-      type: "profesional"
+      imageUrl: "../../assets/icons/professional/success.png",
+      type: "professional"
     },
     {
       icon: "Family",
       imageUrl: "../../assets/icons/about/family.png",
-      type: "aboutme"
-    },  
+      type: "about"
+    },
     {
       icon: "House",
       imageUrl: "../../assets/icons/about/house.png",
-      type: "aboutme"
+      type: "about"
     },
     {
       icon: "Park",
       imageUrl: "../../assets/icons/about/park.png",
-      type: "aboutme"
+      type: "about"
     },
     {
       icon: "Postcard",
       imageUrl: "../../assets/icons/about/postcard.png",
-      type: "aboutme"
-    },  
+      type: "about"
+    },
     {
       icon: "Book",
       imageUrl: "../../assets/icons/about/book.png",
-      type: "aboutme"
+      type: "about"
     },
     {
       icon: "Hug",
       imageUrl: "../../assets/icons/about/hug.png",
-      type: "aboutme"
+      type: "about"
     },
     {
       icon: "Hiking",
       imageUrl: "../../assets/icons/about/hiking.png",
-      type: "aboutme"
+      type: "about"
     },
     {
       icon: "Ufo",
       imageUrl: "../../assets/icons/about/ufo.png",
-      type: "aboutme"
+      type: "about"
     },
     {
       icon: "Windmill",
       imageUrl: "../../assets/icons/about/windmill.png",
-      type: "aboutme"
+      type: "about"
     },
     {
       icon: "Bird",
@@ -202,7 +202,7 @@ export class VisualService {
     },
     {
       icon: "Seahorse",
-      imageUrl: "../../assets/icons/origami/seahorse.png", 
+      imageUrl: "../../assets/icons/origami/seahorse.png",
       type: "hardskills"
     },
     {
@@ -239,7 +239,7 @@ export class VisualService {
       icon: "Dinosaur",
       imageUrl: "../../assets/icons/origami/dinosaur.png",
       type: "hardskills"
-    },    
+    },
     {
       icon: "Parrot",
       imageUrl: "../../assets/icons/origami/parrot.png",
