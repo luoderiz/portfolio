@@ -1,10 +1,3 @@
-/*
-import { Injectable, Input } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs';
-import { AbstractControl, Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
-*/
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -14,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthenticationService {
   private AUTH_URL: string = 'http://localhost:8080/api/login';
-
+  private REG_URL: string = 'http://localhost:8080/api/register';
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
@@ -30,20 +23,19 @@ export class AuthenticationService {
       httpOptions);
   }
 
-  /* todo: add registry 
-
-  register(username: string, email: string, password: string): Observable<any> {
+  register(username: string, password: string, email: string, name: string, surname: string): Observable<any> {
     let params: URLSearchParams = new URLSearchParams;
     params.set("username", username);
     params.set("email", email);  
     params.set("password", password);  
+    params.set("name", name);
+    params.set("surname", surname);
     const httpOptions = { headers: new HttpHeaders(
       { 'Content-Type': 'application/x-www-form-urlencoded' }
       )};
     return this.http.post(
-      this.AUTH_URL, 
+      this.REG_URL, 
       params,
       httpOptions);
   }
-  */
 }

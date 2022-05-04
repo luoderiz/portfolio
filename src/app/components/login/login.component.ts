@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formbuilder: FormBuilder, private authService: AuthenticationService, private tokenStorage: TokenStorageService, private route: Router) { 
     this.loginForm = this.formbuilder.group({
-      username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+      username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
     });
   }

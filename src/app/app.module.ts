@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { DataService } from './common/data.service';
 import { VisualService } from './common/visual.service';
+import { authInterceptorProviders } from './common/auth.interceptor';
 
 import { CustomDatePipe } from './common/customdate.pipe';
 
@@ -54,11 +55,12 @@ import { EditComponent } from './components/edit/edit.component';
       {path: 'education', component: MainmapComponent},
       {path: 'book', component: BookComponent},  
       {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent},
       {path: '', redirectTo: 'welcome', pathMatch: "full"},
       {path: '**', component: NotfoundComponent, pathMatch: "full"}
     ]),
   ],
-  providers: [DataService, VisualService],
+  providers: [DataService, VisualService, authInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
