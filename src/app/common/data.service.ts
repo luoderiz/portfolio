@@ -13,7 +13,7 @@ import {IEducation} from "../components/card/education";
 })
 
 export class DataService {
-  private dataServiceUrl: string = 'http://localhost:8080/api';
+  private dataServiceUrl: string = 'http://localhost:8080/api/user/luoderiz';
 
   constructor(private http: HttpClient) {}
 
