@@ -6,6 +6,7 @@ import { ISkill } from './skill';
 import { IProject } from './project';
 import { ActivatedRoute } from '@angular/router';
 import { IEducation } from './education';
+import {TokenStorageService} from "../../common/token-storage.service";
 
 @Component({
   selector: 'app-card',
@@ -67,7 +68,7 @@ export class CardComponent implements OnInit {
     details:"",
     person_id:1};
 
-  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
+  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.cardType = String(this.activatedRoute.snapshot.url[0].path);

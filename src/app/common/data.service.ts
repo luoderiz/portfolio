@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import { IWorkexperience } from '../components/card/workexperience';
 import { IAbout } from '../components/card/about';
 import { ISkill } from '../components/card/skill';
@@ -7,53 +7,57 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
 import {IEducation} from "../components/card/education";
+import {TokenStorageService} from "./token-storage.service";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class DataService {
-  private dataServiceUrl: string = 'http://localhost:8080/api/user/luoderiz';
 
-  constructor(private http: HttpClient) {}
+  loggedUser = this.tokenStorageService.getUser();
+
+  private dataServiceUrl: string = 'http://localhost:8080/api/user/';
+
+  constructor(private http: HttpClient, private  tokenStorageService: TokenStorageService) {}
 
   getEducation(): Observable<any>{
-    return this.http.get<IEducation[]>(this.dataServiceUrl+'/education').pipe(
+    return this.http.get<IEducation[]>(this.dataServiceUrl+ this.loggedUser +'/education').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getAbout(): Observable<IAbout[]> {
-    return this.http.get<IAbout[]>(this.dataServiceUrl+'/about').pipe(
+    return this.http.get<IAbout[]>(this.dataServiceUrl+ this.loggedUser +'/about').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getWorkExperience(): Observable<IWorkexperience[]> {
-    return this.http.get<IWorkexperience[]>(this.dataServiceUrl+'/workexperience').pipe(
+    return this.http.get<IWorkexperience[]>(this.dataServiceUrl+ this.loggedUser +'/workexperience').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getSoftSkill(): Observable<ISkill[]> {
-    return this.http.get<ISkill[]>(this.dataServiceUrl+'/softskill').pipe(
+    return this.http.get<ISkill[]>(this.dataServiceUrl+ this.loggedUser +'/softskill').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getHardSkill(): Observable<ISkill[]> {
-    return this.http.get<ISkill[]>(this.dataServiceUrl+'/hardskill').pipe(
+    return this.http.get<ISkill[]>(this.dataServiceUrl+ this.loggedUser +'/hardskill').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getProjects(): Observable<IProject[]> {
-    return this.http.get<IProject[]>(this.dataServiceUrl+'/project').pipe(
+    return this.http.get<IProject[]>(this.dataServiceUrl+ this.loggedUser +'/project').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
