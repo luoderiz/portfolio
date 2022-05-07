@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/common/data.service';
 import { IAbout } from '../card/about';
 import { IWorkexperience } from '../card/workexperience';
@@ -29,6 +29,7 @@ export class BookComponent implements OnInit {
   allSoftSkill!: ISkill[];
   allHardSkill!: ISkill[];
   allProjects!: IProject[];
+
   errorMessage: any;
 
   constructor(private dataService: DataService, private visualService: VisualService) { }

@@ -1,7 +1,7 @@
 import { IInstitution } from "./institution";
 
 export interface IEducation {
-    id: number;
+    education_id: number;
     degree: string;
     date_from: string;
     date_to: string;

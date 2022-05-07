@@ -20,7 +20,7 @@ export class CardComponent implements OnInit {
 
   allEducation!: IEducation[];
   education: IEducation = {
-    id: 0,
+    education_id: 0,
     degree: "",
     date_from: "",
     date_to: "",
@@ -32,7 +32,8 @@ export class CardComponent implements OnInit {
 
   allWorkexperience!: IWorkexperience[];
   workexperience: IWorkexperience = {
-    workexperience_id: 0, position: "",
+    workexperience_id: 0,
+    position: "",
     date_from: "",
     date_to: "2",
     details: "",
@@ -43,22 +44,24 @@ export class CardComponent implements OnInit {
     city: ""}};
 
   allAbout!: IAbout[];
-  about: IAbout = {id:1,
+  about: IAbout = {
+    about_id:1,
     about:"",
     person_id:1};
 
   allSoftSkill!: ISkill[];
-  softSkill: ISkill = {id:1,
+  softSkill: ISkill = {
     skill:"",
-    person_id:1};
+    person_id:1,
+    skill_id:1};
 
   allHardSkill!: ISkill[];
-  hardSkill: ISkill = {id:1,
+  hardSkill: ISkill = {skill_id:1,
     skill:"",
     person_id:1};
 
   allProjects!: IProject[];
-  projects: IProject = {id:1,
+  projects: IProject = {project_id:1,
     name:"",
     url:"",
     details:"",
@@ -92,19 +95,19 @@ export class CardComponent implements OnInit {
         },
         error: err => this.errorMessage = err,
       });
-    } else if (this.cardType === "hardskill") {
+    } else if (this.cardType === "hardskills") {
       this.dataService.getHardSkill().subscribe({
         next: allHardSkill => {
           this.allHardSkill = allHardSkill;
-          this.hardSkill = this.allHardSkill[this.cardIndicator];
+         this.hardSkill = this.allHardSkill[this.cardIndicator];
         },
         error: err => this.errorMessage = err,
       });
-    } else if (this.cardType === "softskill") {
+    } else if (this.cardType === "softskills") {
       this.dataService.getSoftSkill().subscribe({
         next: allSoftSkill => {
           this.allSoftSkill = allSoftSkill;
-          this.softSkill = this.allSoftSkill[this.cardIndicator];
+          this.softSkill = this.allSoftSkill[0];
         },
         error: err => this.errorMessage = err,
       });
@@ -118,5 +121,21 @@ export class CardComponent implements OnInit {
       });
     }
   }
+
+  ngOnChanges(): void {
+    if (this.cardType === "about") {
+      this.about = this.allAbout[this.cardIndicator];
+    } else if (this.cardType === "professional") {
+      this.workexperience = this.allWorkexperience[this.cardIndicator];
+    } else if (this.cardType === "education") {
+      this.education = this.allEducation[this.cardIndicator];
+    } else if (this.cardType === "hardskills") {
+      this.hardSkill = this.allHardSkill[this.cardIndicator];
+    } else if (this.cardType === "softskills") {
+      this.softSkill = this.allSoftSkill[this.cardIndicator];
+    } else if (this.cardType === "projects") {
+      this.projects = this.allProjects[this.cardIndicator];
+    }
+  };
 
 }

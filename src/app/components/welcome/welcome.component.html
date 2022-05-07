@@ -1,22 +1,22 @@
 <div class="container-fluid" id="welcome">
     <div class="row row-cols-12 h-25">
-        <div class="col-12">
+        <div class="col-12" id="title">
             {{pageTitle}}
         </div>
     </div>
-    <div class="row row-cols-12 h-25">
+    <div class="row row-cols-12 h-25" id="description">
         <div class="col-12">
             {{pageDescription}}
         </div>
     </div>
     <div class="row row-cols-12 h-50">
         <div class="col-6">
-            <button type="button" class="btn btn-outline-light" [routerLink]="['/about']">
+            <button type="button" id="map" class="btn btn-outline-light" [routerLink]="['/about']">
             {{pageMapAlternative}}
             </button>
         </div>
         <div class="col-6">
-            <button type="button" class="btn btn-outline-light" [routerLink]="['/book']">
+            <button type="button" id="book" class="btn btn-outline-light" [routerLink]="['/book']">
             {{pageBookAlternative}}
             </button>
         </div>

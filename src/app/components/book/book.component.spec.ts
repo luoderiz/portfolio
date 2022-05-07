@@ -1,5 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import { BookComponent } from './book.component';
 
 describe('BookComponent', () => {
@@ -22,4 +21,7 @@ describe('BookComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('expects service to fetch data with proper sorting'
+  );
 });
