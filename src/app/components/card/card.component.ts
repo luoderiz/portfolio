@@ -19,6 +19,8 @@ export class CardComponent implements OnInit {
   cardType: string = "";
   content?: any;
 
+  isLoggedIn!: boolean;
+
   allEducation!: IEducation[];
   education: IEducation = {
     education_id: 0,
@@ -121,6 +123,7 @@ export class CardComponent implements OnInit {
         error: err => this.errorMessage = err,
       });
     }
+    this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
   }
 
   ngOnChanges(): void {
@@ -137,6 +140,7 @@ export class CardComponent implements OnInit {
     } else if (this.cardType === "projects") {
       this.projects = this.allProjects[this.cardIndicator];
     }
+    this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
   };
 
 }
