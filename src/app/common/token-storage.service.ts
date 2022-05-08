@@ -10,7 +10,7 @@ private USER_KEY = 'auth-user';
 
   constructor() { }
 
-  signOut(): void {
+    public signOut(): void {
     window.sessionStorage.clear();
   }
 
@@ -30,4 +30,8 @@ private USER_KEY = 'auth-user';
       let user = window.sessionStorage.getItem(this.USER_KEY);
       return user;
     }
+
+   public isUserLoggedIn(): boolean {
+     return !!this.getToken();
+   }
 }

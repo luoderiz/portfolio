@@ -4,14 +4,25 @@
       </div>
       <div class="col-6">
         <h1 routerLink='/welcome' id="welcome">{{title}}</h1>
-        <p id="subtitle">{{name}}<p> 
+        <p id="subtitle">{{name}}<p>
       </div>
       <div class="col-3 justify-content-end d-flex p-2" id="icons">
-          <a href="./login" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+
+        <div *ngIf="!isLoggedIn">
+          <button [routerLink]="['/login']" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <img src="../../../assets/icons/edit/lock.png" alt="Log in" width="70">
             <p>log in</p>
-          </a>
-          <a href="./book" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          </button>
+        </div>
+
+        <div *ngIf="isLoggedIn">
+          <button (click)="logout()" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <img src="../../../assets/icons/edit/lock.png" alt="Log out" width="70" >
+            <p>log out</p>
+          </button>
+        </div>
+
+        <a href="./book" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <img src="../../../assets/icons/edit/eye.png" alt="Log in" width="70">
             <p>book mode</p>
           </a>
@@ -22,5 +33,6 @@
             <svg class="bi" ><use xlink:href="#facebook"/></svg>
           </a>
       </div>
+
   </div>
 </header>

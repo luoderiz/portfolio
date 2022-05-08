@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Portfolio';
 
-  constructor() { }
-  ngOnInit(): void {
-}
+  constructor() {
+  }
+
+  ngOnInit(): void {}
+
 }
