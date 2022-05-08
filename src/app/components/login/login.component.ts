@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveUser(data.username);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.route.navigate(['/welcome']);
-        window.location.reload;
+        this.route.navigate(['/welcome']).then(() => window.location.reload());
       },
       error: err => {
         this.errorMessage = err.error.message;
