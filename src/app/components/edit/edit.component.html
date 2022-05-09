@@ -1,11 +1,14 @@
  <ul class="nav flex-column">
-  <li class="nav-item">
+  <li class="nav-item"
+      (click)="add()">
       <img class="img-fluid" src="../../../assets/icons/edit/add.png" alt="Add" >
   </li>
-  <li class="nav-item">
+  <li class="nav-item"
+      (click)="alter()">
       <img class="img-fluid" src="../../../assets/icons/edit/edit.png" alt="Edit" >
   </li>
-  <li class="nav-item">
-      <img class="img-fluid" src="../../../assets/icons/edit/trash.png" alt="Delete">
+  <li class="nav-item"
+      (click)="delete()">
+          <img class="img-fluid" src="../../../assets/icons/edit/trash.png" alt="Delete">
   </li>
 </ul>

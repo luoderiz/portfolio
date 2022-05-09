@@ -2,6 +2,7 @@ import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {TokenStorageService} from "../../common/token-storage.service";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../common/authentication.service";
+import {DataService} from "../../common/data.service";
 
 @Component({
   selector: 'app-header',
@@ -10,17 +11,22 @@ import {AuthenticationService} from "../../common/authentication.service";
 })
 export class HeaderComponent implements OnInit, OnChanges{
   title = 'Portfolio';
-  name = 'Lucía Oderiz Mesropian';
+  person!: any;
 
   logout() {
     this.authenticationService.logout();
   }
-  constructor(private tokenStorageService: TokenStorageService, private route: Router, private authenticationService: AuthenticationService) { }
+
+  constructor(private dataService: DataService, private tokenStorageService: TokenStorageService, private route: Router, private authenticationService: AuthenticationService) { }
 
   isLoggedIn!: boolean;
 
   ngOnInit(): void {
     this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
+    this.dataService.getPerson().subscribe({
+      next: person => {
+        this.person = person}
+    });
   }
 
   ngOnChanges(): void {

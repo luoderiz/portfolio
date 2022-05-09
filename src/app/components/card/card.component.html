@@ -1,8 +1,7 @@
 
 <div id="editbox" *ngIf="this.isLoggedIn">
-<app-edit></app-edit>
+<app-edit [dataId]='dataId'></app-edit>
 </div>
-
 
 <div id="cardbox">
   <div *ngIf="cardType === 'professional'" class="container-fluid" id="professionalCard">

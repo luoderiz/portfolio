@@ -1,13 +1,13 @@
-import {Injectable} from '@angular/core';
+import { Injectable} from '@angular/core';
 import { IWorkexperience } from '../components/card/workexperience';
 import { IAbout } from '../components/card/about';
 import { ISkill } from '../components/card/skill';
 import { IProject } from '../components/card/project';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
-import {IEducation} from "../components/card/education";
-import {TokenStorageService} from "./token-storage.service";
+import { IEducation} from "../components/card/education";
+import { TokenStorageService} from "./token-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,14 @@ export class DataService {
 
   constructor(private http: HttpClient, private  tokenStorageService: TokenStorageService) {}
 
-  getEducation(): Observable<any>{
+  getPerson(): Observable<any>{
+    return this.http.get(this.dataServiceUrl+ this.loggedUser+'/person').pipe(
+      tap( data => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  getEducation(): Observable<IEducation[]>{
     return this.http.get<IEducation[]>(this.dataServiceUrl+ this.loggedUser +'/education').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
@@ -31,6 +38,24 @@ export class DataService {
   getAbout(): Observable<IAbout[]> {
     return this.http.get<IAbout[]>(this.dataServiceUrl+ this.loggedUser +'/about').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  postAbout(about: string): Observable<IAbout>  {
+    let params: URLSearchParams = new URLSearchParams;
+    params.set("about", about);
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.post<IAbout>(
+      this.dataServiceUrl + this.loggedUser +'/about',
+      params,
+      httpOptions);
+  }
+
+  deleteAbout(dataId: number): Observable<unknown>  {
+    return this.http.delete<IAbout>(this.dataServiceUrl + this.loggedUser +'/about/' + dataId).pipe(
       catchError(this.handleError)
     );
   }
