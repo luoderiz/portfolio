@@ -1,6 +1,11 @@
 
 <div id="editbox" *ngIf="this.isLoggedIn">
-<app-edit [dataId]='dataId'></app-edit>
+<app-edit
+  [dataId]='dataId'
+  [cardType]='cardType'
+>
+
+</app-edit>
 </div>
 
 <div id="cardbox">

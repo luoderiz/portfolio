@@ -3,10 +3,10 @@ import { IWorkexperience } from '../components/card/workexperience';
 import { IAbout } from '../components/card/about';
 import { ISkill } from '../components/card/skill';
 import { IProject } from '../components/card/project';
+import { IEducation} from "../components/card/education";
 import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
-import { IEducation} from "../components/card/education";
 import { TokenStorageService} from "./token-storage.service";
 
 @Injectable({
@@ -54,7 +54,7 @@ export class DataService {
       httpOptions);
   }
 
-  deleteAbout(dataId: number): Observable<unknown>  {
+  deleteAbout(dataId: number): Observable<IAbout>  {
     return this.http.delete<IAbout>(this.dataServiceUrl + this.loggedUser +'/about/' + dataId).pipe(
       catchError(this.handleError)
     );
@@ -74,6 +74,24 @@ export class DataService {
     );
   }
 
+  postSoftSkill(softskill: string): Observable<ISkill>  {
+    let params: URLSearchParams = new URLSearchParams;
+    params.set("softskill", softskill);
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.post<ISkill>(
+      this.dataServiceUrl + this.loggedUser +'/softskill',
+      params,
+      httpOptions);
+  }
+
+  deleteSoftSkill(dataId: number): Observable<ISkill>  {
+    return this.http.delete<ISkill>(this.dataServiceUrl + this.loggedUser +'/softskill/' + dataId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   getHardSkill(): Observable<ISkill[]> {
     return this.http.get<ISkill[]>(this.dataServiceUrl+ this.loggedUser +'/hardskill').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
@@ -81,9 +99,47 @@ export class DataService {
     );
   }
 
+  postHardSkill(hardskill: string): Observable<ISkill>  {
+    let params: URLSearchParams = new URLSearchParams;
+    params.set("hardskill", hardskill);
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.post<ISkill>(
+      this.dataServiceUrl + this.loggedUser +'/hardskill',
+      params,
+      httpOptions);
+  }
+
+  deleteHardSkill(dataId: number): Observable<ISkill>  {
+    return this.http.delete<ISkill>(this.dataServiceUrl + this.loggedUser +'/hardskill/' + dataId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   getProjects(): Observable<IProject[]> {
     return this.http.get<IProject[]>(this.dataServiceUrl+ this.loggedUser +'/project').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  postProjects(projectname: string, projectdetails: string, projecturl: string): Observable<IProject>  {
+    let params: URLSearchParams = new URLSearchParams;
+    params.set("name", projectname);
+    params.set("details", projectdetails);
+    params.set("url", projecturl);
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.post<IProject>(
+      this.dataServiceUrl + this.loggedUser +'/project',
+      params,
+      httpOptions);
+  }
+
+  deleteProject(dataId: number): Observable<unknown>  {
+    return this.http.delete<IProject>(this.dataServiceUrl + this.loggedUser +'/project/' + dataId).pipe(
       catchError(this.handleError)
     );
   }

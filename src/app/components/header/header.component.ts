@@ -3,6 +3,7 @@ import {TokenStorageService} from "../../common/token-storage.service";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../common/authentication.service";
 import {DataService} from "../../common/data.service";
+import {IPerson} from "./person";
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,14 @@ import {DataService} from "../../common/data.service";
 })
 export class HeaderComponent implements OnInit, OnChanges{
   title = 'Portfolio';
-  person!: any;
+  person: IPerson = {
+    id: 0,
+    name: "",
+    surname: "",
+    git: "",
+    mail: "",
+    username: ""
+  }
 
   logout() {
     this.authenticationService.logout();
@@ -25,7 +33,7 @@ export class HeaderComponent implements OnInit, OnChanges{
     this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
     this.dataService.getPerson().subscribe({
       next: person => {
-        this.person = person}
+        this.person = person }
     });
   }
 

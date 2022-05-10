@@ -61,9 +61,10 @@ export class CardComponent implements OnInit {
     skill_id:1};
 
   allHardSkill!: ISkill[];
-  hardSkill: ISkill = {skill_id:1,
+  hardSkill: ISkill = {
     skill:"",
-    person_id:1};
+    person_id:1,
+    skill_id:1};
 
   allProjects!: IProject[];
   projects: IProject = {project_id:1,
@@ -115,7 +116,6 @@ export class CardComponent implements OnInit {
          this.hardSkill = this.allHardSkill[this.cardIndicator];
           this.dataId = this.hardSkill.skill_id;
           this.personId = this.hardSkill.person_id;
-
         },
         error: err => this.errorMessage = err,
       });
@@ -123,10 +123,9 @@ export class CardComponent implements OnInit {
       this.dataService.getSoftSkill().subscribe({
         next: allSoftSkill => {
           this.allSoftSkill = allSoftSkill;
-          this.softSkill = this.allSoftSkill[0];
+          this.softSkill = this.allSoftSkill[this.cardIndicator];
           this.dataId = this.softSkill.skill_id;
           this.personId = this.softSkill.person_id;
-
         },
         error: err => this.errorMessage = err,
       });
