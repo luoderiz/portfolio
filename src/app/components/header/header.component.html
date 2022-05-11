@@ -7,31 +7,26 @@
         <p id="subtitle">{{person.name}} {{person.surname}}<p>
       </div>
       <div class="col-3 justify-content-end d-flex p-2" id="icons">
-
         <div *ngIf="!isLoggedIn">
-          <button [routerLink]="['/login']" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <a [routerLink]="['/login']" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <img src="../../../assets/icons/edit/lock.png" alt="Log in" width="70">
-            <p>log in</p>
-          </button>
+            <span class="badge bg-dark">Log in</span>
+          </a>
         </div>
 
         <div *ngIf="isLoggedIn">
-          <button (click)="logout()" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <a (click)="logout()" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <img src="../../../assets/icons/edit/lock.png" alt="Log out" width="70" >
-            <p>log out</p>
-          </button>
+            <span class="badge bg-dark">Log out</span>
+          </a>
         </div>
 
-        <a href="./book" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        <div>
+          <a href="./book" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <img src="../../../assets/icons/edit/eye.png" alt="Log in" width="70">
-            <p>book mode</p>
+          <span class="badge bg-dark">book mode</span>
           </a>
-          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <svg class="bi" ><use xlink:href="#instagram"/></svg>
-          </a>
-          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <svg class="bi" ><use xlink:href="#facebook"/></svg>
-          </a>
+        </div>
       </div>
 
   </div>

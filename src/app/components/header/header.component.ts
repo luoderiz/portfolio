@@ -13,7 +13,6 @@ import {IPerson} from "./person";
 export class HeaderComponent implements OnInit, OnChanges{
   title = 'Portfolio';
   person: IPerson = {
-    id: 0,
     name: "",
     surname: "",
     git: "",

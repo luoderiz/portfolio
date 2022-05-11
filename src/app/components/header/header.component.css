@@ -1,11 +1,9 @@
 header {
   padding-block: 1vw;
-  background-color: #8DBB7D;
-  color: #343a40;
   text-align: center;
   font-size: medium;
 }
-  
+
 .bi {
   vertical-align: -.125em;
   fill: #343a40;
