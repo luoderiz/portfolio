@@ -1,14 +1,14 @@
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-title">Eliminar {{cardAlias}}</h4>
-  <button type="button" class="btn-close" aria-describedby="modal-title"></button>
+  <h4 class="modal-title" id="modal-title">Eliminar <span class="text-primary"> {{cardAlias}} </span> </h4>
+  <button type="button" class="btn-close" aria-describedby="modal-delete" (click)="dismiss()"></button>
 </div>
 <div class="modal-body">
-  <p><strong>¿Estás seguro de que deseas eliminar este <span class="text-primary"> {{dataTitle}} </span> de tu perfil?</strong></p>
+  <p><strong>¿Estás seguro de que deseas eliminar </strong>"{{dataTitle}}"<strong> de tu perfil?</strong></p>
   <p>La información se perderá en forma definitiva.
     <span class="text-danger">Esta acción no puede deshacerse.</span>
   </p>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('Cancelar')">Cancelar</button>
-  <button type="button" class="btn btn-danger" (click)="this.modal.close()">Eliminar</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Cancelar</button>
+  <button type="button" class="btn btn-danger" (click)="close()">Eliminar</button>
 </div>

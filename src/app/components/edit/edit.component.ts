@@ -1,4 +1,4 @@
-import {Component, Input, Type, OnInit, OnChanges} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {faPen, faTrashCan, faSquarePlus} from "@fortawesome/free-solid-svg-icons";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {AddComponent} from "./add/add.component";
@@ -23,15 +23,7 @@ export class EditComponent {
   faTrashCan = faTrashCan;
   faSquarePlus = faSquarePlus;
 
-  constructor(private dataService: DataService, private tokenStorageService: TokenStorageService, private _modalService: NgbModal) { }
-
-  MODALS: {[name: string]: Type<any>} = {
-    deleteModal: DeleteComponent,
-    addModal: AddComponent,
-    changeModal: ChangeComponent
-  };
-
-  open(deleteModal: string) { this._modalService.open(DeleteComponent); }
+  constructor(private dataService: DataService, private tokenStorageService: TokenStorageService, private modalService: NgbModal) { }
 
   OnInit(): void {
     this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
@@ -39,6 +31,37 @@ export class EditComponent {
 
   OnChanges(): void {
     this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
+
   }
 
+  openDeleteModal(){
+    const modalRef = this.modalService.open(DeleteComponent);
+    modalRef.componentInstance.dataId = this.dataId;
+    modalRef.componentInstance.cardType = this.cardType;
+    modalRef.componentInstance.dataTitle = this.dataTitle;
+    modalRef.componentInstance.cardAlias = this.cardAlias;
+    modalRef.result.then((result) => {
+      if (result) {
+        console.log(result);
+      }
+    });
+    }
+
+
+
+  openAddModal(){
+    const modalRef = this.modalService.open(AddComponent);
+    modalRef.componentInstance.dataId = this.dataId;
+    modalRef.componentInstance.cardType = this.cardType;
+    modalRef.componentInstance.dataTitle = this.dataTitle;
+    modalRef.componentInstance.cardAlias = this.cardAlias;
+  }
+
+  openChangeModal(){
+    const modalRef = this.modalService.open(ChangeComponent);
+    modalRef.componentInstance.dataId = this.dataId;
+    modalRef.componentInstance.cardType = this.cardType;
+    modalRef.componentInstance.dataTitle = this.dataTitle;
+    modalRef.componentInstance.cardAlias = this.cardAlias;
+  }
 }

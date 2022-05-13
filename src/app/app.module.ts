@@ -4,11 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 import { DataService } from './common/data.service';
 import { VisualService } from './common/visual.service';
 import { authInterceptorProviders } from './common/auth.interceptor';
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 import { CustomDatePipe } from './common/customdate.pipe';
 
@@ -44,10 +44,10 @@ import { ChangeComponent } from './components/edit/change/change.component';
     BookComponent,
     LoginComponent,
     EditComponent,
-    CustomDatePipe,
     AddComponent,
-    DeleteComponent,
     ChangeComponent,
+    DeleteComponent,
+    CustomDatePipe,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +68,7 @@ import { ChangeComponent } from './components/edit/change/change.component';
     ]),
     FontAwesomeModule,
   ],
-  providers: [DataService, VisualService, authInterceptorProviders],
+  providers: [DataService, VisualService, authInterceptorProviders, NgbModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

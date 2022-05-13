@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from "../../../common/data.service";
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-delete',
@@ -13,14 +13,27 @@ export class DeleteComponent implements OnInit {
   @Input() dataTitle!: string;
   @Input() cardAlias!: string;
 
-  constructor(private dataService: DataService, public modal: NgbActiveModal, private _modalService: NgbActiveModal) { }
+  constructor(private dataService: DataService, public activeModal: NgbActiveModal, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.dataTitle = this.dataTitle;
-    this.cardAlias = this.cardAlias;
+    console.log('deleteModal recibe OK dataId '+ this.dataId);
+    console.log('deleteModal recibe OK cardType '+ this.cardType);
+    console.log('deleteModal recibe OK cardAlias '+ this.cardAlias);
+    console.log('deleteModal recibe OK dataTitle '+ this.dataTitle);
   }
 
-  delete(): void {
+  close() {
+    // todo return error
+    this.delete();
+    this.activeModal.close();
+  }
+
+  dismiss() {
+    this.activeModal.close();
+  }
+
+  delete() {
+    //todo catch error
     if (this.cardType === "about") {
       this.dataService.deleteAbout(this.dataId).subscribe();
       console.log(`User wants to delete ${this.dataId}`);
@@ -34,15 +47,12 @@ export class DeleteComponent implements OnInit {
     } else if (this.cardType === "hardskills") {
       this.dataService.deleteHardSkill(this.dataId).subscribe();
       console.log(`User wants to delete ${this.dataId}`);
-      this.modal.close('Eliminar');
     } else if (this.cardType === "softskills") {
       this.dataService.deleteSoftSkill(this.dataId).subscribe();
       console.log(`User wants to delete ${this.dataId}`);
-      this.modal.close('Eliminar');
     } else if (this.cardType === "projects") {
       this.dataService.deleteProject(this.dataId).subscribe();
       console.log(`User wants to delete ${this.dataId}`);
-      this.modal.close('Eliminar');
     }
 
   }
