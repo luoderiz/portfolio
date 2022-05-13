@@ -1,14 +1,12 @@
- <ul class="nav flex-column">
-  <li class="nav-item"
-      (click)="add()">
-      <img class="img-fluid" src="../../../assets/icons/edit/add.png" alt="Add" >
-  </li>
-  <li class="nav-item"
-      (click)="alter()">
-      <img class="img-fluid" src="../../../assets/icons/edit/edit.png" alt="Edit" >
-  </li>
-  <li class="nav-item"
-      (click)="delete()">
-          <img class="img-fluid" src="../../../assets/icons/edit/trash.png" alt="Delete">
-  </li>
-</ul>
+
+<div class="btn-group-vertical d-block d-inline-flex">
+   <button class="btn btn-outline-success text-primary me-2" (click)="open('addModal')">
+     <fa-icon [icon]="faSquarePlus"></fa-icon>
+   </button>
+   <button class="btn btn-outline-success text-primary me-2" (click)="open('changeModal')">
+     <fa-icon [icon]="faPen" class="fa-xs"></fa-icon>
+   </button>
+   <button class="btn btn-outline-success text-primary me-2" (click)="open('deleteModal')">
+     <fa-icon [icon]="faTrashCan"></fa-icon>
+   </button>
+ </div>

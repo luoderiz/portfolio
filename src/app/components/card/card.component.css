@@ -1,44 +1,19 @@
-.editbox{
-  float: left;
-}
-.cardbox{
-  float: right;
-}
-
-.container-fluid {
-  margin: 0 0 0 0;
-  padding: 1 2vw 1 1;
+d-flex {
   height: calc(75vw/3.015);
-  background-color: #212429;
+  max-height: calc(75vw/3.015);
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: local;
-  color: #E6DEC6;
 }
 
-.container-fluid .row {
-  max-height: calc((75vw/3.015)/3);
-  padding-inline-start: 0.3vw;
-  padding-inline-end: 0.3vw;
+#editbox {
+  width: 25%;
+  height: calc(75vw/3.015);
+  max-height: calc(75vw/3.015);
 }
 
-.container-fluid h1 {
-  text-align: center;
-  font-size: 1.6vw;
-  font-style: italic;
-}
-
-.container-fluid h2 {
-  font-size: 1.5vw;
-  text-align: justify;
-}
-
-.container-fluid h3 {
-  font-size: 1.3vw;
-  text-align: justify;
-}
-
-.container-fluid p {
-  font-size: 1.3vw;
-  text-align: justify;
+#infobox {
+  width: 85%;
+  height: calc(75vw/3.015);
+  max-height: calc(75vw/3.015);
 }

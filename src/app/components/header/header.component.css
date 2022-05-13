@@ -1,24 +1,9 @@
-header {
-  padding-block: 1vw;
-  text-align: center;
-  font-size: medium;
-}
-
 .bi {
   vertical-align: -.125em;
   fill: #343a40;
   width: 2.4vw;
   height: 2.4vw;
 }
-
-#welcome {
-  font-size: 3.5vw;
-}
-
-#subtitle {
-  font-size: 2vw;
-}
-
 #icons p {
   color: #232527;
   font-weight: 600;

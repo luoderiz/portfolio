@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 import { DataService } from './common/data.service';
 import { VisualService } from './common/visual.service';
@@ -23,6 +25,9 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { BookComponent } from './components/book/book.component';
 import { LoginComponent } from './components/login/login.component';
 import { EditComponent } from './components/edit/edit.component';
+import { AddComponent } from './components/edit/add/add.component';
+import { DeleteComponent } from './components/edit/delete/delete.component';
+import { ChangeComponent } from './components/edit/change/change.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,10 @@ import { EditComponent } from './components/edit/edit.component';
     BookComponent,
     LoginComponent,
     EditComponent,
-    CustomDatePipe
+    CustomDatePipe,
+    AddComponent,
+    DeleteComponent,
+    ChangeComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,8 +66,9 @@ import { EditComponent } from './components/edit/edit.component';
       {path: '', redirectTo: 'welcome', pathMatch: "full"},
       {path: '**', component: NotfoundComponent, pathMatch: "full"}
     ]),
+    FontAwesomeModule,
   ],
-  providers: [DataService, VisualService, authInterceptorProviders ],
+  providers: [DataService, VisualService, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,30 +1,31 @@
 <header class="container-fluid">
     <div class="row row-cols-12">
       <div class="col-3">
+        <p></p>
       </div>
       <div class="col-6">
-        <h1 routerLink='/welcome' id="welcome">{{title}}</h1>
-        <p id="subtitle">{{person.name}} {{person.surname}}<p>
+        <h1 routerLink='/welcome' class="text-success text-center ">{{title}}</h1>
+        <h3 class="text-success text-center">{{person.name}} Lu {{person.surname}}</h3>
       </div>
-      <div class="col-3 justify-content-end d-flex p-2" id="icons">
+      <div class="col-3 justify-content-end d-flex align-items-center" id="icons">
         <div *ngIf="!isLoggedIn">
-          <a [routerLink]="['/login']" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <a [routerLink]="['/login']">
             <img src="../../../assets/icons/edit/lock.png" alt="Log in" width="70">
             <span class="badge bg-dark">Log in</span>
           </a>
         </div>
 
         <div *ngIf="isLoggedIn">
-          <a (click)="logout()" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <a (click)="logout()">
             <img src="../../../assets/icons/edit/lock.png" alt="Log out" width="70" >
             <span class="badge bg-dark">Log out</span>
           </a>
         </div>
 
         <div>
-          <a href="./book" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <a href="./book">
             <img src="../../../assets/icons/edit/eye.png" alt="Log in" width="70">
-          <span class="badge bg-dark">book mode</span>
+          <span class="badge bg-dark text-danger">book mode</span>
           </a>
         </div>
       </div>

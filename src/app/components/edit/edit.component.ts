@@ -1,79 +1,44 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, Type, OnInit, OnChanges} from '@angular/core';
+import {faPen, faTrashCan, faSquarePlus} from "@fortawesome/free-solid-svg-icons";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {AddComponent} from "./add/add.component";
+import {DeleteComponent} from "./delete/delete.component";
 import {DataService} from "../../common/data.service";
 import {TokenStorageService} from "../../common/token-storage.service";
+import {ChangeComponent} from "./change/change.component";
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
-export class EditComponent implements OnInit {
+export class EditComponent {
   @Input() dataId!: number;
   @Input() cardType!: string;
-  user!: any;
-  about!: string;
-  softskill!: string;
-  hardskill!: string;
-  projectname!: string;
-  projectdetails!: string;
-  projecturl!: string;
+  @Input() dataTitle!: string;
+  @Input() cardAlias!: string;
+  isLoggedIn!: boolean;
 
-  constructor(private dataService: DataService, private tokenStorageService: TokenStorageService) { }
+  faPen = faPen;
+  faTrashCan = faTrashCan;
+  faSquarePlus = faSquarePlus;
 
-  ngOnInit(): void {
+  constructor(private dataService: DataService, private tokenStorageService: TokenStorageService, private _modalService: NgbModal) { }
+
+  MODALS: {[name: string]: Type<any>} = {
+    deleteModal: DeleteComponent,
+    addModal: AddComponent,
+    changeModal: ChangeComponent
+  };
+
+  open(deleteModal: string) { this._modalService.open(DeleteComponent); }
+
+  OnInit(): void {
+    this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
   }
 
-  add(): void {
-    if (this.cardType === "about") {
-      this.about = "Yo quiero tener un millón de amigos";
-      this.dataService.postAbout(this.about).subscribe();
-      console.log(`User wants to post ${this.about} on ${this.user}`);
-      /*
-    } else if (this.cardType === "professional") {
-
-    } else if (this.cardType === "education") {
-*/
-    } else if (this.cardType === "hardskills") {
-      this.hardskill = "Music writing and reading";
-      this.dataService.postHardSkill(this.hardskill).subscribe();
-      console.log(`User wants to post ${this.hardskill} on ${this.user}`);
-    } else if (this.cardType === "softskills") {
-      this.softskill = "I can´t get no satisfaction";
-      this.dataService.postSoftSkill(this.softskill).subscribe();
-      console.log(`User wants to post ${this.softskill} on ${this.user}`);
-    } else if (this.cardType === "projects") {
-      this.projectname = "Centro Mick Jagger";
-      this.projectdetails = "El Centro Mick Jagger es un lugar de artes escénicas en Dartford, Kent, Inglaterra, Reino Unido, dentro de los terrenos de Dartford Grammar School. Lleva el nombre del cantante de los Rolling Stones, Mick Jagger, que era alumno de la escuela. Tiene dos escenarios principales y organiza talleres de teatro en verano.";
-      this.projecturl = "https://www.dartfordgrammarschool.org.uk/AboutUs/Welcome/";
-      this.dataService.postProjects(this.projectname, this.projectdetails, this.projecturl).subscribe();
-      console.log(`User wants to post ${this.projectname} with this url: ${this.projecturl} on ${this.user}. Details are ${this.projectdetails}`);
-
-    }
-  }
-
-  alter(): void {
-
-  }
-
-  delete(): void {
-    if (this.cardType === "about") {
-      this.dataService.deleteAbout(this.dataId).subscribe();
-      console.log(`User wants to delete ${this.dataId}`);
-      /*
-    } else if (this.cardType === "professional") {
-    } else if (this.cardType === "education") {
-*/
-    } else if (this.cardType === "hardskills") {
-      this.dataService.deleteHardSkill(this.dataId).subscribe();
-      console.log(`User wants to delete ${this.dataId}`);
-    } else if (this.cardType === "softskills") {
-      this.dataService.deleteSoftSkill(this.dataId).subscribe();
-      console.log(`User wants to delete ${this.dataId}`);
-    } else if (this.cardType === "projects") {
-      this.dataService.deleteProject(this.dataId).subscribe();
-      console.log(`User wants to delete ${this.dataId}`);
-    }
-
+  OnChanges(): void {
+    this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
   }
 
 }
