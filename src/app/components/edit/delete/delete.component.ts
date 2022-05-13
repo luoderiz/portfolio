@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from "../../../common/data.service";
 
 @Component({
@@ -7,13 +7,14 @@ import {DataService} from "../../../common/data.service";
   templateUrl: './delete.component.html',
   styleUrls: ['./delete.component.css']
 })
+
 export class DeleteComponent implements OnInit {
   @Input() dataId!: number;
   @Input() cardType!: string;
   @Input() dataTitle!: string;
   @Input() cardAlias!: string;
 
-  constructor(private dataService: DataService, public activeModal: NgbActiveModal, private modalService: NgbModal) { }
+  constructor(private dataService: DataService, public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
     console.log('deleteModal recibe OK dataId '+ this.dataId);

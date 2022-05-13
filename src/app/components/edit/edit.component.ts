@@ -29,10 +29,6 @@ export class EditComponent {
     this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
   }
 
-  OnChanges(): void {
-    this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
-
-  }
 
   openDeleteModal(){
     const modalRef = this.modalService.open(DeleteComponent);
@@ -55,6 +51,12 @@ export class EditComponent {
     modalRef.componentInstance.cardType = this.cardType;
     modalRef.componentInstance.dataTitle = this.dataTitle;
     modalRef.componentInstance.cardAlias = this.cardAlias;
+    modalRef.result.then((result) => {
+      if (result) {
+        console.log(result);
+      }
+    });
+
   }
 
   openChangeModal(){
@@ -63,5 +65,10 @@ export class EditComponent {
     modalRef.componentInstance.cardType = this.cardType;
     modalRef.componentInstance.dataTitle = this.dataTitle;
     modalRef.componentInstance.cardAlias = this.cardAlias;
+    modalRef.result.then((result) => {
+      if (result) {
+        console.log(result);
+      }
+    });
   }
 }

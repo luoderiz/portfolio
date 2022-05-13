@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DataService} from "../../../common/data.service";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add',
@@ -9,7 +12,9 @@ import {DataService} from "../../../common/data.service";
 export class AddComponent implements OnInit {
   @Input() dataId!: number;
   @Input() cardType!: string;
-  user!: any;
+  @Input() dataTitle!: string;
+  @Input() cardAlias!: string;
+
   about!: string;
   softskill!: string;
   hardskill!: string;
@@ -17,20 +22,49 @@ export class AddComponent implements OnInit {
   projectdetails!: string;
   projecturl!: string;
 
-  constructor(private dataService: DataService) { }
+  aboutForm!: FormGroup;
+  errorMessage = '';
 
   ngOnInit(): void {
+    this.aboutForm.get('inputAbout')?.valueChanges.subscribe();
   }
-  
-  add(): void {
-    if (this.cardType === "about") {
-      this.about = "Yo quiero tener un millón de amigos";
-      this.dataService.postAbout(this.about).subscribe();
-      console.log(`User wants to post ${this.about}`);
-      /*
-    } else if (this.cardType === "professional") {
 
-    } else if (this.cardType === "education") {
+  constructor(private dataService: DataService, public activeModal: NgbActiveModal, private formbuilder: FormBuilder, private route: Router) {
+    this.aboutForm = this.formbuilder.group({
+      inputAbout: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(1020)]]
+    });
+  }
+
+  submit(): void {
+    if (this.cardType === "about") {
+      this.about = this.aboutForm.get('inputAbout')?.value;
+      this.dataService.postAbout(this.about).subscribe({
+        next: () => {
+          window.location.reload();
+        },
+        error: err => this.errorMessage = err,
+      });
+    }
+  }
+
+  close() {
+    // todo return error
+    this.submit();
+    this.activeModal.close();
+  }
+
+    dismiss() {
+    this.activeModal.close();
+  }
+
+  add(): any {
+    if (this.cardType === "about") {
+      this.about = this.aboutForm.get('inputAbout')?.value.subscribe();
+      this.dataService.postAbout(this.about).subscribe();
+      /*
+ else if (this.cardType === "professional") {
+
+} else if (this.cardType === "education") {
 */
     } else if (this.cardType === "hardskills") {
       this.hardskill = "Music writing and reading";
@@ -46,7 +80,10 @@ export class AddComponent implements OnInit {
       this.projecturl = "https://www.dartfordgrammarschool.org.uk/AboutUs/Welcome/";
       this.dataService.postProjects(this.projectname, this.projectdetails, this.projecturl).subscribe();
       console.log(`User wants to post ${this.projectname} with this url: ${this.projecturl}. Details are ${this.projectdetails}`);
-
     }
+  }
+
+  get aboutField() {
+    return this.aboutForm.get('inputAbout');
   }
 }

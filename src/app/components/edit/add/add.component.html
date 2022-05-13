@@ -1,5 +1,25 @@
-<p
-  (click)="add()"
->change works!</p>
-
-
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Agregar <span class="text-primary"> {{cardAlias}} </span> </h4>
+  <button type="button" class="btn-close" aria-describedby="modal-add" (click)="dismiss()"></button>
+</div>
+<div class="modal-body">
+  <form novalidate
+        [formGroup]="aboutForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4"> Sobre mí: </label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los datos requeridos"
+             formControlName="inputAbout">
+      <p>Esta acción modificará su perfil.
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Cancelar</button>
+      <button type="button" class="btn btn-danger" (click)="close()"
+              [disabled]="aboutForm.invalid">Confirmar</button>
+    </div>
+    </div>
+</form>
+</div>
