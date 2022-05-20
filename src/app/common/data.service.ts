@@ -5,7 +5,7 @@ import { ISkill } from '../components/card/skill';
 import { IProject } from '../components/card/project';
 import { IEducation} from "../components/card/education";
 import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import {EMPTY, Observable, of, throwError} from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
 import { TokenStorageService} from "./token-storage.service";
 
@@ -14,6 +14,12 @@ import { TokenStorageService} from "./token-storage.service";
 })
 
 export class DataService {
+  allEducation!: IEducation[];
+  allWorkExperience!: IWorkexperience[];
+  allAbout!: IAbout[];
+  allSoftSkill!: ISkill[];
+  allHardSkill!: ISkill[];
+  allProjects!: IProject[];
 
   loggedUser = this.tokenStorageService.getUser();
 
@@ -28,18 +34,51 @@ export class DataService {
     );
   }
 
-  getEducation(): Observable<IEducation[]>{
+  getAllEducations(): Observable<IEducation[]>{
     return this.http.get<IEducation[]>(this.dataServiceUrl+ this.loggedUser +'/education').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
+      tap( data => this.allEducation = data),
       catchError(this.handleError)
     );
   }
 
-  getAbout(): Observable<IAbout[]> {
+  getEducation(educationId: number):Observable<IEducation> {
+    if (this.allEducation == null ){
+      this.getAllEducations().subscribe({
+        next: educations => {
+          return of(educations[educationId]);
+        }
+      })
+    }
+    if (educationId < this.allEducation.length ) {
+      return of(this.allEducation[educationId]);
+    }
+    return EMPTY;
+  }
+
+  getAllAbouts(): Observable<IAbout[]> {
+    if (this.allAbout != null ) {
+      return of(this.allAbout);
+    }
     return this.http.get<IAbout[]>(this.dataServiceUrl+ this.loggedUser +'/about').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
+      tap( data => this.allAbout = data),
       catchError(this.handleError)
     );
+  }
+
+  getAbout(aboutId: number):Observable<IAbout> {
+    if (this.allAbout == null ){
+      this.getAllAbouts().subscribe({
+        next: abouts => {
+          return of(abouts[aboutId]);
+        }
+      })
+    }
+    if (aboutId < this.allAbout.length ) {
+      return of(this.allAbout[aboutId]);
+    }
+    return EMPTY;
   }
 
   postAbout(about: string): Observable<IAbout>  {
@@ -60,18 +99,54 @@ export class DataService {
     );
   }
 
-  getWorkExperience(): Observable<IWorkexperience[]> {
+  getAllWorkExperiences(): Observable<IWorkexperience[]> {
+    if (this.allWorkExperience != null ) {
+      return of(this.allWorkExperience);
+    }
     return this.http.get<IWorkexperience[]>(this.dataServiceUrl+ this.loggedUser +'/workexperience').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
+      tap( data => this.allWorkExperience = data),
       catchError(this.handleError)
     );
   }
 
-  getSoftSkill(): Observable<ISkill[]> {
+  getWorkExperience(workExperienceId: number):Observable<IWorkexperience> {
+    if (this.allWorkExperience == null ){
+      this.getAllWorkExperiences().subscribe({
+        next: workExperiences => {
+          return of(workExperiences[workExperienceId]);
+        }
+      })
+    }
+    if (workExperienceId < this.allWorkExperience.length ) {
+      return of(this.allWorkExperience[workExperienceId]);
+    }
+    return EMPTY;
+  }
+
+  getAllSoftSkills(): Observable<ISkill[]> {
+    if (this.allSoftSkill != null ) {
+      return of(this.allSoftSkill);
+    }
     return this.http.get<ISkill[]>(this.dataServiceUrl+ this.loggedUser +'/softskill').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
+      tap( data => this.allSoftSkill = data),
       catchError(this.handleError)
     );
+  }
+
+  getSoftSkill(SoftSkillId: number):Observable<ISkill> {
+    if (this.allSoftSkill == null ){
+      this.getAllSoftSkills().subscribe({
+        next: softskills => {
+          return of(softskills[SoftSkillId]);
+        }
+      })
+    }
+    if (SoftSkillId < this.allSoftSkill.length ) {
+      return of(this.allSoftSkill[SoftSkillId]);
+    }
+    return EMPTY;
   }
 
   postSoftSkill(softskill: string): Observable<ISkill>  {
@@ -92,11 +167,29 @@ export class DataService {
     );
   }
 
-  getHardSkill(): Observable<ISkill[]> {
+  getAllHardSkills(): Observable<ISkill[]> {
+    if (this.allHardSkill != null ) {
+      return of(this.allHardSkill);
+    }
     return this.http.get<ISkill[]>(this.dataServiceUrl+ this.loggedUser +'/hardskill').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
+      tap( data => this.allHardSkill = data),
       catchError(this.handleError)
     );
+  }
+
+  getHardSkill(HardSkillId: number):Observable<ISkill> {
+    if (this.allHardSkill == null ){
+      this.getAllHardSkills().subscribe({
+        next: hardskills => {
+          return of(hardskills[HardSkillId]);
+        }
+      })
+    }
+    if (HardSkillId < this.allHardSkill.length ) {
+      return of(this.allHardSkill[HardSkillId]);
+    }
+    return EMPTY;
   }
 
   postHardSkill(hardskill: string): Observable<ISkill>  {
@@ -117,11 +210,29 @@ export class DataService {
     );
   }
 
-  getProjects(): Observable<IProject[]> {
+  getAllProjects(): Observable<IProject[]> {
+    if (this.allProjects != null ) {
+      return of(this.allProjects);
+    }
     return this.http.get<IProject[]>(this.dataServiceUrl+ this.loggedUser +'/project').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
+      tap( data => this.allProjects = data),
       catchError(this.handleError)
     );
+  }
+
+  getProject(ProjectId: number):Observable<IProject> {
+    if (this.allProjects == null ){
+      this.getAllProjects().subscribe({
+        next: projects => {
+          return of(projects[ProjectId]);
+        }
+      })
+    }
+    if (ProjectId < this.allProjects.length ) {
+      return of(this.allProjects[ProjectId]);
+    }
+    return EMPTY;
   }
 
   postProjects(projectname: string, projectdetails: string, projecturl: string): Observable<IProject>  {

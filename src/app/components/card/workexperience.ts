@@ -7,6 +7,5 @@ export interface IWorkexperience {
     date_to: string;
     details: string;
     person_id: number;
-    tag: Array<string>;
     institution: IInstitution;
   };

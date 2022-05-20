@@ -7,5 +7,4 @@ export interface IEducation {
     date_to: string;
     institution: IInstitution;
     person_id: number;
-    tag: Array<string>;
   };

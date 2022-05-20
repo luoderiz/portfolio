@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { DataService } from 'src/app/common/data.service';
 import { IAbout } from '../card/about';
 import { IWorkexperience } from '../card/workexperience';
@@ -14,6 +14,7 @@ import { VisualService } from 'src/app/common/visual.service';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
+
   allMenues!: IMenu[];
 
   educationTitle!: string;
@@ -44,42 +45,42 @@ export class BookComponent implements OnInit {
     this.softskillTitle = this.allMenues[4].menuText;
     this.projectsTitle = this.allMenues[5].menuText;
 
-    this.dataService.getEducation().subscribe({
+    this.dataService.getAllEducations().subscribe({
       next: allEducation => {
         this.allEducation = allEducation;
       },
       error: err => this.errorMessage = err,
     });
 
-    this.dataService.getWorkExperience().subscribe({
+    this.dataService.getAllWorkExperiences().subscribe({
       next: allWorkexperience => {
         this.allWorkexperience = allWorkexperience;
       },
       error: err => this.errorMessage = err,
     });
 
-    this.dataService.getAbout().subscribe({
+    this.dataService.getAllAbouts().subscribe({
       next: allAbout => {
         this.allAbout = allAbout;
       },
       error: err => this.errorMessage = err,
     });
 
-    this.dataService.getSoftSkill().subscribe({
+    this.dataService.getAllSoftSkills().subscribe({
       next: allSoftSkill => {
         this.allSoftSkill = allSoftSkill;
       },
       error: err => this.errorMessage = err,
     });
 
-    this.dataService.getHardSkill().subscribe({
+    this.dataService.getAllHardSkills().subscribe({
       next: allHardSkill => {
         this.allHardSkill = allHardSkill;
       },
       error: err => this.errorMessage = err,
     });
 
-    this.dataService.getProjects().subscribe({
+    this.dataService.getAllProjects().subscribe({
       next: allProjects => {
         this.allProjects = allProjects;
       },

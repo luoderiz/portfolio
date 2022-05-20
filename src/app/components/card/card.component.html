@@ -18,10 +18,10 @@
       </thead>
       <tbody class="text-gray-200">
       <tr>
-        <td>{{workexperience.institution.name}}</td>
+        <td>{{workexperience.institution.institution}}</td>
       </tr>
       <tr >
-        <td>{{workexperience.institution.city}}</td>
+        <td>{{workexperience.institution.city.city}}</td>
       </tr>
       <tr >
         <td>{{workexperience.date_from | customDate}} - {{workexperience.date_to | customDate}}</td>
@@ -40,10 +40,10 @@
     </thead>
     <tbody class="text-gray-200">
     <tr>
-      <td>{{education.institution.name}}</td>
+      <td>{{education.institution.institution}}</td>
     </tr>
     <tr >
-      <td>{{education.institution.city}}</td>
+      <td>{{education.institution.city.city}}</td>
     </tr>
     <tr >
       <td>{{education.date_from | customDate}} - {{education.date_to | customDate}}</td>

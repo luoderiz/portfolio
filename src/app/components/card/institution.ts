@@ -1,6 +1,8 @@
+import {ICity} from "./city";
+
 export interface IInstitution {
         institution_id: number;
-        name: string;
-        city: string;
+        institution: string;
+        city: ICity;
   };
 
