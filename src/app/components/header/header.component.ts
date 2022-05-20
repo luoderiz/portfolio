@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {AuthenticationService} from "../../common/authentication.service";
 import {DataService} from "../../common/data.service";
 import {IPerson} from "./person";
+import { faLock, faUnlock, faEye } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,10 @@ import {IPerson} from "./person";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnChanges{
+  faLock = faLock;
+  faUnlock = faUnlock;
+  faEye = faEye;
+
   title = 'Portfolio';
   person: IPerson = {
     name: "",

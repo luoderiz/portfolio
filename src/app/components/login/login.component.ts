@@ -3,6 +3,7 @@ import { TokenStorageService } from 'src/app/common/token-storage.service';
 import { AuthenticationService } from 'src/app/common/authentication.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { faLock } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   isLoggedIn = false;
   isLoginFailed = false;
+  faLock = faLock;
 
   ngOnInit(): void {
     this.loginForm.get('username')?.valueChanges.subscribe();

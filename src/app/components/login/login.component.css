@@ -10,8 +10,6 @@ body {
   align-items: center;
   padding-top: 1vw;
   padding-bottom: 1vw;
-  color: #8DBB7D;
-  background-color: #343a40;
 }
 
 .form {
@@ -33,11 +31,6 @@ body {
   padding: 0.5vw;
   margin: auto;
 }
-
-label {
-    color: #343a40;
-}
-
 input {
   z-index: 2;
 }
@@ -52,12 +45,4 @@ input {
   margin-bottom: 1vh;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
-
-button {
-    background-color: #4f7097;
-    border-color:  #bef2ff;
-    color: #bef2ff;
-    border-width: 0.6vw;
-    font-weight: bolder;
 }
