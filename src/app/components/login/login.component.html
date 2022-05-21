@@ -48,12 +48,18 @@
       </div>
 
       <button
-      class="w-100 btn btn-lg btn-success"
+      class="w-100 btn btn-success"
       type="submit"
       [disabled]="loginForm.invalid">
         Log in
       </button>
 
+      <button
+        [routerLink]="['/register']"
+        type="button"
+        class="w-100 btn btn-outline-success">
+        New user? Register!
+      </button>
     </form>
   </main>
 </body>

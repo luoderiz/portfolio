@@ -1,0 +1,110 @@
+<main>
+<form novalidate
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()" >
+    <h2 class="text-success text-center"><strong>
+      <fa-icon [icon]="faAddressCard"></fa-icon>
+    </strong></h2>
+    <h1 class="h3 mb-3 fw-normal text-center text-success">Please register</h1>
+
+    <div class="form">
+      <label class="col-form-label mt-4" for="name">name</label>
+      <input class="form-control"
+             id="name"
+             type="text"
+             placeholder="Name"
+             formControlName="name">
+      <div *ngIf="(UserName?.touched || UserName?.dirty) && !UserName?.valid" class="badge bg-danger">
+          <span  class="badge bg-danger" role="alert" *ngIf="UserName?.errors?.['required']">
+            Please enter your name.
+          </span>
+        <span  class="badge bg-danger" role="alert" *ngIf="UserName?.errors?.['maxlength']">
+            The name your provide must be shorter than 60 characters.
+          </span>
+      </div>
+    </div>
+
+    <div class="form">
+      <label class="col-form-label mt-4" for="surname">surname</label>
+      <input class="form-control"
+             id="surname"
+             type="text"
+             placeholder="Surname"
+             formControlName="surname">
+      <div *ngIf="(UserSurname?.touched || UserSurname?.dirty) && !UserSurname?.valid" class="badge bg-danger">
+          <span  class="badge bg-danger" role="alert" *ngIf="UserSurname?.errors?.['required']">
+            Please enter your surname.
+          </span>
+        <span  class="badge bg-danger" role="alert" *ngIf="UserSurname?.errors?.['maxlength']">
+            The surname you provide must be shorter than 60 characters.
+          </span>
+      </div>
+    </div>
+
+    <div class="form">
+      <label class="col-form-label mt-4" for="email">email</label>
+      <input class="form-control"
+             id="email"
+             type="text"
+             placeholder="Email"
+             formControlName="email">
+      <div *ngIf="(UserEMail?.touched || UserEMail?.dirty) && !UserEMail?.valid" class="badge bg-danger">
+          <span  class="badge bg-danger" role="alert" *ngIf="UserEMail?.errors?.['required']">
+            Please enter your email.
+          </span>
+        <span  class="badge bg-danger" role="alert" *ngIf="UserEMail?.errors?.['email']">
+            Please enter a valid email.
+          </span>
+      </div>
+    </div>
+
+    <div class="form">
+      <label class="col-form-label mt-4" for="username">username</label>
+      <input class="form-control"
+             id="username"
+             type="text"
+             placeholder="Username"
+             formControlName="username">
+      <div *ngIf="(UserUsername?.touched || UserUsername?.dirty) && !UserUsername?.valid" class="badge bg-danger">
+          <span  class="badge bg-danger" role="alert" *ngIf="UserUsername?.errors?.['required']">
+            Please enter your username.
+          </span>
+        <span  class="badge bg-danger" role="alert" *ngIf="UserUsername?.errors?.['minlength']">
+            The username must be longer than 4 characters.
+          </span>
+        <span  class="badge bg-danger" role="alert" *ngIf="UserUsername?.errors?.['maxlength']">
+            The username must be shorter than 10 characters.
+          </span>
+      </div>
+    </div>
+
+    <div class="form">
+      <label for="password" class="form-label mt-4">Password</label>
+      <input class="form-control"
+             id="password"
+             type="password"
+             placeholder="Password"
+             formControlName="password">
+      <div *ngIf="(UserPassword?.touched || UserPassword?.dirty) && !UserPassword?.valid"  class="badge bg-danger">
+          <span  class="badge bg-danger" role="alert" *ngIf="UserPassword?.errors?.['required']">
+            Please enter your password.
+          </span>
+        <span  class="badge bg-danger" role="alert" *ngIf="UserPassword?.errors?.['minlength']">
+            The password must be longer than 8 characters.
+          </span>
+        <span  class="badge bg-danger" role="alert" *ngIf="UserPassword?.errors?.['maxlength']">
+            The password must be shorter than 20 characters.
+          </span>
+      </div>
+    </div>
+
+    <button
+      class="w-100
+      btn btn-success"
+      type="submit"
+      [disabled]="registerForm.invalid">
+      Register
+    </button>
+
+  </form>
+  </main>

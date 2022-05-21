@@ -4,6 +4,8 @@ import { AuthenticationService } from 'src/app/common/authentication.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ErrormessageComponent} from "../register/errormessage/errormessage.component";
 
 @Component({
   selector: 'app-login',
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private formbuilder: FormBuilder, private authService: AuthenticationService, private tokenStorage: TokenStorageService, private route: Router) {
+  constructor(private formbuilder: FormBuilder, private authService: AuthenticationService, private tokenStorage: TokenStorageService, private route: Router, private modalService: NgbModal) {
     this.loginForm = this.formbuilder.group({
       username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],

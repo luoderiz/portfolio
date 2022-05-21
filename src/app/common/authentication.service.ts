@@ -26,13 +26,13 @@ export class AuthenticationService {
       httpOptions);
   }
 
-  register(username: string, password: string, email: string, name: string, surname: string): Observable<any> {
+  register(name: string, surname: string, email: string, username: string, password: string): Observable<any> {
     let params: URLSearchParams = new URLSearchParams;
-    params.set("username", username);
-    params.set("email", email);
-    params.set("password", password);
     params.set("name", name);
     params.set("surname", surname);
+    params.set("mail", email);
+    params.set("username", username);
+    params.set("password", password);
     const httpOptions = { headers: new HttpHeaders(
       { 'Content-Type': 'application/x-www-form-urlencoded' }
       )};

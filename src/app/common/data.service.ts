@@ -5,7 +5,7 @@ import { ISkill } from '../components/card/skill';
 import { IProject } from '../components/card/project';
 import { IEducation} from "../components/card/education";
 import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {EMPTY, Observable, of, throwError} from 'rxjs';
+import {EMPTY, map, Observable, of, throwError} from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
 import { TokenStorageService} from "./token-storage.service";
 
@@ -42,6 +42,47 @@ export class DataService {
     );
   }
 
+  numberOf(cardType: string): number {
+    if (cardType === 'about') {
+      if (this.allAbout != null) {
+        return this.allAbout.length;
+      } else {
+        console.log('about type en map da nulo');
+      }
+    } else if (cardType === 'education') {
+      if (this.allEducation != null) {
+        return this.allEducation.length;
+      } else {
+        console.log('education type en map da nulo');
+      }
+    } else if (cardType === 'professional') {
+      if (this.allWorkExperience != null) {
+        return this.allWorkExperience.length;
+      } else {
+        console.log('professional type en map da nulo');
+      }
+    } else if (cardType === 'hardskills') {
+      if (this.allHardSkill != null) {
+        return this.allHardSkill.length;
+      } else {
+        console.log('hardskills type en map da nulo');
+      }
+    } else if (cardType === 'softskills') {
+      if ( this.allSoftSkill != null ) {
+        return this.allSoftSkill.length;
+      } else {
+        console.log('softskills type en map da nulo');
+      }
+    } else if (cardType === 'projects') {
+      if ( this.allProjects != null ) {
+        return this.allProjects.length;
+      } else {
+        console.log('projects type en map da nulo');
+      }
+    }
+    return 0;
+  }
+
   getEducation(educationId: number):Observable<IEducation> {
     if (this.allEducation == null ){
       this.getAllEducations().subscribe({
@@ -67,19 +108,15 @@ export class DataService {
     );
   }
 
-  getAbout(aboutId: number):Observable<IAbout> {
+  getAbout(aboutId: number): Observable<IAbout> {
     if (this.allAbout == null ){
-      this.getAllAbouts().subscribe({
-        next: abouts => {
-          return of(abouts[aboutId]);
-        }
-      })
+      this.getAllAbouts().pipe(
+        map((abouts: IAbout[]) => abouts[aboutId]));
+    } else if (aboutId < this.allAbout.length ) {
+        return of(this.allAbout[aboutId]);
+      }
+      return EMPTY;
     }
-    if (aboutId < this.allAbout.length ) {
-      return of(this.allAbout[aboutId]);
-    }
-    return EMPTY;
-  }
 
   postAbout(about: string): Observable<IAbout>  {
     let params: URLSearchParams = new URLSearchParams;

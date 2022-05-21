@@ -1,1 +1,1 @@
-<img *ngIf='path' [src]='path.imageUrl' class="img-fluid" [alt]='path.icon'>
+<img *ngIf='shouldBeShown()' [src]='path.imageUrl' class="img-fluid" [alt]='path.icon'>

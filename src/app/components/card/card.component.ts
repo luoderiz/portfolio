@@ -88,7 +88,6 @@ export class CardComponent implements OnInit {
           this.dataId = about.about_id;
           this.dataTitle = about.about;
           this.cardAlias = 'Sobre mí';
-
         },
         error: err => this.errorMessage = err,
       });

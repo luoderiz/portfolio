@@ -28,6 +28,8 @@ import { EditComponent } from './components/edit/edit.component';
 import { AddComponent } from './components/edit/add/add.component';
 import { DeleteComponent } from './components/edit/delete/delete.component';
 import { ChangeComponent } from './components/edit/change/change.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ErrormessageComponent } from './components/register/errormessage/errormessage.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { ChangeComponent } from './components/edit/change/change.component';
     ChangeComponent,
     DeleteComponent,
     CustomDatePipe,
+    RegisterComponent,
+    ErrormessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ import { ChangeComponent } from './components/edit/change/change.component';
       {path: 'education', component: MainmapComponent},
       {path: 'book', component: BookComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent},
       {path: '', redirectTo: 'welcome', pathMatch: "full"},
       {path: '**', component: NotfoundComponent, pathMatch: "full"}
     ]),
