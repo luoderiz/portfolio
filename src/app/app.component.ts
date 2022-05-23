@@ -8,7 +8,8 @@ import {
   faStreetView,
   faTrashCan,
   faUnlock,
-  faAddressCard
+  faAddressCard,
+  faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
 import {FaIconLibrary} from "@fortawesome/angular-fontawesome";
 import { FaConfig } from '@fortawesome/angular-fontawesome';

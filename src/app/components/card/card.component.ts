@@ -94,6 +94,7 @@ export class CardComponent implements OnInit {
     } else if (this.cardType === "professional") {
       this.dataService.getWorkExperience(this.cardIndicator).subscribe({
         next: workexperience => {
+          console.log("card component on professional cardtype tiene");
           this.workexperience = workexperience;
           this.dataId = workexperience.workexperience_id;
           this.dataTitle = workexperience.position;
@@ -154,7 +155,6 @@ export class CardComponent implements OnInit {
           this.dataId = about.about_id;
           this.dataTitle = about.about;
           this.cardAlias = 'Sobre mí';
-
         },
         error: err => this.errorMessage = err,
       });

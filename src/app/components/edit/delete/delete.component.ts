@@ -36,26 +36,47 @@ export class DeleteComponent implements OnInit {
   delete() {
     //todo catch error
     if (this.cardType === "about") {
-      this.dataService.deleteAbout(this.dataId).subscribe();
-      console.log(`User wants to delete ${this.dataId}`);
-      /*
+      this.dataService.deleteAbout(this.dataId).subscribe({
+        next: () => {
+          window.location.reload();
+        },
+        error: err => `User wants to delete ${this.dataId}`,
+      });
     } else if (this.cardType === "professional") {
-          this.dataService.deleteAbout(this.dataId).subscribe();
-      console.log(`User wants to delete ${this.dataId}`);
-
+      this.dataService.deleteWorkexperience(this.dataId).subscribe({
+        next: () => {
+          window.location.reload();
+        },
+        error: err => `User wants to delete ${this.dataId}`,
+      });
     } else if (this.cardType === "education") {
-*/
+      this.dataService.deleteEducation(this.dataId).subscribe({
+        next: () => {
+          window.location.reload();
+        },
+        error: err => `User wants to delete ${this.dataId}`,
+      });
     } else if (this.cardType === "hardskills") {
-      this.dataService.deleteHardSkill(this.dataId).subscribe();
-      console.log(`User wants to delete ${this.dataId}`);
+      this.dataService.deleteHardSkill(this.dataId).subscribe({
+        next: () => {
+          window.location.reload();
+        },
+        error: err => `User wants to delete ${this.dataId}`,
+      });
     } else if (this.cardType === "softskills") {
-      this.dataService.deleteSoftSkill(this.dataId).subscribe();
-      console.log(`User wants to delete ${this.dataId}`);
+      this.dataService.deleteSoftSkill(this.dataId).subscribe({
+        next: () => {
+          window.location.reload();
+        },
+        error: err => `User wants to delete ${this.dataId}`,
+      });
     } else if (this.cardType === "projects") {
-      this.dataService.deleteProject(this.dataId).subscribe();
-      console.log(`User wants to delete ${this.dataId}`);
+      this.dataService.deleteProject(this.dataId).subscribe({
+        next: () => {
+          window.location.reload();
+        },
+        error: err => `User wants to delete ${this.dataId}`,
+      });
     }
-
   }
-
 }

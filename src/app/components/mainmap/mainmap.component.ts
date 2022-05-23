@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {DataService} from "../../common/data.service";
 
 @Component({
   selector: 'app-mainmap',
@@ -9,17 +10,25 @@ import { ActivatedRoute } from '@angular/router';
 
 export class MainmapComponent implements OnInit {
   currentPosition: number = 0;
-  position: number = 0;
   type!: string;
+  numberOfMilestones: number = 0;
 
   sendPath(pathNumber: number): void {
     this.currentPosition = pathNumber;
   }
 
-  constructor (private activatedRoute: ActivatedRoute) {  }
+  constructor (private activatedRoute: ActivatedRoute, private dataService: DataService) {  }
 
-//todo: ver si está de más el type acá
   ngOnInit(): void {
     this.type = String(this.activatedRoute.snapshot.url[0].path);
+    this.dataService.numberOf(this.type).subscribe({
+      next: value =>
+      {
+        console.log('value is '+ value);
+        this.numberOfMilestones = value;
+      }
+    });
+
   }
-};
+
+}

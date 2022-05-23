@@ -1,25 +1,157 @@
-<div class="modal-header">
-  <h4 class="modal-title" id="modal-title">Agregar <span class="text-primary"> {{cardAlias}} </span> </h4>
+<div class="modal-header" >
+  <h4 class="modal-title" > Agregar <em class="text-primary">"{{cardAlias}}"</em> a su perfil</h4>
   <button type="button" class="btn-close" aria-describedby="modal-add" (click)="dismiss()"></button>
 </div>
-<div class="modal-body">
-  <form novalidate
+
+<div class="modal-body" *ngIf="cardType === 'about'">
+    <form novalidate
         [formGroup]="aboutForm"
         (ngSubmit)="submit()">
     <div class="form">
-      <label class="col-form-label mt-4"> Sobre mí: </label>
+      <label class="col-form-label mt-4">Nuevo "sobre mí":</label>
       <input class="form-control"
              type="text"
              placeholder="Ingrese los datos requeridos"
              formControlName="inputAbout">
-      <p>Esta acción modificará su perfil.
+      <p>Esta acción añadirá {{cardAlias}} a su perfil.
         <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
       </p>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Cancelar</button>
-      <button type="button" class="btn btn-danger" (click)="close()"
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="close()"
               [disabled]="aboutForm.invalid">Confirmar</button>
+      </div>
     </div>
+  </form>
+</div>
+
+<div class="modal-body" *ngIf="cardType === 'hardskills'">
+  <form novalidate
+        [formGroup]="hardskillForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Nueva hard skill:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los datos requeridos"
+             formControlName="inputHardskill">
+      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="close()"
+                [disabled]="hardskillForm.invalid">Confirmar</button>
+      </div>
     </div>
-</form>
+  </form>
+</div>
+
+<div class="modal-body" *ngIf="cardType === 'softskills'">
+  <form novalidate
+        [formGroup]="softskillForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Nueva soft skill:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los datos requeridos"
+             formControlName="inputSoftskill">
+      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="close()"
+                [disabled]="softskillForm.invalid">Confirmar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="modal-body" *ngIf="cardType === 'projects'">
+  <form novalidate
+        [formGroup]="projectForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Nuevo Proyecto:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los datos requeridos"
+             formControlName="InputProjectName">
+      <label class="col-form-label mt-4">Detalles del proyecto:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los datos requeridos"
+             formControlName="InputProjectDetails">
+      <label class="col-form-label mt-4">Url del proyecto:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los datos requeridos"
+             formControlName="InputProjectUrl">
+      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="close()"
+                [disabled]="projectForm.invalid">Confirmar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="modal-body" *ngIf="cardType === 'professional'">
+  <form novalidate
+        [formGroup]="workexperienceForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Nuevo puesto laboral:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="nuevo puesto"
+             formControlName="InputWorkexperiencePosition">
+      <label class="col-form-label mt-4">Fecha de inicio:</label>
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="dd-mm-yyyy"
+          formControlName="InputWorkexperienceDateFrom"
+          name="dp"
+          ngbDatepicker #dp="ngbDatepicker">
+        <button class="btn btn-outline-danger" (click)="dp.toggle()" type="button">
+          <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
+        </button>
+      </div>
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="dd-mm-yyyy"
+          formControlName="InputWorkexperienceDateTo"
+          name="dp"
+          ngbDatepicker #dp="ngbDatepicker">
+        <button class="btn btn-outline-danger" (click)="dp.toggle()" type="button">
+          <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
+        </button>
+      </div>      <label class="col-form-label mt-4">Detalles:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los datos requeridos"
+             formControlName="InputWorkexperienceDetails">
+      <label class="col-form-label mt-4">Añada la institución:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los datos requeridos"
+             formControlName="InputWorkexperienceInstitutionId">
+      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="close()"
+                [disabled]="workexperienceForm.invalid">Confirmar</button>
+      </div>
+    </div>
+  </form>
 </div>

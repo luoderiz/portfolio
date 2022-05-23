@@ -5,7 +5,7 @@ import { ISkill } from '../components/card/skill';
 import { IProject } from '../components/card/project';
 import { IEducation} from "../components/card/education";
 import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {EMPTY, map, Observable, of, throwError} from 'rxjs';
+import {EMPTY, map, Observable, ObservedValueOf, of, throwError} from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
 import { TokenStorageService} from "./token-storage.service";
 
@@ -34,68 +34,47 @@ export class DataService {
     );
   }
 
-  getAllEducations(): Observable<IEducation[]>{
-    return this.http.get<IEducation[]>(this.dataServiceUrl+ this.loggedUser +'/education').pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
-      tap( data => this.allEducation = data),
-      catchError(this.handleError)
-    );
-  }
-
-  numberOf(cardType: string): number {
+  numberOf(cardType: string): Observable<number> {
     if (cardType === 'about') {
       if (this.allAbout != null) {
-        return this.allAbout.length;
+        return of(this.allAbout.length);
       } else {
-        console.log('about type en map da nulo');
+        return this.getAllAbouts().pipe(map((abouts: IAbout[]) => abouts.length));
       }
     } else if (cardType === 'education') {
       if (this.allEducation != null) {
-        return this.allEducation.length;
+        return of(this.allEducation.length);
       } else {
-        console.log('education type en map da nulo');
+        return this.getAllEducations().pipe(map((educations: IEducation[]) => educations.length));
       }
     } else if (cardType === 'professional') {
       if (this.allWorkExperience != null) {
-        return this.allWorkExperience.length;
+        return of(this.allWorkExperience.length);
       } else {
-        console.log('professional type en map da nulo');
+        return this.getAllWorkExperiences().pipe(map((workexperiences: IWorkexperience[]) => workexperiences.length));
       }
     } else if (cardType === 'hardskills') {
       if (this.allHardSkill != null) {
-        return this.allHardSkill.length;
+        return of(this.allHardSkill.length);
       } else {
-        console.log('hardskills type en map da nulo');
+        return this.getAllHardSkills().pipe(map((hardskills: ISkill[]) => hardskills.length));
       }
     } else if (cardType === 'softskills') {
       if ( this.allSoftSkill != null ) {
-        return this.allSoftSkill.length;
+        return of(this.allSoftSkill.length);
       } else {
-        console.log('softskills type en map da nulo');
+        return this.getAllSoftSkills().pipe(map((softskills: ISkill[]) => softskills.length));
       }
     } else if (cardType === 'projects') {
       if ( this.allProjects != null ) {
-        return this.allProjects.length;
+        return of(this.allProjects.length);
       } else {
-        console.log('projects type en map da nulo');
+        return this.getAllProjects().pipe(map((projects: IProject[]) => projects.length));
       }
     }
-    return 0;
+    return throwError('Error on data service: card type does not exist');
   }
 
-  getEducation(educationId: number):Observable<IEducation> {
-    if (this.allEducation == null ){
-      this.getAllEducations().subscribe({
-        next: educations => {
-          return of(educations[educationId]);
-        }
-      })
-    }
-    if (educationId < this.allEducation.length ) {
-      return of(this.allEducation[educationId]);
-    }
-    return EMPTY;
-  }
 
   getAllAbouts(): Observable<IAbout[]> {
     if (this.allAbout != null ) {
@@ -113,10 +92,10 @@ export class DataService {
       this.getAllAbouts().pipe(
         map((abouts: IAbout[]) => abouts[aboutId]));
     } else if (aboutId < this.allAbout.length ) {
-        return of(this.allAbout[aboutId]);
-      }
-      return EMPTY;
+      return of(this.allAbout[aboutId]);
     }
+    return EMPTY;
+  }
 
   postAbout(about: string): Observable<IAbout>  {
     let params: URLSearchParams = new URLSearchParams;
@@ -136,6 +115,33 @@ export class DataService {
     );
   }
 
+  getAllEducations(): Observable<IEducation[]>{
+    return this.http.get<IEducation[]>(this.dataServiceUrl+ this.loggedUser +'/education').pipe(
+      tap( data => console.log('All: ', JSON.stringify(data))),
+      tap( data => this.allEducation = data),
+      catchError(this.handleError)
+    );
+  }
+
+  getEducation(educationId: number):Observable<IEducation> {
+    if (this.allEducation == null ){
+      this.getAllEducations().subscribe({
+        next: educations => {
+          return of(educations[educationId]);
+        }
+      })
+    } else if (educationId < this.allEducation.length ) {
+      return of(this.allEducation[educationId]);
+    }
+    return EMPTY;
+  }
+
+  deleteEducation(dataId: number): Observable<unknown>  {
+    return this.http.delete<IWorkexperience>(this.dataServiceUrl + this.loggedUser +'/project/' + dataId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   getAllWorkExperiences(): Observable<IWorkexperience[]> {
     if (this.allWorkExperience != null ) {
       return of(this.allWorkExperience);
@@ -151,14 +157,37 @@ export class DataService {
     if (this.allWorkExperience == null ){
       this.getAllWorkExperiences().subscribe({
         next: workExperiences => {
+          console.log("data service getWorkExperience when allWorkExperience is null");
+          console.log(workExperiences[workExperienceId] + " " + workExperienceId );
           return of(workExperiences[workExperienceId]);
         }
       })
-    }
-    if (workExperienceId < this.allWorkExperience.length ) {
+    } else if (workExperienceId < this.allWorkExperience.length ) {
       return of(this.allWorkExperience[workExperienceId]);
     }
     return EMPTY;
+  }
+
+  postWorkexperience(position: string, dateFrom: string, dateTo: string, details: string, institutionId: number): Observable<IWorkexperience>  {
+    let params: URLSearchParams = new URLSearchParams;
+    params.set("position", position);
+    params.set("date_from", dateFrom);
+    params.set("date_to", dateTo);
+    params.set("details", details);
+    params.set("institution_id", institutionId.toString());
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.post<IWorkexperience>(
+      this.dataServiceUrl + this.loggedUser +'/workexperience',
+      params,
+      httpOptions);
+  }
+
+  deleteWorkexperience(dataId: number): Observable<unknown>  {
+    return this.http.delete<IWorkexperience>(this.dataServiceUrl + this.loggedUser +'/project/' + dataId).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getAllSoftSkills(): Observable<ISkill[]> {
@@ -179,8 +208,7 @@ export class DataService {
           return of(softskills[SoftSkillId]);
         }
       })
-    }
-    if (SoftSkillId < this.allSoftSkill.length ) {
+    } else if (SoftSkillId < this.allSoftSkill.length ) {
       return of(this.allSoftSkill[SoftSkillId]);
     }
     return EMPTY;
@@ -222,8 +250,7 @@ export class DataService {
           return of(hardskills[HardSkillId]);
         }
       })
-    }
-    if (HardSkillId < this.allHardSkill.length ) {
+    } else if (HardSkillId < this.allHardSkill.length ) {
       return of(this.allHardSkill[HardSkillId]);
     }
     return EMPTY;
@@ -265,8 +292,7 @@ export class DataService {
           return of(projects[ProjectId]);
         }
       })
-    }
-    if (ProjectId < this.allProjects.length ) {
+    } else if (ProjectId < this.allProjects.length ) {
       return of(this.allProjects[ProjectId]);
     }
     return EMPTY;

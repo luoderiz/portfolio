@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import {NgbModal, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 import { DataService } from './common/data.service';
 import { VisualService } from './common/visual.service';
 import { authInterceptorProviders } from './common/auth.interceptor';
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 import { CustomDatePipe } from './common/customdate.pipe';
 
@@ -72,6 +72,8 @@ import { ErrormessageComponent } from './components/register/errormessage/errorm
       {path: '**', component: NotfoundComponent, pathMatch: "full"}
     ]),
     FontAwesomeModule,
+    NgbModule,
+    FormsModule,
   ],
   providers: [DataService, VisualService, authInterceptorProviders, NgbModal],
   bootstrap: [AppComponent]

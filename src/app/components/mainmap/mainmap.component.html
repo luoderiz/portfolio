@@ -18,7 +18,7 @@
           <div class="row row-cols-9">
             <div class="col">2a</div>
             <div class="col">
-                <app-milestone [position]='1' (click)='sendPath(1)'></app-milestone>
+                <app-milestone *ngIf="1 < numberOfMilestones"  [position]='1' (click)='sendPath(1)'></app-milestone>
             </div>
             <div class="col">2c</div>
             <div class="col">2d</div>
@@ -30,11 +30,11 @@
           </div>
           <div class="row row-cols-9">
             <div class="col">
-                <app-milestone [position]='0' (click)='sendPath(0)'></app-milestone>
+                <app-milestone *ngIf="0 < numberOfMilestones" [position]='0' (click)='sendPath(0)'></app-milestone>
             </div>
             <div class="col">3b</div>
             <div class="col">
-                <app-milestone [position]='2' (click)='sendPath(2)'></app-milestone>
+                <app-milestone *ngIf="2 < numberOfMilestones"  [position]='2' (click)='sendPath(2)'></app-milestone>
             </div>
             <div class="col">3d</div>
             <div class="col">3e</div>
@@ -42,7 +42,7 @@
             <div class="col">3g</div>
             <div class="col">3h</div>
             <div class="col">
-                <app-milestone [position]='8' (click)='sendPath(8)'></app-milestone>
+                <app-milestone *ngIf="8 < numberOfMilestones"  [position]='8' (click)='sendPath(8)'></app-milestone>
             </div>
           </div>
           <div class="row row-cols-9">
@@ -50,17 +50,17 @@
             <div class="col">4b</div>
             <div class="col">4c</div>
             <div class="col">
-                <app-milestone [position]='3' (click)='sendPath(3)'></app-milestone>
+                <app-milestone *ngIf="3 < numberOfMilestones"   [position]='3' (click)='sendPath(3)'></app-milestone>
             </div>
             <div class="col">
-                <app-milestone [position]='4' (click)='sendPath(4)'></app-milestone>
+                <app-milestone *ngIf="4 < numberOfMilestones"   [position]='4' (click)='sendPath(4)'></app-milestone>
             </div>
             <div class="col">4f</div>
             <div class="col">
-               <app-milestone [position]='6' (click)='sendPath(6)'></app-milestone>
+               <app-milestone *ngIf="6 < numberOfMilestones"   [position]='6' (click)='sendPath(6)'></app-milestone>
             </div>
             <div class="col">
-               <app-milestone [position]='7' (click)='sendPath(7)'></app-milestone>
+               <app-milestone *ngIf="6 < numberOfMilestones"   [position]='7' (click)='sendPath(7)'></app-milestone>
             </div>
             <div class="col">4i</div>
           </div>
@@ -71,7 +71,7 @@
             <div class="col">5d</div>
             <div class="col">5e</div>
             <div class="col">
-               <app-milestone [position]='5' (click)='sendPath(5)'></app-milestone>
+               <app-milestone *ngIf="5 < numberOfMilestones" [position]='5' (click)='sendPath(5)'></app-milestone>
             </div>
             <div class="col">5g</div>
             <div class="col">5h</div>

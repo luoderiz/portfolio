@@ -1,0 +1,23 @@
+.dp-hidden {
+  width: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #073642;
+}
+.custom-day.range, .custom-day:hover {
+  background-color: #b32e6f;
+  color: #fff;
+}
+.custom-day.faded {
+  background-color: #d33682;
+}

@@ -6,7 +6,6 @@ import {DeleteComponent} from "./delete/delete.component";
 import {DataService} from "../../common/data.service";
 import {TokenStorageService} from "../../common/token-storage.service";
 import {ChangeComponent} from "./change/change.component";
-
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -29,7 +28,6 @@ export class EditComponent {
     this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
   }
 
-
   openDeleteModal(){
     const modalRef = this.modalService.open(DeleteComponent);
     modalRef.componentInstance.dataId = this.dataId;
@@ -42,8 +40,6 @@ export class EditComponent {
       }
     });
     }
-
-
 
   openAddModal(){
     const modalRef = this.modalService.open(AddComponent);
