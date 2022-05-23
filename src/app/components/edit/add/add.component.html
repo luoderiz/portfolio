@@ -156,3 +156,54 @@
     </div>
   </form>
 </div>
+
+<div class="modal-body" *ngIf="cardType === 'education'">
+  <form novalidate
+        [formGroup]="educationForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Nuevo título o certificado:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="nuevo certificado o título"
+             formControlName="inputEducationDegree">
+      <label class="col-form-label mt-4">Fecha de inicio de estudios:</label>
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="dd-mm-yyyy"
+          formControlName="inputEducationDateFrom"
+          name="edudfrom"
+          ngbDatepicker #edudfrom="ngbDatepicker">
+        <button class="btn btn-outline-danger" (click)="edudfrom.toggle()" type="button">
+          <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
+        </button>
+      </div>
+      <label class="col-form-label mt-4">Fecha de finalización de estudios:</label>
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="dd-mm-yyyy"
+          formControlName="inputEducationDateTo"
+          name="edudto"
+          ngbDatepicker #edudto="ngbDatepicker">
+        <button class="btn btn-outline-danger" (click)="edudto.toggle()" type="button">
+          <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
+        </button>
+      </div>
+      <label class="col-form-label mt-4">Añada la institución:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los datos requeridos"
+             formControlName="inputEducationInstitutionId">
+      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="close()"
+                [disabled]="educationForm.invalid">Confirmar</button>
+      </div>
+    </div>
+  </form>
+</div>

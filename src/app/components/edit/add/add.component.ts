@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {DataService} from "../../../common/data.service";
-import {NgbActiveModal, NgbInputDatepickerConfig} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDate, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -30,6 +30,10 @@ export class AddComponent {
   workexperienceDateTo!: string;
   workexperienceDetails!: string;
   workexperienceInstitutionId!: number;
+  educationDegree!: string;
+  educationDateFrom!: string;
+  educationDateTo!: string;
+  educationInstitutionId!: number;
 
   aboutForm!: FormGroup;
   hardskillForm!: FormGroup;
@@ -59,12 +63,18 @@ export class AddComponent {
       inputWorkexperienceDateFrom: ['', []],
       inputWorkexperienceDateTo: ['', []],
       inputWorkexperienceDetails: ['', [Validators.maxLength(255)]],
-      inputWorkexperienceInstitutionId: ['', [Validators.required]],
+      inputWorkexperienceInstitutionId: ['', [Validators.required]]
     });
     this.projectForm = this.formbuilder.group({
       inputProjectName: ['', [Validators.required, Validators.maxLength(60)]],
       inputProjectDetails: ['', [Validators.maxLength(1020)]],
       inputProjectUrl: ['', [Validators.maxLength(500)]]
+    });
+    this.educationForm = this.formbuilder.group({
+      inputEducationDegree: ['', [Validators.required, Validators.maxLength(1020)]],
+      inputEducationDateFrom: ['', []],
+      inputEducationDateTo: ['', []],
+      inputEducationInstitutionId: ['', [Validators.required]]
     });
   }
 
@@ -78,7 +88,7 @@ export class AddComponent {
         },
         error: err => this.errorMessage = err,
       });
-    } else if (this.cardType === "hardskill") {
+    } else if (this.cardType === "hardskills") {
       this.hardskill = this.hardskillForm.get('inputHardskill')?.value;
       this.dataService.postHardSkill(this.hardskill).subscribe({
         next: () => {
@@ -86,7 +96,7 @@ export class AddComponent {
         },
         error: err => this.errorMessage = err,
       });
-    } else if (this.cardType === "softskill") {
+    } else if (this.cardType === "softskills") {
       this.softskill = this.softskillForm.get('inputSoftskill')?.value;
       this.dataService.postSoftSkill(this.softskill).subscribe({
         next: () => {
@@ -111,6 +121,17 @@ export class AddComponent {
       this.workexperienceDetails = this.workexperienceForm.get('inputWorkexperienceDetails')?.value;
       this.workexperienceInstitutionId = this.workexperienceForm.get('inputWorkexperienceInstitutionId')?.value;
       this.dataService.postWorkexperience(this.workexperiencePosition, this.workexperienceDateFrom, this.workexperienceDateTo, this.workexperienceDetails, this.workexperienceInstitutionId).subscribe({
+        next: () => {
+          window.location.reload();
+        },
+        error: err => this.errorMessage = err,
+      });
+    } else if (this.cardType === "education") {
+      this.educationDegree = this.educationForm.get('inputEducationDegree')?.value;
+      this.educationDateFrom = this.educationForm.get('inputEducationDateFrom')?.value.toISOString().split('T')[0];
+      this.educationDateTo = this.educationForm.get('inputEducationDateTo')?.value.toISOString().split('T')[0];
+      this.educationInstitutionId = this.educationForm.get('inputEducationInstitutionId')?.value;
+      this.dataService.postEducation(this.educationDegree, this.educationDateFrom, this.educationDateTo, this.educationInstitutionId).subscribe({
         next: () => {
           window.location.reload();
         },

@@ -136,6 +136,21 @@ export class DataService {
     return EMPTY;
   }
 
+  postEducation(degree: string, dateFrom: string, dateTo: string, institutionId: number): Observable<IEducation> {
+    let params: URLSearchParams = new URLSearchParams;
+    params.set("degree", degree);
+    params.set("date_from", dateFrom);
+    params.set("date_to", dateTo);
+    params.set("institution_id", institutionId.toString());
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.post<IEducation>(
+      this.dataServiceUrl + this.loggedUser +'/education',
+      params,
+      httpOptions);
+  }
+
   deleteEducation(dataId: number): Observable<unknown>  {
     return this.http.delete<IWorkexperience>(this.dataServiceUrl + this.loggedUser +'/project/' + dataId).pipe(
       catchError(this.handleError)
@@ -214,9 +229,9 @@ export class DataService {
     return EMPTY;
   }
 
-  postSoftSkill(softskill: string): Observable<ISkill>  {
+  postSoftSkill(skill: string): Observable<ISkill>  {
     let params: URLSearchParams = new URLSearchParams;
-    params.set("softskill", softskill);
+    params.set("skill", skill);
     const httpOptions = { headers: new HttpHeaders(
         { 'Content-Type': 'application/x-www-form-urlencoded' }
       )};
@@ -256,9 +271,9 @@ export class DataService {
     return EMPTY;
   }
 
-  postHardSkill(hardskill: string): Observable<ISkill>  {
+  postHardSkill(skill: string): Observable<ISkill>  {
     let params: URLSearchParams = new URLSearchParams;
-    params.set("hardskill", hardskill);
+    params.set("skill", skill);
     const httpOptions = { headers: new HttpHeaders(
         { 'Content-Type': 'application/x-www-form-urlencoded' }
       )};
