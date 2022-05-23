@@ -4,7 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import {NgbModal, NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {
+  NgbDateAdapter,
+  NgbDateNativeUTCAdapter,
+  NgbModal,
+  NgbModule
+} from "@ng-bootstrap/ng-bootstrap";
 
 import { DataService } from './common/data.service';
 import { VisualService } from './common/visual.service';
@@ -75,7 +80,8 @@ import { ErrormessageComponent } from './components/register/errormessage/errorm
     NgbModule,
     FormsModule,
   ],
-  providers: [DataService, VisualService, authInterceptorProviders, NgbModal],
+  providers: [DataService, VisualService, authInterceptorProviders, NgbModal,
+    {provide: NgbDateAdapter, useClass: NgbDateNativeUTCAdapter}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

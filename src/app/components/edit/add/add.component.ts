@@ -11,7 +11,7 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class AddComponent implements OnInit {
+export class AddComponent {
   @Input() dataId!: number;
   @Input() cardType!: string;
   @Input() dataTitle!: string;
@@ -41,12 +41,10 @@ export class AddComponent implements OnInit {
   errorMessage = '';
 
   hoveredDate: NgbDate | null = null;
-  fromDate!: NgbDate | null;
+  fromDate!: NgbDate;
   toDate!: NgbDate | null;
 
-
-  constructor(private dataService: DataService, public activeModal: NgbActiveModal, private formbuilder: FormBuilder, private route: Router, private dateCalendar: NgbCalendar, public dateFormatter: NgbDateParserFormatter, private dateConfig: NgbInputDatepickerConfig) {
-
+  constructor(private dataService: DataService, public activeModal: NgbActiveModal, private formbuilder: FormBuilder, private route: Router, public formatter: NgbDateParserFormatter) {
     this.aboutForm = this.formbuilder.group({
       inputAbout: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(1020)]]
     });
@@ -58,8 +56,8 @@ export class AddComponent implements OnInit {
     });
     this.workexperienceForm = this.formbuilder.group({
       inputWorkexperiencePosition: ['', [Validators.required, Validators.maxLength(1020)]],
-      inputWorkexperienceDateFrom: ['', ],
-      inputWorkexperienceDateTo: ['', ],
+      inputWorkexperienceDateFrom: ['', []],
+      inputWorkexperienceDateTo: ['', []],
       inputWorkexperienceDetails: ['', [Validators.maxLength(255)]],
       inputWorkexperienceInstitutionId: ['', [Validators.required]],
     });
@@ -70,12 +68,10 @@ export class AddComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
 
   submit(): void {
     if (this.cardType === "about") {
-      this.about = this.aboutForm.get('inputAbout')?.value.subscribe();;
+      this.about = this.aboutForm.get('inputAbout')?.value;
       this.dataService.postAbout(this.about).subscribe({
         next: () => {
           window.location.reload();
@@ -83,7 +79,7 @@ export class AddComponent implements OnInit {
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "hardskill") {
-      this.hardskill = this.hardskillForm.get('inputHardskill')?.value.subscribe();;
+      this.hardskill = this.hardskillForm.get('inputHardskill')?.value;
       this.dataService.postHardSkill(this.hardskill).subscribe({
         next: () => {
           window.location.reload();
@@ -91,7 +87,7 @@ export class AddComponent implements OnInit {
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "softskill") {
-      this.softskill = this.softskillForm.get('inputSoftskill')?.value.subscribe();;
+      this.softskill = this.softskillForm.get('inputSoftskill')?.value;
       this.dataService.postSoftSkill(this.softskill).subscribe({
         next: () => {
           window.location.reload();
@@ -99,9 +95,9 @@ export class AddComponent implements OnInit {
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "projects") {
-      this.projectName = this.projectForm.get('inputProjectName')?.value.subscribe();
-      this.projectDetails = this.projectForm.get('inputProjectDetails')?.value.subscribe();
-      this.projectUrl = this.projectForm.get('inputProjectUrl')?.value.subscribe();
+      this.projectName = this.projectForm.get('inputProjectName')?.value;
+      this.projectDetails = this.projectForm.get('inputProjectDetails')?.value;
+      this.projectUrl = this.projectForm.get('inputProjectUrl')?.value;
       this.dataService.postProjects(this.projectName, this.projectDetails, this.projectUrl).subscribe({
         next: () => {
           window.location.reload();
@@ -109,11 +105,11 @@ export class AddComponent implements OnInit {
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "professional") {
-      this.workexperiencePosition = this.workexperienceForm.get('inputWorkexperiencePosition')?.value.subscribe();
-      this.workexperienceDateFrom = this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.subscribe();
-      this.workexperienceDateTo = this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.subscribe();
-      this.workexperienceDetails = this.workexperienceForm.get('inputWorkexperienceDetails')?.value.subscribe();
-      this.workexperienceInstitutionId = this.workexperienceForm.get('inputWorkexperienceInstitutionId')?.value.subscribe();
+      this.workexperiencePosition = this.workexperienceForm.get('inputWorkexperiencePosition')?.value;
+      this.workexperienceDateFrom = this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.toISOString().split('T')[0];
+      this.workexperienceDateTo = this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.toISOString().split('T')[0];
+      this.workexperienceDetails = this.workexperienceForm.get('inputWorkexperienceDetails')?.value;
+      this.workexperienceInstitutionId = this.workexperienceForm.get('inputWorkexperienceInstitutionId')?.value;
       this.dataService.postWorkexperience(this.workexperiencePosition, this.workexperienceDateFrom, this.workexperienceDateTo, this.workexperienceDetails, this.workexperienceInstitutionId).subscribe({
         next: () => {
           window.location.reload();
@@ -129,8 +125,16 @@ export class AddComponent implements OnInit {
     this.activeModal.close();
   }
 
-    dismiss() {
+  dismiss() {
     this.activeModal.close();
+  }
+
+  isHovered(date: NgbDate) {
+    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+  }
+
+  isInside(date: NgbDate) {
+    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
   }
 
 }

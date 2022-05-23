@@ -78,17 +78,17 @@
       <input class="form-control"
              type="text"
              placeholder="Ingrese los datos requeridos"
-             formControlName="InputProjectName">
+             formControlName="inputProjectName">
       <label class="col-form-label mt-4">Detalles del proyecto:</label>
       <input class="form-control"
              type="text"
              placeholder="Ingrese los datos requeridos"
-             formControlName="InputProjectDetails">
+             formControlName="inputProjectDetails">
       <label class="col-form-label mt-4">Url del proyecto:</label>
       <input class="form-control"
              type="text"
              placeholder="Ingrese los datos requeridos"
-             formControlName="InputProjectUrl">
+             formControlName="inputProjectUrl">
       <p>Esta acción añadirá {{cardAlias}} a su perfil.
         <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
       </p>
@@ -111,16 +111,16 @@
       <input class="form-control"
              type="text"
              placeholder="nuevo puesto"
-             formControlName="InputWorkexperiencePosition">
+             formControlName="inputWorkexperiencePosition">
       <label class="col-form-label mt-4">Fecha de inicio:</label>
       <div class="input-group">
         <input
           class="form-control"
           placeholder="dd-mm-yyyy"
-          formControlName="InputWorkexperienceDateFrom"
-          name="dp"
-          ngbDatepicker #dp="ngbDatepicker">
-        <button class="btn btn-outline-danger" (click)="dp.toggle()" type="button">
+          formControlName="inputWorkexperienceDateFrom"
+          name="dfrom"
+          ngbDatepicker #dfrom="ngbDatepicker">
+        <button class="btn btn-outline-danger" (click)="dfrom.toggle()" type="button">
           <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
         </button>
       </div>
@@ -128,22 +128,23 @@
         <input
           class="form-control"
           placeholder="dd-mm-yyyy"
-          formControlName="InputWorkexperienceDateTo"
-          name="dp"
-          ngbDatepicker #dp="ngbDatepicker">
-        <button class="btn btn-outline-danger" (click)="dp.toggle()" type="button">
+          formControlName="inputWorkexperienceDateTo"
+          name="dto"
+          ngbDatepicker #dto="ngbDatepicker">
+        <button class="btn btn-outline-danger" (click)="dto.toggle()" type="button">
           <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
         </button>
-      </div>      <label class="col-form-label mt-4">Detalles:</label>
+      </div>
+      <label class="col-form-label mt-4">Detalles:</label>
       <input class="form-control"
              type="text"
              placeholder="Ingrese los datos requeridos"
-             formControlName="InputWorkexperienceDetails">
+             formControlName="inputWorkexperienceDetails">
       <label class="col-form-label mt-4">Añada la institución:</label>
       <input class="form-control"
              type="text"
              placeholder="Ingrese los datos requeridos"
-             formControlName="InputWorkexperienceInstitutionId">
+             formControlName="inputWorkexperienceInstitutionId">
       <p>Esta acción añadirá {{cardAlias}} a su perfil.
         <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
       </p>
