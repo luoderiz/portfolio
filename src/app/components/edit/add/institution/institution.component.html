@@ -1,0 +1,38 @@
+<div class="modal-header" >
+  <h4 class="modal-title" > Agregar <em class="text-primary">Institución</em> a la lista de instituciones</h4>
+  <button type="button" class="btn-close" aria-describedby="modal-add" (click)="dismiss()"></button>
+</div>
+<div class="modal-body">
+  <p class="text-danger">¿Está seguro de que la <em>institución</em> que desea elegir no se encuentra en la lista?</p>
+  <ul class="block" *ngFor="let institution of allInstitutions; let i= index">
+    <li>{{allInstitutions[i].institution}}, {{allInstitutions[i].city.city}}</li>
+  </ul>
+  <form novalidate
+        [formGroup]="institutionForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Agregue una nueva Institución:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese el nombre de la institución"
+             formControlName="inputInstitutionInstitution">
+      <label class="col-form-label mt-4">Seleccione la ciudad:</label>
+      <div class="input-group">
+        <select
+          class="form-control"
+          placeholder="select city"
+          formControlName="inputInstitutionCityId"
+        >
+          <option *ngFor="let city of allCities" [value]="city.city_id">{{city.city}}</option>
+        </select>
+      </div>
+      <p class="text-primary">Está a punto de <em>agregar una nueva institución</em>.</p>
+      <p><span class="text-danger">Revise los datos ingresados antes de enviar.</span></p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="close()"
+                [disabled]="institutionForm.invalid">Confirmar</button>
+      </div>
+    </div>
+  </form>
+</div>

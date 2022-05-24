@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DataService} from "../../../common/data.service";
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {NgbDate, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDate} from '@ng-bootstrap/ng-bootstrap';
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import {IInstitution} from "../../card/institution";
 import {ICity} from "../../card/city";
+import {InstitutionComponent} from "./institution/institution.component";
 
 @Component({
   selector: 'app-add',
@@ -63,8 +63,7 @@ export class AddComponent implements OnInit {
   fromDate!: NgbDate;
   toDate!: NgbDate | null;
 
-
-  constructor(private dataService: DataService, public activeModal: NgbActiveModal, private formbuilder: FormBuilder) {
+  constructor(private dataService: DataService, public activeModal: NgbActiveModal, private formbuilder: FormBuilder, private modalService: NgbModal) {
     this.aboutForm = this.formbuilder.group({
       inputAbout: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(1020)]]
     });
@@ -163,7 +162,6 @@ export class AddComponent implements OnInit {
   }
 
   close() {
-    // todo return error
     this.submit();
     this.activeModal.close();
   }
@@ -180,5 +178,15 @@ export class AddComponent implements OnInit {
     return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
   }
 
+  openInstitutionModal() {
+    const modalRef = this.modalService.open(InstitutionComponent);
+    modalRef.componentInstance.allInstitutions = this.allInstitutions;
+    modalRef.componentInstance.allCities = this.allCities;
+    modalRef.result.then((result) => {
+      if (result) {
+        console.log(result);
+      }
+    });
+  }
 
 }

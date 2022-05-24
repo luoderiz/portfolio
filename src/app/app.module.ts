@@ -35,6 +35,7 @@ import { DeleteComponent } from './components/edit/delete/delete.component';
 import { ChangeComponent } from './components/edit/change/change.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ErrormessageComponent } from './components/register/errormessage/errormessage.component';
+import { InstitutionComponent } from './components/edit/add/institution/institution.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ErrormessageComponent } from './components/register/errormessage/errorm
     CustomDatePipe,
     RegisterComponent,
     ErrormessageComponent,
+    InstitutionComponent,
   ],
   imports: [
     BrowserModule,

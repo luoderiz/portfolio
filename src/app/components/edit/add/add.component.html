@@ -13,7 +13,7 @@
              type="text"
              placeholder="Ingrese los datos requeridos"
              formControlName="inputAbout">
-      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+      <p class="text-primary">Esta acción añadirá <em>{{cardAlias}}</em> a su perfil.
         <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
       </p>
       <div class="modal-footer">
@@ -35,7 +35,7 @@
              type="text"
              placeholder="Ingrese los datos requeridos"
              formControlName="inputHardskill">
-      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+      <p class="text-primary">Esta acción añadirá <em>{{cardAlias}}</em> a su perfil.
         <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
       </p>
       <div class="modal-footer">
@@ -57,7 +57,7 @@
              type="text"
              placeholder="Ingrese los datos requeridos"
              formControlName="inputSoftskill">
-      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+      <p class="text-primary">Esta acción añadirá <em>{{cardAlias}}</em> a su perfil.
         <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
       </p>
       <div class="modal-footer">
@@ -89,7 +89,7 @@
              type="text"
              placeholder="Ingrese los datos requeridos"
              formControlName="inputProjectUrl">
-      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+      <p class="text-primary">Esta acción añadirá <em>{{cardAlias}}</em> a su perfil.
         <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
       </p>
       <div class="modal-footer">
@@ -150,7 +150,11 @@
           <option *ngFor="let institution of allInstitutions" [value]="institution.institution_id">{{institution.institution}}</option>
         </select>
       </div>
-      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+      <div class="jumbotron"></div>
+      <p class="mt-4">O agregue una nueva institución:</p>
+      <button type="button" class="btn btn-outline-danger mb-4" (click)="openInstitutionModal()">Agregar Instititución</button>
+      <div class="jumbotron"></div>
+      <p class="text-primary">Esta acción añadirá <em>{{cardAlias}}</em> a su perfil.
         <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
       </p>
       <div class="modal-footer">
@@ -196,18 +200,21 @@
           <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
         </button>
       </div>
-      <label class="col-form-label mt-4">Seleccione la institución:</label>
+      <label class="col-form-label mt-4 ">Seleccione la institución:</label>
       <div class="input-group">
           <select
-            class="form-control"
+            class="form-select"
             placeholder="select institution"
             formControlName="inputEducationInstitutionId"
             >
             <option *ngFor="let institution of allInstitutions" [value]="institution.institution_id">{{institution.institution}}</option>
           </select>
-
       </div>
-      <p>Esta acción añadirá {{cardAlias}} a su perfil.
+      <div class="jumbotron"></div>
+      <p class="mt-4">O agregue una nueva institución:</p>
+      <button type="button" class="btn btn-outline-danger mb-4" (click)="openInstitutionModal()">Agregar Instititución</button>
+      <div class="jumbotron"></div>
+      <p class="text-primary">Esta acción añadirá <em>{{cardAlias}}</em> a su perfil.
         <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
       </p>
       <div class="modal-footer">
@@ -215,6 +222,8 @@
         <button type="button" class="btn btn-danger" (click)="close()"
                 [disabled]="educationForm.invalid">Confirmar</button>
       </div>
+
+
     </div>
   </form>
 </div>

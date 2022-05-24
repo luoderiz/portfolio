@@ -58,7 +58,7 @@ export class EditComponent implements OnInit{
     });
     }
 
-  openAddModal(){
+  public openAddModal(){
     const modalRef = this.modalService.open(AddComponent);
     modalRef.componentInstance.cardType = this.cardType;
     modalRef.componentInstance.cardAlias = this.cardAlias;
@@ -84,4 +84,5 @@ export class EditComponent implements OnInit{
       }
     });
   }
+
 }

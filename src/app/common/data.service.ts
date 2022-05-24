@@ -60,6 +60,19 @@ export class DataService {
     return EMPTY;
   }
 
+  postInstitution(institution: string, cityId: number): Observable<IInstitution>  {
+    let params: URLSearchParams = new URLSearchParams;
+    params.set("institution", institution);
+    params.set("city_id", cityId.toString());
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.post<IInstitution>(
+      this.dataServiceUrlApiEndpoint +'institution',
+      params,
+      httpOptions);
+  }
+
   getAllCities(): Observable<ICity[]> {
     if (this.allCities != null ) {
       return of(this.allCities);
