@@ -8,6 +8,8 @@ import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http'
 import {EMPTY, map, Observable, ObservedValueOf, of, throwError} from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
 import { TokenStorageService} from "./token-storage.service";
+import {IInstitution} from "../components/card/institution";
+import {ICity} from "../components/card/city";
 
 @Injectable({
   providedIn: 'root'
@@ -20,18 +22,63 @@ export class DataService {
   allSoftSkill!: ISkill[];
   allHardSkill!: ISkill[];
   allProjects!: IProject[];
+  allInstitution!: IInstitution[];
+  allCities!: ICity[];
 
   loggedUser = this.tokenStorageService.getUser();
 
-  private dataServiceUrl: string = 'http://localhost:8080/api/user/';
+  private dataServiceUrlUserEndpoint: string = 'http://localhost:8080/api/user/';
+  private dataServiceUrlApiEndpoint: string = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient, private  tokenStorageService: TokenStorageService) {}
 
   getPerson(): Observable<any>{
-    return this.http.get(this.dataServiceUrl+ this.loggedUser+'/person').pipe(
+    return this.http.get(this.dataServiceUrlUserEndpoint+ this.loggedUser+'/person').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
+  }
+
+  getAllInstitutions(): Observable<IInstitution[]> {
+    if (this.allInstitution != null ) {
+      return of(this.allInstitution);
+    }
+    return this.http.get<IInstitution[]>(this.dataServiceUrlApiEndpoint+ 'institution').pipe(
+      tap( data => console.log('All: ', JSON.stringify(data))),
+      tap( data => this.allInstitution = data),
+      catchError(this.handleError)
+    );
+  }
+
+  getInstitution(institutionId: number): Observable<IInstitution> {
+    if (this.allInstitution == null ){
+      this.getAllInstitutions().pipe(
+        map((institutions: IInstitution[]) => institutions[institutionId]));
+    } else if (institutionId < this.allInstitution.length ) {
+      return of(this.allInstitution[institutionId]);
+    }
+    return EMPTY;
+  }
+
+  getAllCities(): Observable<ICity[]> {
+    if (this.allCities != null ) {
+      return of(this.allCities);
+    }
+    return this.http.get<ICity[]>(this.dataServiceUrlApiEndpoint+ 'city').pipe(
+      tap( data => console.log('All: ', JSON.stringify(data))),
+      tap( data => this.allCities = data),
+      catchError(this.handleError)
+    );
+  }
+
+  getCity(cityId: number): Observable<ICity> {
+    if (this.allCities == null ){
+      this.getAllCities().pipe(
+        map((cities: ICity[]) => cities[cityId]));
+    } else if (cityId < this.allCities.length ) {
+      return of(this.allCities[cityId]);
+    }
+    return EMPTY;
   }
 
   numberOf(cardType: string): Observable<number> {
@@ -75,12 +122,11 @@ export class DataService {
     return throwError('Error on data service: card type does not exist');
   }
 
-
   getAllAbouts(): Observable<IAbout[]> {
     if (this.allAbout != null ) {
       return of(this.allAbout);
     }
-    return this.http.get<IAbout[]>(this.dataServiceUrl+ this.loggedUser +'/about').pipe(
+    return this.http.get<IAbout[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/about').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       tap( data => this.allAbout = data),
       catchError(this.handleError)
@@ -104,19 +150,19 @@ export class DataService {
         { 'Content-Type': 'application/x-www-form-urlencoded' }
       )};
     return this.http.post<IAbout>(
-      this.dataServiceUrl + this.loggedUser +'/about',
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/about',
       params,
       httpOptions);
   }
 
   deleteAbout(dataId: number): Observable<IAbout>  {
-    return this.http.delete<IAbout>(this.dataServiceUrl + this.loggedUser +'/about/' + dataId).pipe(
+    return this.http.delete<IAbout>(this.dataServiceUrlUserEndpoint + this.loggedUser +'/about/' + dataId).pipe(
       catchError(this.handleError)
     );
   }
 
   getAllEducations(): Observable<IEducation[]>{
-    return this.http.get<IEducation[]>(this.dataServiceUrl+ this.loggedUser +'/education').pipe(
+    return this.http.get<IEducation[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/education').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       tap( data => this.allEducation = data),
       catchError(this.handleError)
@@ -146,13 +192,13 @@ export class DataService {
         { 'Content-Type': 'application/x-www-form-urlencoded' }
       )};
     return this.http.post<IEducation>(
-      this.dataServiceUrl + this.loggedUser +'/education',
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/education',
       params,
       httpOptions);
   }
 
   deleteEducation(dataId: number): Observable<unknown>  {
-    return this.http.delete<IWorkexperience>(this.dataServiceUrl + this.loggedUser +'/project/' + dataId).pipe(
+    return this.http.delete<IEducation>(this.dataServiceUrlUserEndpoint + this.loggedUser +'/education/' + dataId).pipe(
       catchError(this.handleError)
     );
   }
@@ -161,7 +207,7 @@ export class DataService {
     if (this.allWorkExperience != null ) {
       return of(this.allWorkExperience);
     }
-    return this.http.get<IWorkexperience[]>(this.dataServiceUrl+ this.loggedUser +'/workexperience').pipe(
+    return this.http.get<IWorkexperience[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/workexperience').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       tap( data => this.allWorkExperience = data),
       catchError(this.handleError)
@@ -194,13 +240,13 @@ export class DataService {
         { 'Content-Type': 'application/x-www-form-urlencoded' }
       )};
     return this.http.post<IWorkexperience>(
-      this.dataServiceUrl + this.loggedUser +'/workexperience',
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/workexperience',
       params,
       httpOptions);
   }
 
   deleteWorkexperience(dataId: number): Observable<unknown>  {
-    return this.http.delete<IWorkexperience>(this.dataServiceUrl + this.loggedUser +'/project/' + dataId).pipe(
+    return this.http.delete<IWorkexperience>(this.dataServiceUrlUserEndpoint + this.loggedUser +'/project/' + dataId).pipe(
       catchError(this.handleError)
     );
   }
@@ -209,7 +255,7 @@ export class DataService {
     if (this.allSoftSkill != null ) {
       return of(this.allSoftSkill);
     }
-    return this.http.get<ISkill[]>(this.dataServiceUrl+ this.loggedUser +'/softskill').pipe(
+    return this.http.get<ISkill[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/softskill').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       tap( data => this.allSoftSkill = data),
       catchError(this.handleError)
@@ -236,13 +282,13 @@ export class DataService {
         { 'Content-Type': 'application/x-www-form-urlencoded' }
       )};
     return this.http.post<ISkill>(
-      this.dataServiceUrl + this.loggedUser +'/softskill',
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/softskill',
       params,
       httpOptions);
   }
 
   deleteSoftSkill(dataId: number): Observable<ISkill>  {
-    return this.http.delete<ISkill>(this.dataServiceUrl + this.loggedUser +'/softskill/' + dataId).pipe(
+    return this.http.delete<ISkill>(this.dataServiceUrlUserEndpoint + this.loggedUser +'/softskill/' + dataId).pipe(
       catchError(this.handleError)
     );
   }
@@ -251,7 +297,7 @@ export class DataService {
     if (this.allHardSkill != null ) {
       return of(this.allHardSkill);
     }
-    return this.http.get<ISkill[]>(this.dataServiceUrl+ this.loggedUser +'/hardskill').pipe(
+    return this.http.get<ISkill[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/hardskill').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       tap( data => this.allHardSkill = data),
       catchError(this.handleError)
@@ -278,13 +324,13 @@ export class DataService {
         { 'Content-Type': 'application/x-www-form-urlencoded' }
       )};
     return this.http.post<ISkill>(
-      this.dataServiceUrl + this.loggedUser +'/hardskill',
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/hardskill',
       params,
       httpOptions);
   }
 
   deleteHardSkill(dataId: number): Observable<ISkill>  {
-    return this.http.delete<ISkill>(this.dataServiceUrl + this.loggedUser +'/hardskill/' + dataId).pipe(
+    return this.http.delete<ISkill>(this.dataServiceUrlUserEndpoint + this.loggedUser +'/hardskill/' + dataId).pipe(
       catchError(this.handleError)
     );
   }
@@ -293,7 +339,7 @@ export class DataService {
     if (this.allProjects != null ) {
       return of(this.allProjects);
     }
-    return this.http.get<IProject[]>(this.dataServiceUrl+ this.loggedUser +'/project').pipe(
+    return this.http.get<IProject[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/project').pipe(
       tap( data => console.log('All: ', JSON.stringify(data))),
       tap( data => this.allProjects = data),
       catchError(this.handleError)
@@ -322,13 +368,13 @@ export class DataService {
         { 'Content-Type': 'application/x-www-form-urlencoded' }
       )};
     return this.http.post<IProject>(
-      this.dataServiceUrl + this.loggedUser +'/project',
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/project',
       params,
       httpOptions);
   }
 
   deleteProject(dataId: number): Observable<unknown>  {
-    return this.http.delete<IProject>(this.dataServiceUrl + this.loggedUser +'/project/' + dataId).pipe(
+    return this.http.delete<IProject>(this.dataServiceUrlUserEndpoint + this.loggedUser +'/project/' + dataId).pipe(
       catchError(this.handleError)
     );
   }

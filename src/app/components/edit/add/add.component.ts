@@ -1,21 +1,36 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DataService} from "../../../common/data.service";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {NgbDate, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
+import {IInstitution} from "../../card/institution";
+import {ICity} from "../../card/city";
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class AddComponent {
+export class AddComponent implements OnInit {
   @Input() dataId!: number;
   @Input() cardType!: string;
   @Input() dataTitle!: string;
   @Input() cardAlias!: string;
+  @Input() allInstitutions!: IInstitution[];
+  institution: IInstitution = {
+                            institution_id: 0,
+                            institution: "",
+                            city: {
+                              city_id: 0,
+                              city: ""
+                            }};
+  city: ICity = {
+                  city_id: 0,
+                  city: ""};
+
+  @Input() allCities!: ICity[];
 
   faCalendar = faCalendar;
 
@@ -48,7 +63,8 @@ export class AddComponent {
   fromDate!: NgbDate;
   toDate!: NgbDate | null;
 
-  constructor(private dataService: DataService, public activeModal: NgbActiveModal, private formbuilder: FormBuilder, private route: Router, public formatter: NgbDateParserFormatter) {
+
+  constructor(private dataService: DataService, public activeModal: NgbActiveModal, private formbuilder: FormBuilder) {
     this.aboutForm = this.formbuilder.group({
       inputAbout: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(1020)]]
     });
@@ -78,6 +94,12 @@ export class AddComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.allInstitutions = this.allInstitutions;
+    this.institution = this.allInstitutions[this.institution.institution_id];
+    this.allCities = this.allCities;
+    this.city = this.allCities[this.city.city_id];
+    }
 
   submit(): void {
     if (this.cardType === "about") {
@@ -157,5 +179,6 @@ export class AddComponent {
   isInside(date: NgbDate) {
     return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
   }
+
 
 }

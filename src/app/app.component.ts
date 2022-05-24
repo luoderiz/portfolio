@@ -23,7 +23,8 @@ export class AppComponent {
   title = 'Portfolio';
 
   constructor(private faIconLibrary: FaIconLibrary, private faConfig: FaConfig) {
-    faIconLibrary.addIcons(faSquarePlus, faPen, faTrashCan, faUnlock, faLock, faEye, faStreetView, faShoePrints);
+    faIconLibrary.addIcons(faSquarePlus, faPen, faTrashCan, faUnlock, faLock, faEye, faStreetView, faShoePrints, faAddressCard,
+      faCalendar,);
     faConfig.fixedWidth = true;
   }
   ngOnInit(): void {}
