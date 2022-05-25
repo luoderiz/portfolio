@@ -1,10 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {IInstitution} from "../../../card/institution";
-import {ICity} from "../../../card/city";
+import {IInstitution} from "../../card/institution";
+import {ICity} from "../../card/city";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {DataService} from "../../../../common/data.service";
-import {AddComponent} from "../add.component";
+import {DataService} from "../../../common/data.service";
+import {AddComponent} from "../add/add.component";
+import {ChangeComponent} from "../change/change.component";
 
 @Component({
   selector: 'app-institution',
@@ -39,6 +40,10 @@ export class InstitutionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.allInstitutions = this.allInstitutions;
+    this.institution = this.allInstitutions[this.institution.institution_id];
+    this.allCities = this.allCities;
+    this.city = this.allCities[this.city.city_id];
   }
 
   submit(): void {
@@ -47,7 +52,7 @@ export class InstitutionComponent implements OnInit {
     this.dataService.postInstitution(this.institutionInstitution, this.institutionCityId).subscribe({
       next: () => {
         window.location.reload();
-        this.modalService.open(AddComponent);
+        this.modalService.open(this.activeModal);
       },
       error: err => 'Error en el ingreso de nueva institución',
     });

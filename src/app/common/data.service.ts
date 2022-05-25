@@ -50,16 +50,6 @@ export class DataService {
     );
   }
 
-  getInstitution(institutionId: number): Observable<IInstitution> {
-    if (this.allInstitution == null ){
-      this.getAllInstitutions().pipe(
-        map((institutions: IInstitution[]) => institutions[institutionId]));
-    } else if (institutionId < this.allInstitution.length ) {
-      return of(this.allInstitution[institutionId]);
-    }
-    return EMPTY;
-  }
-
   postInstitution(institution: string, cityId: number): Observable<IInstitution>  {
     let params: URLSearchParams = new URLSearchParams;
     params.set("institution", institution);
@@ -82,16 +72,6 @@ export class DataService {
       tap( data => this.allCities = data),
       catchError(this.handleError)
     );
-  }
-
-  getCity(cityId: number): Observable<ICity> {
-    if (this.allCities == null ){
-      this.getAllCities().pipe(
-        map((cities: ICity[]) => cities[cityId]));
-    } else if (cityId < this.allCities.length ) {
-      return of(this.allCities[cityId]);
-    }
-    return EMPTY;
   }
 
   numberOf(cardType: string): Observable<number> {
@@ -168,6 +148,20 @@ export class DataService {
       httpOptions);
   }
 
+  patchAbout(dataId: number, about?: string): Observable<IAbout>  {
+    let params: URLSearchParams = new URLSearchParams;
+    if(about){
+      params.set("about", about);
+    }
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.patch<IAbout>(
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/about/' + dataId,
+      params,
+      httpOptions);
+  }
+
   deleteAbout(dataId: number): Observable<IAbout>  {
     return this.http.delete<IAbout>(this.dataServiceUrlUserEndpoint + this.loggedUser +'/about/' + dataId).pipe(
       catchError(this.handleError)
@@ -206,6 +200,29 @@ export class DataService {
       )};
     return this.http.post<IEducation>(
       this.dataServiceUrlUserEndpoint + this.loggedUser +'/education',
+      params,
+      httpOptions);
+  }
+
+  patchEducation(dataId: number, educationDegree: string, educationDateFrom: string, educationDateTo: string, educationInstitutionId: number): Observable<IEducation>  {
+    let params: URLSearchParams = new URLSearchParams;
+    if(educationDegree){
+      params.set("degree", educationDegree);
+    }
+    if(educationDateFrom){
+      params.set("date_from", educationDateFrom);
+    }
+    if(educationDateTo){
+      params.set("date_to", educationDateTo);
+    }
+    if(educationInstitutionId){
+      params.set("institution_id", educationInstitutionId.toString());
+    }
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.patch<IEducation>(
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/education/' + dataId,
       params,
       httpOptions);
   }
@@ -258,6 +275,32 @@ export class DataService {
       httpOptions);
   }
 
+  patchWorkExperience(dataId: number, workexperiencePosition: string, workexperienceDateFrom: string, workexperienceDateTo: string, workexperienceDetails: string, workexperienceInstitutionId: number): Observable<IWorkexperience>  {
+    let params: URLSearchParams = new URLSearchParams;
+    if(workexperiencePosition){
+      params.set("position", workexperiencePosition);
+    }
+    if(workexperienceDateFrom){
+      params.set("date_from", workexperienceDateFrom);
+    }
+    if(workexperienceDateTo){
+      params.set("date_to", workexperienceDateTo);
+    }
+    if(workexperienceDetails){
+      params.set("details", workexperienceDetails);
+    }
+    if(workexperienceInstitutionId){
+      params.set("institution_id", workexperienceInstitutionId.toString());
+    }
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.patch<IWorkexperience>(
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/workexperience/' + dataId,
+      params,
+      httpOptions);
+  }
+
   deleteWorkexperience(dataId: number): Observable<unknown>  {
     return this.http.delete<IWorkexperience>(this.dataServiceUrlUserEndpoint + this.loggedUser +'/project/' + dataId).pipe(
       catchError(this.handleError)
@@ -300,6 +343,20 @@ export class DataService {
       httpOptions);
   }
 
+  patchSoftSkill(dataId: number, softskill?: string): Observable<ISkill>  {
+    let params: URLSearchParams = new URLSearchParams;
+    if(softskill){
+      params.set("skill", softskill);
+    }
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.patch<ISkill>(
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/softskill/' + dataId,
+      params,
+      httpOptions);
+  }
+
   deleteSoftSkill(dataId: number): Observable<ISkill>  {
     return this.http.delete<ISkill>(this.dataServiceUrlUserEndpoint + this.loggedUser +'/softskill/' + dataId).pipe(
       catchError(this.handleError)
@@ -338,6 +395,20 @@ export class DataService {
       )};
     return this.http.post<ISkill>(
       this.dataServiceUrlUserEndpoint + this.loggedUser +'/hardskill',
+      params,
+      httpOptions);
+  }
+
+  patchHardSkill(dataId: number, hardskill?: string): Observable<ISkill>  {
+    let params: URLSearchParams = new URLSearchParams;
+    if(hardskill){
+      params.set("skill", hardskill);
+    }
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.patch<ISkill>(
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/hardskill/' + dataId,
       params,
       httpOptions);
   }
@@ -385,6 +456,28 @@ export class DataService {
       params,
       httpOptions);
   }
+
+
+  patchProjects(dataId: number, projectname?: string, projectdetails?: string, projecturl?: string): Observable<IProject>  {
+    let params: URLSearchParams = new URLSearchParams;
+    if(projectname){
+      params.set("name", projectname);
+    }
+    if(projectdetails){
+      params.set("details", projectdetails);
+    }
+    if(projecturl){
+      params.set("url", projecturl);
+    }
+    const httpOptions = { headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+    return this.http.patch<IProject>(
+      this.dataServiceUrlUserEndpoint + this.loggedUser +'/project/' + dataId,
+      params,
+      httpOptions);
+  }
+
 
   deleteProject(dataId: number): Observable<unknown>  {
     return this.http.delete<IProject>(this.dataServiceUrlUserEndpoint + this.loggedUser +'/project/' + dataId).pipe(

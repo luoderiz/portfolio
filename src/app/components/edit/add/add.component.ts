@@ -6,7 +6,7 @@ import {NgbDate} from '@ng-bootstrap/ng-bootstrap';
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import {IInstitution} from "../../card/institution";
 import {ICity} from "../../card/city";
-import {InstitutionComponent} from "./institution/institution.component";
+import {InstitutionComponent} from "../institution/institution.component";
 
 @Component({
   selector: 'app-add',
@@ -19,6 +19,7 @@ export class AddComponent implements OnInit {
   @Input() dataTitle!: string;
   @Input() cardAlias!: string;
   @Input() allInstitutions!: IInstitution[];
+  @Input() allCities!: ICity[];
   institution: IInstitution = {
                             institution_id: 0,
                             institution: "",
@@ -29,8 +30,6 @@ export class AddComponent implements OnInit {
   city: ICity = {
                   city_id: 0,
                   city: ""};
-
-  @Input() allCities!: ICity[];
 
   faCalendar = faCalendar;
 

@@ -1,3 +1,233 @@
-<p
-  (click)="change()"
->change works!</p>
+<div class="modal-header" >
+  <h4 class="modal-title" > Modificar <em class="text-primary">"{{cardAlias}}"</em> de su perfil</h4>
+  <button type="button" class="btn-close" aria-describedby="modal-add" (click)="dismiss()"></button>
+</div>
+
+<div class="modal-body" *ngIf="cardType === 'about'">
+      <p class="text-primary">Modificar: "<em>{{dataTitle}}</em>" de su perfil.</p>
+  <form novalidate
+        [formGroup]="patchAboutForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Modificar `sobre mí`:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese su nuevo `sobre mí`"
+             formControlName="inputPatchAbout">
+      <p>
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Descartar cambios</button>
+        <button type="button" class="btn btn-danger" (click)="close()">Confirmar cambios</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="modal-body" *ngIf="cardType === 'softskills'">
+  <p class="text-primary">Modificar: "<em>{{dataTitle}}</em>" de su perfil.</p>
+  <form novalidate
+        [formGroup]="patchSoftskillForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Modificar soft skill:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese la nueva `soft skill`"
+             formControlName="inputPatchSoftskill">
+      <p>
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Descartar cambios</button>
+        <button type="button" class="btn btn-danger" (click)="close()">Confirmar cambios</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+<div class="modal-body" *ngIf="cardType === 'hardskills'">
+  <p class="text-primary">Modificar: "<em>{{dataTitle}}</em>" de su perfil.</p>
+  <form novalidate
+        [formGroup]="patchHardskillForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Modificar hard skill:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese la nueva `hard skill`"
+             formControlName="inputPatchHardskill">
+      <p>
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Descartar cambios</button>
+        <button type="button" class="btn btn-danger" (click)="close()">Confirmar cambios</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="modal-body" *ngIf="cardType === 'projects'">
+  <p class="text-primary">Modificar: "<em>{{dataTitle}}</em>" de su perfil.</p>
+  <form novalidate
+        [formGroup]="patchProjectForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Modificar nombre del proyecto:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese el nuevo nombre"
+             formControlName="inputPatchProjectName">
+      <label class="col-form-label mt-4">Modificar detalles del proyecto:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los nuevos detalles"
+             formControlName="inputPatchProjectDetails">
+      <label class="col-form-label mt-4">Modificar la url del proyecto:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese la nueva url"
+             formControlName="inputPatchProjectUrl">
+      <p>
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Descartar cambios</button>
+        <button type="button" class="btn btn-danger" (click)="close()">Confirmar cambios</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="modal-body" *ngIf="cardType === 'education'">
+  <p class="text-primary">Modificar: "<em>{{dataTitle}}</em>" de su perfil.</p>
+  <form novalidate
+        [formGroup]="patchEducationForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Modificar certificado o título:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese el nuevo certificado o título"
+             formControlName="inputPatchEducationDegree">
+      <label class="col-form-label mt-4">Modificar fecha de inicio de estudios:</label>
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="dd-mm-yyyy"
+          formControlName="inputPatchEducationDateFrom"
+          name="edudpatchfrom"
+          ngbDatepicker #edudpatchfrom="ngbDatepicker">
+        <button class="btn btn-outline-danger" (click)="edudpatchfrom.toggle()" type="button">
+          <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
+        </button>
+      </div>
+      <label class="col-form-label mt-4">Modificar fecha finalización de estudios:</label>
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="dd-mm-yyyy"
+          formControlName="inputPatchEducationDateTo"
+          name="edudpatchto"
+          ngbDatepicker #edudpatchto="ngbDatepicker">
+        <button class="btn btn-outline-danger" (click)="edudpatchto.toggle()" type="button">
+          <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
+        </button>
+      </div>
+      <label class="col-form-label mt-4 ">Cambie la institución:</label>
+      <div class="input-group">
+        <select
+          class="form-select"
+          placeholder="select institution"
+          formControlName="inputPatchEducationInstitutionId"
+        >
+          <option *ngFor="let anInstitution of allInstitutions" [value]="anInstitution.institution_id">{{anInstitution.institution}}</option>
+        </select>
+      </div>
+      <div class="jumbotron"></div>
+      <p class="mt-4">O asocie una nueva institución:</p>
+      <button type="button" class="btn btn-outline-danger mb-4" (click)="openInstitutionModal()">Asociar nueva Instititución</button>
+      <div class="jumbotron"></div>
+      <p>
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Descartar cambios</button>
+        <button type="button" class="btn btn-danger" (click)="close()">Confirmar cambios</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="modal-body" *ngIf="cardType === 'professional'">
+  <p class="text-primary">Modificar: "<em>{{dataTitle}}</em>" de su perfil.</p>
+  <form novalidate
+        [formGroup]="patchWorkexperienceForm"
+        (ngSubmit)="submit()">
+    <div class="form">
+      <label class="col-form-label mt-4">Modificar puesto laboral:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese el nuevo puesto laboral"
+             formControlName="inputPatchWorkexperiencePosition">
+      <label class="col-form-label mt-4">Modificar fecha de inicio:</label>
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="dd-mm-yyyy"
+          formControlName="inputPatchWorkexperienceDateFrom"
+          name="dpatchfrom"
+          ngbDatepicker #dpatchfrom="ngbDatepicker">
+        <button class="btn btn-outline-danger" (click)="dpatchfrom.toggle()" type="button">
+          <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
+        </button>
+      </div>
+      <label class="col-form-label mt-4">Modificar fecha finalización:</label>
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="dd-mm-yyyy"
+          formControlName="inputPatchWorkexperienceDateTo"
+          name="dpatchto"
+          ngbDatepicker #dpatchto="ngbDatepicker">
+        <button class="btn btn-outline-danger" (click)="dpatchto.toggle()" type="button">
+          <fa-icon [icon]="faCalendar" class="fa-xs"></fa-icon>
+        </button>
+      </div>
+      <label class="col-form-label mt-4">Modificar los detalles:</label>
+      <input class="form-control"
+             type="text"
+             placeholder="Ingrese los nuevos detalles"
+             formControlName="inputPatchWorkexperienceDetails">
+      <label class="col-form-label mt-4 ">Cambie la institución:</label>
+      <div class="input-group">
+        <select
+          class="form-select"
+          placeholder="select institution"
+          formControlName="inputPatchWorkexperienceInstitutionId"
+        >
+          <option *ngFor="let anInstitution of allInstitutions" [value]="anInstitution.institution_id">{{anInstitution.institution}}</option>
+        </select>
+      </div>
+      <div class="jumbotron"></div>
+      <p class="mt-4">O asocie una nueva institución:</p>
+      <button type="button" class="btn btn-outline-danger mb-4" (click)="openInstitutionModal()">Asociar nueva Instititución</button>
+      <div class="jumbotron"></div>
+      <p>
+        <span class="text-danger">Revise los datos ingresados antes de enviar.</span>
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">Descartar cambios</button>
+        <button type="button" class="btn btn-danger" (click)="close()">Confirmar cambios</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+

@@ -78,6 +78,8 @@ export class EditComponent implements OnInit{
     modalRef.componentInstance.cardType = this.cardType;
     modalRef.componentInstance.dataTitle = this.dataTitle;
     modalRef.componentInstance.cardAlias = this.cardAlias;
+    modalRef.componentInstance.allInstitutions = this.allInstitution;
+    modalRef.componentInstance.allCities = this.allCities;
     modalRef.result.then((result) => {
       if (result) {
         console.log(result);
