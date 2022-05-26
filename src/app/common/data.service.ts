@@ -5,17 +5,19 @@ import { ISkill } from '../components/card/skill';
 import { IProject } from '../components/card/project';
 import { IEducation} from "../components/card/education";
 import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {EMPTY, map, Observable, ObservedValueOf, of, throwError} from 'rxjs';
+import {EMPTY, map, Observable, of, throwError} from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
 import { TokenStorageService} from "./token-storage.service";
 import {IInstitution} from "../components/card/institution";
 import {ICity} from "../components/card/city";
+import {IPerson} from "../components/header/person";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class DataService {
+  person!: IPerson;
   allEducation!: IEducation[];
   allWorkExperience!: IWorkexperience[];
   allAbout!: IAbout[];
@@ -32,11 +34,19 @@ export class DataService {
 
   constructor(private http: HttpClient, private  tokenStorageService: TokenStorageService) {}
 
-  getPerson(): Observable<any>{
-    return this.http.get(this.dataServiceUrlUserEndpoint+ this.loggedUser+'/person').pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
-      catchError(this.handleError)
-    );
+  getPerson(): Observable<IPerson>{
+    if (this.tokenStorageService.getUser() != null) {
+      return this.http.get<IPerson>(this.dataServiceUrlUserEndpoint+ this.loggedUser+'/person').pipe(
+        tap( data => console.log('All: ', JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+    } else {
+      return this.http.get<IPerson>(this.dataServiceUrlUserEndpoint+ 'luoderiz'+'/person').pipe(
+        tap( data => this.person = data),
+        tap( data => console.log('All: ', JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+    }
   }
 
   getAllInstitutions(): Observable<IInstitution[]> {
@@ -116,14 +126,23 @@ export class DataService {
   }
 
   getAllAbouts(): Observable<IAbout[]> {
-    if (this.allAbout != null ) {
-      return of(this.allAbout);
+    if (this.tokenStorageService.getUser() != null) {
+      if (this.allAbout != null) {
+        return of(this.allAbout);
+      }
+      return this.http.get<IAbout[]>(this.dataServiceUrlUserEndpoint + this.loggedUser + '/about').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allAbout = data),
+        catchError(this.handleError)
+      );
+    } else {
+      return this.http.get<IAbout[]>(this.dataServiceUrlUserEndpoint + 'luoderiz' + '/about').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allAbout = data),
+        catchError(this.handleError)
+      );
+
     }
-    return this.http.get<IAbout[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/about').pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
-      tap( data => this.allAbout = data),
-      catchError(this.handleError)
-    );
   }
 
   getAbout(aboutId: number): Observable<IAbout> {
@@ -169,11 +188,25 @@ export class DataService {
   }
 
   getAllEducations(): Observable<IEducation[]>{
-    return this.http.get<IEducation[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/education').pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
-      tap( data => this.allEducation = data),
-      catchError(this.handleError)
-    );
+    if (this.tokenStorageService.getUser() != null) {
+      if (this.allEducation != null) {
+        return of(this.allEducation);
+      }
+      return this.http.get<IEducation[]>(this.dataServiceUrlUserEndpoint + this.loggedUser + '/education').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allEducation = data),
+        catchError(this.handleError)
+      );
+    } else {
+      if (this.allEducation != null) {
+        return of(this.allEducation);
+      }
+      return this.http.get<IEducation[]>(this.dataServiceUrlUserEndpoint + 'luoderiz' + '/education').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allEducation = data),
+        catchError(this.handleError)
+      );
+    }
   }
 
   getEducation(educationId: number):Observable<IEducation> {
@@ -234,14 +267,26 @@ export class DataService {
   }
 
   getAllWorkExperiences(): Observable<IWorkexperience[]> {
-    if (this.allWorkExperience != null ) {
-      return of(this.allWorkExperience);
+    if (this.tokenStorageService.getUser() != null) {
+      if (this.allWorkExperience != null) {
+        return of(this.allWorkExperience);
+      }
+      return this.http.get<IWorkexperience[]>(this.dataServiceUrlUserEndpoint + this.loggedUser + '/workexperience').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allWorkExperience = data),
+        catchError(this.handleError)
+      );
+    } else {
+      if (this.allWorkExperience != null) {
+        return of(this.allWorkExperience);
+      }
+      return this.http.get<IWorkexperience[]>(this.dataServiceUrlUserEndpoint + 'luoderiz' + '/workexperience').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allWorkExperience = data),
+        catchError(this.handleError)
+      );
+
     }
-    return this.http.get<IWorkexperience[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/workexperience').pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
-      tap( data => this.allWorkExperience = data),
-      catchError(this.handleError)
-    );
   }
 
   getWorkExperience(workExperienceId: number):Observable<IWorkexperience> {
@@ -308,14 +353,25 @@ export class DataService {
   }
 
   getAllSoftSkills(): Observable<ISkill[]> {
-    if (this.allSoftSkill != null ) {
-      return of(this.allSoftSkill);
+    if (this.tokenStorageService.getUser() != null) {
+      if (this.allSoftSkill != null) {
+        return of(this.allSoftSkill);
+      }
+      return this.http.get<ISkill[]>(this.dataServiceUrlUserEndpoint + this.loggedUser + '/softskill').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allSoftSkill = data),
+        catchError(this.handleError)
+      );
+    } else {
+      if (this.allSoftSkill != null) {
+        return of(this.allSoftSkill);
+      }
+      return this.http.get<ISkill[]>(this.dataServiceUrlUserEndpoint + 'luoderiz' + '/softskill').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allSoftSkill = data),
+        catchError(this.handleError)
+      );
     }
-    return this.http.get<ISkill[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/softskill').pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
-      tap( data => this.allSoftSkill = data),
-      catchError(this.handleError)
-    );
   }
 
   getSoftSkill(SoftSkillId: number):Observable<ISkill> {
@@ -364,14 +420,25 @@ export class DataService {
   }
 
   getAllHardSkills(): Observable<ISkill[]> {
-    if (this.allHardSkill != null ) {
-      return of(this.allHardSkill);
+    if (this.tokenStorageService.getUser() != null) {
+      if (this.allHardSkill != null) {
+        return of(this.allHardSkill);
+      }
+      return this.http.get<ISkill[]>(this.dataServiceUrlUserEndpoint + this.loggedUser + '/hardskill').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allHardSkill = data),
+        catchError(this.handleError)
+      );
+    } else {
+      if (this.allHardSkill != null) {
+        return of(this.allHardSkill);
+      }
+      return this.http.get<ISkill[]>(this.dataServiceUrlUserEndpoint + 'luoderiz' + '/hardskill').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allHardSkill = data),
+        catchError(this.handleError)
+      );
     }
-    return this.http.get<ISkill[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/hardskill').pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
-      tap( data => this.allHardSkill = data),
-      catchError(this.handleError)
-    );
   }
 
   getHardSkill(HardSkillId: number):Observable<ISkill> {
@@ -420,14 +487,25 @@ export class DataService {
   }
 
   getAllProjects(): Observable<IProject[]> {
-    if (this.allProjects != null ) {
-      return of(this.allProjects);
+    if (this.tokenStorageService.getUser() != null) {
+      if (this.allProjects != null) {
+        return of(this.allProjects);
+      }
+      return this.http.get<IProject[]>(this.dataServiceUrlUserEndpoint + this.loggedUser + '/project').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allProjects = data),
+        catchError(this.handleError)
+      );
+    } else {
+      if (this.allProjects != null) {
+        return of(this.allProjects);
+      }
+      return this.http.get<IProject[]>(this.dataServiceUrlUserEndpoint + 'luoderiz' + '/project').pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        tap(data => this.allProjects = data),
+        catchError(this.handleError)
+      );
     }
-    return this.http.get<IProject[]>(this.dataServiceUrlUserEndpoint+ this.loggedUser +'/project').pipe(
-      tap( data => console.log('All: ', JSON.stringify(data))),
-      tap( data => this.allProjects = data),
-      catchError(this.handleError)
-    );
   }
 
   getProject(ProjectId: number):Observable<IProject> {
@@ -498,5 +576,4 @@ export class DataService {
     console.error(errorMessage);
     return throwError(errorMessage);
   }
-
 }
