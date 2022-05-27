@@ -1,7 +1,12 @@
 <header class="container-fluid">
     <div class="row row-cols-12">
       <div class="col-3">
-        <p></p>
+        <a [href]="person.linkedin">
+        <fa-icon [icon]="faLinkedin"></fa-icon>
+        </a>
+        <a [href]="person.git">
+        <fa-icon [icon]="faGithub"></fa-icon>
+        </a>
       </div>
       <div class="col-6">
         <h1 routerLink='/welcome' class="text-light text-center ">{{title}}</h1>

@@ -9,8 +9,14 @@ import {
   faTrashCan,
   faUnlock,
   faAddressCard,
-  faCalendar,
+  faCalendar
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLinkedin,
+  faLinkedinIn,
+  faGithub,
+  faGithubSquare
+} from "@fortawesome/free-brands-svg-icons";
 import {FaIconLibrary} from "@fortawesome/angular-fontawesome";
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 
@@ -24,7 +30,7 @@ export class AppComponent {
 
   constructor(private faIconLibrary: FaIconLibrary, private faConfig: FaConfig) {
     faIconLibrary.addIcons(faSquarePlus, faPen, faTrashCan, faUnlock, faLock, faEye, faStreetView, faShoePrints, faAddressCard,
-      faCalendar,);
+      faCalendar, faLinkedin, faLinkedinIn, faGithub, faGithubSquare);
     faConfig.fixedWidth = true;
   }
   ngOnInit(): void {}

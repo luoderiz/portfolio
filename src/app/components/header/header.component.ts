@@ -5,6 +5,12 @@ import {AuthenticationService} from "../../common/authentication.service";
 import {DataService} from "../../common/data.service";
 import {IPerson} from "./person";
 import { faLock, faUnlock, faEye } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLinkedin,
+  faLinkedinIn,
+  faGithub,
+  faGithubSquare
+} from "@fortawesome/free-brands-svg-icons";
 
 @Component({
   selector: 'app-header',
@@ -15,12 +21,17 @@ export class HeaderComponent implements OnInit, OnChanges{
   faLock = faLock;
   faUnlock = faUnlock;
   faEye = faEye;
+  faLinkedin = faLinkedin;
+  faLinkedinIn = faLinkedinIn;
+  faGithub = faGithub;
+  faGithubSquare = faGithubSquare;
 
   title = 'Portfolio';
   person: IPerson = {
     name: "",
     surname: "",
     git: "",
+    linkedin: "",
     mail: "",
     username: ""
   }

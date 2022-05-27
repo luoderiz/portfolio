@@ -9,7 +9,7 @@ import {DataService} from "../../common/data.service";
 })
 
 export class MainmapComponent implements OnInit {
-  currentPosition: number = 0;
+  currentPosition!: number | null;
   type!: string;
   numberOfMilestones: number = 0;
 
@@ -21,6 +21,7 @@ export class MainmapComponent implements OnInit {
 
   ngOnInit(): void {
     this.type = String(this.activatedRoute.snapshot.url[0].path);
+    this.currentPosition = null;
     this.dataService.numberOf(this.type).subscribe({
       next: value =>
       {

@@ -17,15 +17,15 @@ import {IPerson} from "../components/header/person";
 })
 
 export class DataService {
-  person!: IPerson;
-  allEducation!: IEducation[];
-  allWorkExperience!: IWorkexperience[];
-  allAbout!: IAbout[];
-  allSoftSkill!: ISkill[];
-  allHardSkill!: ISkill[];
-  allProjects!: IProject[];
-  allInstitution!: IInstitution[];
-  allCities!: ICity[];
+  person!: IPerson | null;
+  allEducation!: IEducation[] | null;
+  allWorkExperience!: IWorkexperience[] | null;
+  allAbout!: IAbout[] | null;
+  allSoftSkill!: ISkill[] | null;
+  allHardSkill!: ISkill[] | null;
+  allProjects!: IProject[] | null;
+  allInstitution!: IInstitution[] | null;
+  allCities!: ICity[] | null;
 
   loggedUser = this.tokenStorageService.getUser();
 
@@ -34,9 +34,20 @@ export class DataService {
 
   constructor(private http: HttpClient, private  tokenStorageService: TokenStorageService) {}
 
+  forgetData() {
+    this.person = null;
+    this.allEducation = null;
+    this.allWorkExperience = null;
+    this.allAbout = null;
+    this.allSoftSkill = null;
+    this.allHardSkill = null;
+    this.allProjects  = null;
+  }
+
   getPerson(): Observable<IPerson>{
     if (this.tokenStorageService.getUser() != null) {
       return this.http.get<IPerson>(this.dataServiceUrlUserEndpoint+ this.loggedUser+'/person').pipe(
+        tap( data => this.person = data),
         tap( data => console.log('All: ', JSON.stringify(data))),
         catchError(this.handleError)
       );
@@ -128,20 +139,22 @@ export class DataService {
   getAllAbouts(): Observable<IAbout[]> {
     if (this.tokenStorageService.getUser() != null) {
       if (this.allAbout != null) {
-        return of(this.allAbout);
-      }
+          return of(this.allAbout);
+        }
       return this.http.get<IAbout[]>(this.dataServiceUrlUserEndpoint + this.loggedUser + '/about').pipe(
         tap(data => console.log('All: ', JSON.stringify(data))),
         tap(data => this.allAbout = data),
         catchError(this.handleError)
       );
     } else {
+        if (this.allAbout != null) {
+          return of(this.allAbout);
+        }
       return this.http.get<IAbout[]>(this.dataServiceUrlUserEndpoint + 'luoderiz' + '/about').pipe(
         tap(data => console.log('All: ', JSON.stringify(data))),
         tap(data => this.allAbout = data),
         catchError(this.handleError)
       );
-
     }
   }
 
@@ -285,7 +298,6 @@ export class DataService {
         tap(data => this.allWorkExperience = data),
         catchError(this.handleError)
       );
-
     }
   }
 
@@ -294,7 +306,7 @@ export class DataService {
       this.getAllWorkExperiences().subscribe({
         next: workExperiences => {
           console.log("data service getWorkExperience when allWorkExperience is null");
-          console.log(workExperiences[workExperienceId] + " " + workExperienceId );
+          console.log(workExperiences[workExperienceId] + " " + workExperienceId);
           return of(workExperiences[workExperienceId]);
         }
       })

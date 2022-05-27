@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ErrormessageComponent} from "../register/errormessage/errormessage.component";
+import {DataService} from "../../common/data.service";
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private formbuilder: FormBuilder, private authService: AuthenticationService, private tokenStorage: TokenStorageService, private route: Router, private modalService: NgbModal) {
+  constructor(private formbuilder: FormBuilder, private authService: AuthenticationService, private tokenStorage: TokenStorageService, private route: Router, private dataService: DataService
+  ) {
     this.loginForm = this.formbuilder.group({
       username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveUser(data.username);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        this.dataService.forgetData();
         this.route.navigate(['/welcome']).then(() => window.location.reload());
       },
       error: err => {

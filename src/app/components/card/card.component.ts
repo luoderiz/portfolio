@@ -14,7 +14,7 @@ import {TokenStorageService} from "../../common/token-storage.service";
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() cardIndicator: number = 0;
+  @Input() cardIndicator!: number | null;
   errorMessage: any;
   cardType: string = "";
   content?: any;
@@ -57,19 +57,16 @@ export class CardComponent implements OnInit {
     about:"",
     person_id:1};
 
-  allSoftSkill!: ISkill[];
   softSkill: ISkill = {
     skill:"",
     person_id:1,
     skill_id:1};
 
-  allHardSkill!: ISkill[];
   hardSkill: ISkill = {
     skill:"",
     person_id:1,
     skill_id:1};
 
-  allProjects!: IProject[];
   projects: IProject = {project_id:1,
     name:"",
     url:"",
@@ -81,6 +78,9 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
     this.cardType = String(this.activatedRoute.snapshot.url[0].path);
+    if (this.cardIndicator === null) {
+      return;
+    }
     if (this.cardType === "about") {
       this.dataService.getAbout(this.cardIndicator).subscribe({
         next: about => {
@@ -148,6 +148,9 @@ export class CardComponent implements OnInit {
   ngOnChanges(): void {
     this.isLoggedIn = this.tokenStorageService.isUserLoggedIn();
     this.cardType = String(this.activatedRoute.snapshot.url[0].path);
+    if (this.cardIndicator === null) {
+      return;
+    }
     if (this.cardType === "about") {
       this.dataService.getAbout(this.cardIndicator).subscribe({
         next: about => {
