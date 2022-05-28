@@ -11,6 +11,7 @@ import { TokenStorageService} from "./token-storage.service";
 import {IInstitution} from "../components/card/institution";
 import {ICity} from "../components/card/city";
 import {IPerson} from "../components/header/person";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +30,8 @@ export class DataService {
 
   loggedUser = this.tokenStorageService.getUser();
 
-  private dataServiceUrlUserEndpoint: string = 'http://localhost:8080/api/user/';
-  private dataServiceUrlApiEndpoint: string = 'http://localhost:8080/api/';
+  private dataServiceUrlUserEndpoint: string = environment.apiUrl + 'user/';
+  private dataServiceUrlApiEndpoint: string = environment.apiUrl;
 
   constructor(private http: HttpClient, private  tokenStorageService: TokenStorageService) {}
 
