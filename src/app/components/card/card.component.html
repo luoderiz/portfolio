@@ -1,5 +1,5 @@
 <div class="d-flex bg-dark">
-  <div id="editbox" class="d-inline-flex justify-content-start align-items-stretch" *ngIf="this.isLoggedIn">
+  <div id="editbox" class="d-inline-flex bg-dark justify-content-start align-items-stretch" *ngIf="this.isLoggedIn">
     <app-edit
       [dataId]='dataId'
       [cardType]='cardType'
@@ -8,8 +8,8 @@
     </app-edit>
   </div>
 
-<div id="infobox" class="d-inline-flex justify-content-between">
-  <table class="table table-active table-borderless">
+  <div id="infobox" class="d-inline-flex bg-dark justify-content-between">
+  <table class="table table-active table-borderless ">
     <div *ngIf="cardType === 'professional'">
       <thead>
       <tr>

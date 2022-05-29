@@ -4,8 +4,6 @@ import { AuthenticationService } from 'src/app/common/authentication.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ErrormessageComponent} from "../register/errormessage/errormessage.component";
 import {DataService} from "../../common/data.service";
 
 @Component({

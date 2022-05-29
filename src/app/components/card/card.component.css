@@ -1,19 +1,17 @@
 d-flex {
-  height: calc(75vw/3.015);
-  max-height: calc(75vw/3.015);
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: local;
 }
 
 #editbox {
-  width: 25%;
-  height: calc(75vw/3.015);
-  max-height: calc(75vw/3.015);
+  box-sizing: border-box;
+  width: 15%;
 }
 
 #infobox {
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  box-sizing: border-box;
   width: 85%;
-  height: calc(75vw/3.015);
-  max-height: calc(75vw/3.015);
 }
