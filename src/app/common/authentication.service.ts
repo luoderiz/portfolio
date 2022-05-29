@@ -3,13 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {TokenStorageService} from "./token-storage.service";
 import {Router} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private AUTH_URL: string = 'http://localhost:8080/api/login';
-  private REG_URL: string = 'http://localhost:8080/api/register';
+  private AUTH_URL: string = environment.apiUrl + 'login';
+  private REG_URL: string =  environment.apiUrl + 'register';
 
   constructor(private http: HttpClient, private tokenStorageService: TokenStorageService, private route: Router) { }
 
