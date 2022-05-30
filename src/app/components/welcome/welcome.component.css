@@ -2,7 +2,7 @@
   margin-left: 0;
   margin-right: 0;
   padding: 2vw 0;
-  height: calc(100vw/3.5);
+  height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: local;
@@ -13,13 +13,15 @@
 }
 
 .row .col {
-padding: 5vw;
-margin: 0 0 0 0;
-display: flex;
-justify-content: center;
-align-items: center;
+  padding: 5vw;
+  margin: 0 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-image {
-size: 50%;
+.btn {
+  font-weight:200;
+  line-height:1;
+  font-size:0.7rem;
 }

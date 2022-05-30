@@ -1,3 +1,6 @@
 .btn {
-    color: #2aa198;
+  color: #2aa198;
+  font-weight:200;
+  line-height:1;
+  font-size:0.7rem;
 }
