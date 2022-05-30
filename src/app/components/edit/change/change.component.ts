@@ -76,9 +76,7 @@ export class ChangeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.allInstitutions = this.allInstitutions;
     this.institution = this.allInstitutions[this.institution.institution_id];
-    this.allCities = this.allCities;
     this.city = this.allCities[this.city.city_id];
   }
 
@@ -137,10 +135,10 @@ export class ChangeComponent implements OnInit {
       if (this.patchEducationForm.get('inputPatchEducationDegree')?.value != null) {
         educationDegree = this.patchEducationForm.get('inputPatchEducationDegree')?.value;
       }
-      if (this.patchEducationForm.get('inputPatchEducationDateFrom')?.value.toISOString().split('T')[0] != null) {
+      if (this.patchEducationForm.get('inputPatchEducationDateFrom')?.value != null) {
         educationDateFrom = this.patchEducationForm.get('inputPatchEducationDateFrom')?.value.toISOString().split('T')[0];
       }
-      if (this.patchEducationForm.get('inputPatchEducationDateTo')?.value.toISOString().split('T')[0] != null) {
+      if (this.patchEducationForm.get('inputPatchEducationDateTo')?.value != null) {
         educationDateTo = this.patchEducationForm.get('inputPatchEducationDateTo')?.value.toISOString().split('T')[0];
       }
       if (this.patchEducationForm.get('inputPatchEducationInstitutionId')?.value != null) {
@@ -161,10 +159,10 @@ export class ChangeComponent implements OnInit {
       if (this.patchWorkexperienceForm.get('inputPatchWorkexperiencePosition')?.value != null) {
         workexperiencePosition = this.patchWorkexperienceForm.get('inputPatchWorkexperiencePosition')?.value;
       }
-      if (this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateFrom')?.value.toISOString().split('T')[0] != null) {
+      if (this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateFrom')?.value != null) {
         workexperienceDateFrom = this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateFrom')?.value.toISOString().split('T')[0];
       }
-      if (this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateTo')?.value.toISOString().split('T')[0] != null) {
+      if (this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateTo')?.value != null) {
         workexperienceDateTo = this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateTo')?.value.toISOString().split('T')[0];
       }
       if (this.patchWorkexperienceForm.get('inputPatchWorkexperienceDetails')?.value != null) {
