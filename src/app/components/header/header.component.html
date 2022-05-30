@@ -8,38 +8,25 @@
         <fa-icon [icon]="faGithub"></fa-icon>
         </a>
       </div>
+
       <div class="col-6">
         <h1 routerLink='/welcome' class="text-light text-center ">{{title}}</h1>
         <h3 class="text-light text-center">{{person.name}} {{person.surname}}</h3>
       </div>
-      <div class="col-3 justify-content-end d-flex align-items-center" id="icons">
-        <div *ngIf="!isLoggedIn">
-          <a [routerLink]="['/login']">
-            <p class="text-light text-center "><strong>
-              <fa-icon [icon]="faLock"></fa-icon>
-            </strong></p>
-            <span class="badge bg-dark">Log in</span>
-          </a>
-        </div>
 
-        <div *ngIf="isLoggedIn">
-          <a (click)="logout()">
-            <p class="text-light text-center"><strong>
-              <fa-icon [icon]="faUnlock"></fa-icon>
-            </strong></p>
-            <span class="badge bg-dark">Log out</span>
-          </a>
-        </div>
+      <div class="col-3 justify-content-between" >
+        <a *ngIf="!isLoggedIn" [routerLink]="['/login']">
+          <fa-icon [icon]="faLock"></fa-icon>
+        </a>
 
-        <div>
-          <a href="./book">
-            <p class="text-light text-center "><strong>
-              <fa-icon [icon]="faEye"></fa-icon>
-            </strong></p>
-            <span class="badge bg-dark">View mode</span>
-          </a>
-        </div>
+        <a *ngIf="isLoggedIn" (click)="logout()">
+          <fa-icon  [icon]="faUnlock"></fa-icon>
+        </a>
+
+        <a href="./book">
+          <fa-icon [icon]="faEye"></fa-icon>
+        </a>
+
       </div>
-
   </div>
 </header>

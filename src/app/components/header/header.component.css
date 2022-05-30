@@ -1,16 +1,7 @@
-.bi {
-  vertical-align: -.125em;
-  fill: #343a40;
-  width: 2.4vw;
-  height: 2.4vw;
-}
-#icons p {
-  color: #232527;
-  font-weight: 600;
-  font-size: 1vw;
-  text-transform: uppercase;
+h1 {
+  font-size: 1.4rem;
 }
 
-#icons img {
-  width: 4vw;
+h3 {
+  font-size: 1.2rem;
 }
