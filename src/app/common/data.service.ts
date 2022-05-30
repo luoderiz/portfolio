@@ -251,7 +251,7 @@ export class DataService {
       httpOptions);
   }
 
-  patchEducation(dataId: number, educationDegree: string, educationDateFrom: string, educationDateTo: string, educationInstitutionId: number): Observable<IEducation>  {
+  patchEducation(dataId: number, educationDegree?: string, educationDateFrom?: string, educationDateTo?: string, educationInstitutionId?: number): Observable<IEducation>  {
     let params: URLSearchParams = new URLSearchParams;
     if(educationDegree){
       params.set("degree", educationDegree);
@@ -333,7 +333,7 @@ export class DataService {
       httpOptions);
   }
 
-  patchWorkExperience(dataId: number, workexperiencePosition: string, workexperienceDateFrom: string, workexperienceDateTo: string, workexperienceDetails: string, workexperienceInstitutionId: number): Observable<IWorkexperience>  {
+  patchWorkExperience(dataId: number, workexperiencePosition?: string, workexperienceDateFrom?: string, workexperienceDateTo?: string, workexperienceDetails?: string, workexperienceInstitutionId?: number): Observable<IWorkexperience>  {
     let params: URLSearchParams = new URLSearchParams;
     if(workexperiencePosition){
       params.set("position", workexperiencePosition);

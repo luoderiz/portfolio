@@ -36,6 +36,7 @@ import { ChangeComponent } from './components/edit/change/change.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ErrormessageComponent } from './components/register/errormessage/errormessage.component';
 import { InstitutionComponent} from "./components/edit/institution/institution.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { InstitutionComponent} from "./components/edit/institution/institution.c
       {path: '**', component: NotfoundComponent, pathMatch: "full"}
     ]),
     FontAwesomeModule,
+    BrowserAnimationsModule,
     NgbModule,
     FormsModule,
   ],
