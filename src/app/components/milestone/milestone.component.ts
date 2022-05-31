@@ -30,24 +30,3 @@ export class MilestoneComponent implements OnInit {
   };
 
 }
-
-/*   @Input() allAbout!: IAboutMe[];
-  @Input() allWorkexperience!: IWorkexperience[];
-  @Input() allSoftSkills!: ISkill[];
-  @Input() allHardSkills!: ISkill[];
-  @Input() allProjects!: IProject[];
- allInformationList: any;
- */
-
-/*     if (this.type === "about") {
-      this.allInformationList = this.allAbout;
-    } else if (this.type === "professional") {
-      this.allInformationList = this.allWorkexperience;
-    } else if (this.type === "hardskills") {
-      this.allInformationList = this.allHardSkills;
-    } else if (this.type === "softskills") {
-      this.allInformationList = this.allSoftSkills;
-    } else if (this.type === "projects") {
-      this.allInformationList = this.allProjects;
-    }
-    */

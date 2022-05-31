@@ -84,61 +84,60 @@ export class CardComponent implements OnInit {
     if (this.cardType === "about") {
       this.dataService.getAbout(this.cardIndicator).subscribe({
         next: about => {
+          this.cardAlias = 'Sobre mí';
           this.about = about;
           this.dataId = about.about_id;
           this.dataTitle = about.about;
-          this.cardAlias = 'Sobre mí';
         },
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "professional") {
       this.dataService.getWorkExperience(this.cardIndicator).subscribe({
         next: workexperience => {
-          console.log("card component on professional cardtype tiene");
+          this.cardAlias = 'Recorridos profesionales';
           this.workexperience = workexperience;
           this.dataId = workexperience.workexperience_id;
           this.dataTitle = workexperience.position;
-          this.cardAlias = 'Recorridos profesionales';
         },
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "education") {
       this.dataService.getEducation(this.cardIndicator).subscribe({
         next: education => {
+          this.cardAlias = 'Formación';
           this.education = education;
           this.dataId = education.education_id;
           this.dataTitle = education.degree;
-          this.cardAlias = 'Formación';
         },
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "hardskills") {
       this.dataService.getHardSkill(this.cardIndicator).subscribe({
         next: hardSkill => {
+          this.cardAlias = 'Hard skills';
           this.hardSkill = hardSkill;
           this.dataId = hardSkill.skill_id;
           this.dataTitle = hardSkill.skill;
-          this.cardAlias = 'Hard skills';
         },
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "softskills") {
       this.dataService.getSoftSkill(this.cardIndicator).subscribe({
         next: softskill => {
+          this.cardAlias = 'Soft skills';
           this.softSkill = softskill;
           this.dataId = softskill.skill_id;
           this.dataTitle = softskill.skill;
-          this.cardAlias = 'Soft skills';
         },
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "projects") {
       this.dataService.getProject(this.cardIndicator).subscribe({
         next: project => {
+          this.cardAlias = 'Proyectos';
           this.projects = project;
           this.dataId = project.project_id;
           this.dataTitle = project.name;
-          this.cardAlias = 'Proyectos';
         },
         error: err => this.errorMessage = err,
       });
@@ -154,60 +153,60 @@ export class CardComponent implements OnInit {
     if (this.cardType === "about") {
       this.dataService.getAbout(this.cardIndicator).subscribe({
         next: about => {
+          this.cardAlias = 'Sobre mí';
           this.about = about;
           this.dataId = about.about_id;
           this.dataTitle = about.about;
-          this.cardAlias = 'Sobre mí';
         },
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "professional") {
       this.dataService.getWorkExperience(this.cardIndicator).subscribe({
         next: workexperience => {
+          this.cardAlias = 'Recorridos profesionales';
           this.workexperience = workexperience;
           this.dataId = workexperience.workexperience_id;
           this.dataTitle = workexperience.position;
-          this.cardAlias = 'Recorridos profesionales';
         },
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "education") {
       this.dataService.getEducation(this.cardIndicator).subscribe({
         next: education => {
+          this.cardAlias = 'Formación';
           this.education = education;
           this.dataId = education.education_id;
           this.dataTitle = education.degree;
-          this.cardAlias = 'Formación';
         },
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "hardskills") {
       this.dataService.getHardSkill(this.cardIndicator).subscribe({
         next: hardSkill => {
+          this.cardAlias = 'Hard skills';
           this.hardSkill = hardSkill;
           this.dataId = hardSkill.skill_id;
           this.dataTitle = hardSkill.skill;
-          this.cardAlias = 'Hard skills';
         },
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "softskills") {
       this.dataService.getSoftSkill(this.cardIndicator).subscribe({
         next: softskill => {
+          this.cardAlias = 'Soft skills';
           this.softSkill = softskill;
           this.dataId = softskill.skill_id;
           this.dataTitle = softskill.skill;
-          this.cardAlias = 'Soft skills';
         },
         error: err => this.errorMessage = err,
       });
     } else if (this.cardType === "projects") {
       this.dataService.getProject(this.cardIndicator).subscribe({
         next: project => {
+          this.cardAlias = 'Proyectos';
           this.projects = project;
           this.dataId = project.project_id;
           this.dataTitle = project.name;
-          this.cardAlias = 'Proyectos';
         },
         error: err => this.errorMessage = err,
       });

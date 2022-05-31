@@ -43,6 +43,24 @@ export class EditComponent implements OnInit{
       },
       error: err => 'Error al recibir ciudades en edit component',
     });
+    if (this.cardType === "about") {
+      this.cardAlias = 'Sobre mí';
+    }
+    if (this.cardType === "professional") {
+      this.cardAlias = 'Recorridos profesionales';
+    }
+    if (this.cardType === "education") {
+      this.cardAlias = 'Formación';
+    }
+    if (this.cardType === "hardskills") {
+      this.cardAlias = 'Hard skills';
+    }
+    if (this.cardType === "softskills") {
+      this.cardAlias = 'Soft skills';
+    }
+    if (this.cardType === "projects") {
+      this.cardAlias = 'Proyectos';
+    }
   }
 
   openDeleteModal(){
