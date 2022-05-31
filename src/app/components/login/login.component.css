@@ -2,7 +2,6 @@ html,
 body {
   justify-content: center;
   justify-items: center;
-  font-size: 1vw;
 }
 
 body {
@@ -10,44 +9,4 @@ body {
   align-items: center;
   padding-top: 1vw;
   padding-bottom: 1vw;
-}
-
-.form {
-  min-width: 30vw;
-  max-width: 50vw;
-}
-
-.span {
-  min-width: 30vw;;
-  max-width: 50vw;
-  min-height: 00.5vh;
-  max-height: 2vh;
-  font-size: 1vw;
-}
-
-.form-signin {
-  width: 100%;
-  max-width: fit-content;
-  padding: 0.5vw;
-  margin: auto;
-}
-
-label {
-  font-size: small;
-}
-
-input {
-  z-index: 2;
-}
-
-input[type="text"] {
-  margin-bottom: -1vh;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-input[type="password"] {
-  margin-bottom: 1vh;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }

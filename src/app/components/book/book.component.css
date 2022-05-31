@@ -34,3 +34,15 @@
   .jumbotron {
     height: 2rem;
   }
+
+ a {
+   color: #0e598d;
+   text-decoration: underline;
+ }
+ a:hover {
+   color:  #0e598d;
+ }
+ a:not([href]):not([class]), a:not([href]):not([class]):hover {
+   color: inherit;
+   text-decoration: none;
+ }
