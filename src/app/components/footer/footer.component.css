@@ -1,29 +1,30 @@
-.footer {
+footer {
   padding: 0.2vw;
-  margin: 0;
-  font-size: 1.3vw;
 }
- 
-a {
-  color: #4e8b75;
-}
-
-img {
+.img-fluid {
   height: 3.5vw;
   width: auto;
-  vertical-align: -0.125vw;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+p, a {
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  font-size: 0.4rem;
 }
 
-#ap {
- padding-left: 0%; 
- padding-right: 0%;
- float: left;
+a {
+  color: #2aa198;
+  text-decoration: underline;
 }
-
-p {
-  padding-top: 1vw;
-  padding-bottom: 1vw;
-  padding-left: 0%;
-  padding-right: 0%;
-  margin: 0%;
+a:hover {
+  color: #2aa198;
+}
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
 }

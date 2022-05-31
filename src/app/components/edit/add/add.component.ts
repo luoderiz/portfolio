@@ -134,18 +134,8 @@ export class AddComponent implements OnInit {
       });
     } else if (this.cardType === "professional") {
       this.workexperiencePosition = this.workexperienceForm.get('inputWorkexperiencePosition')?.value;
-      /*
-      if (!this.isEmpty(this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.toString())) {
-        this.workexperienceDateFrom = this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.toISOString().split('T')[0];
-      }
-      if (!this.isEmpty(this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.toString()))  {
-        this.workexperienceDateTo = this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.toISOString().split('T')[0];
-      }
-      */
        this.workexperienceDateFrom = this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.toISOString().split('T')[0];
        this.workexperienceDateTo = this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.toISOString().split('T')[0];
-      // this.workexperienceDateFrom = this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.toISOString().split('T')[0];
-      // this.workexperienceDateTo = this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.toISOString().split('T')[0];
       this.workexperienceDetails = this.workexperienceForm.get('inputWorkexperienceDetails')?.value;
       this.workexperienceInstitutionId = this.workexperienceForm.get('inputWorkexperienceInstitutionId')?.value;
       this.dataService.postWorkexperience(this.workexperiencePosition, this.workexperienceDateFrom, this.workexperienceDateTo, this.workexperienceDetails, this.workexperienceInstitutionId).subscribe({

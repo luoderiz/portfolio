@@ -1,6 +1,6 @@
 <header class="container-fluid">
     <div class="row row-cols-12">
-      <div class="col-3">
+      <div class="col-3 justify-content-between">
         <a [href]="person.linkedin">
         <fa-icon [icon]="faLinkedin"></fa-icon>
         </a>
@@ -10,23 +10,31 @@
       </div>
 
       <div class="col-6">
-        <h1 routerLink='/welcome' class="text-light text-center ">{{title}}</h1>
-        <h3 class="text-light text-center">{{person.name}} {{person.surname}}</h3>
+        <h3 routerLink='/welcome' class="text-light text-center ">{{title}}</h3>
+        <h6 class="text-light text-center">{{person.name}} {{person.surname}}</h6>
       </div>
 
-      <div class="col-3 justify-content-between" >
-        <a *ngIf="!isLoggedIn" [routerLink]="['/login']">
-          <fa-icon [icon]="faLock"></fa-icon>
-        </a>
-
-        <a *ngIf="isLoggedIn" (click)="logout()">
-          <fa-icon  [icon]="faUnlock"></fa-icon>
-        </a>
-
-        <a href="./book">
-          <fa-icon [icon]="faEye"></fa-icon>
-        </a>
-
+      <div class="col-3">
+        <div class="row row-cols-3 justify-content-around">
+          <div *ngIf="!isLoggedIn" class="col-sm-1 ps-1">
+            <a [routerLink]="['/login']">
+              <fa-icon [icon]="faLock"></fa-icon>
+              <span class="badge bg-dark">Log in</span>
+            </a>
+          </div>
+          <div *ngIf="isLoggedIn"  class="col-sm-1">
+            <a (click)="logout()">
+              <fa-icon  [icon]="faUnlock"></fa-icon>
+              <span class="badge bg-dark">Log out</span>
+            </a>
+          </div>
+          <div class="col-sm-1 pe-1">
+            <a href="./book">
+              <fa-icon [icon]="faEye"></fa-icon>
+              <span class="badge bg-dark">View</span>
+            </a>
+          </div>
+        </div>
       </div>
   </div>
 </header>

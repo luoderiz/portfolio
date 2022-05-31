@@ -23,7 +23,7 @@
         <h2 class="title">{{ educationTitle}}</h2>
         <ul class="block" *ngFor="let education of allEducation; let i= index">
             <h3 class="subtitle">{{allEducation[i].degree}}</h3>
-            <li>{{allEducation[i].date_from  | customDate}} - {{allWorkexperience[i].date_to  | customDate}}</li>
+            <li>{{allEducation[i].date_from  | customDate}} - {{allEducation[i].date_to  | customDate}}</li>
             <li>{{allEducation[i].institution.institution}}</li>
             <li>{{allEducation[i].institution.city.city}}</li>
         </ul>

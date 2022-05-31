@@ -17,14 +17,9 @@ export class DeleteComponent implements OnInit {
   constructor(private dataService: DataService, public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
-    console.log('deleteModal recibe OK dataId '+ this.dataId);
-    console.log('deleteModal recibe OK cardType '+ this.cardType);
-    console.log('deleteModal recibe OK cardAlias '+ this.cardAlias);
-    console.log('deleteModal recibe OK dataTitle '+ this.dataTitle);
   }
 
   close() {
-    // todo return error
     this.delete();
     this.activeModal.close();
   }
@@ -34,7 +29,6 @@ export class DeleteComponent implements OnInit {
   }
 
   delete() {
-    //todo catch error
     if (this.cardType === "about") {
       this.dataService.deleteAbout(this.dataId).subscribe({
         next: () => {
