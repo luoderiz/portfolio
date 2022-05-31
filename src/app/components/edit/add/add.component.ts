@@ -74,8 +74,8 @@ export class AddComponent implements OnInit {
     });
     this.workexperienceForm = this.formbuilder.group({
       inputWorkexperiencePosition: ['', [Validators.required, Validators.maxLength(1020)]],
-      inputWorkexperienceDateFrom: ['', []],
-      inputWorkexperienceDateTo: ['', []],
+      inputWorkexperienceDateFrom: ['', ],
+      inputWorkexperienceDateTo: ['', ],
       inputWorkexperienceDetails: ['', [Validators.maxLength(255)]],
       inputWorkexperienceInstitutionId: ['', [Validators.required]]
     });
@@ -86,18 +86,16 @@ export class AddComponent implements OnInit {
     });
     this.educationForm = this.formbuilder.group({
       inputEducationDegree: ['', [Validators.required, Validators.maxLength(1020)]],
-      inputEducationDateFrom: ['', []],
-      inputEducationDateTo: ['', []],
+      inputEducationDateFrom: ['', ],
+      inputEducationDateTo: ['', ],
       inputEducationInstitutionId: ['', [Validators.required]]
     });
   }
 
   ngOnInit(): void {
-    this.allInstitutions = this.allInstitutions;
     this.institution = this.allInstitutions[this.institution.institution_id];
-    this.allCities = this.allCities;
     this.city = this.allCities[this.city.city_id];
-    }
+  }
 
   submit(): void {
     if (this.cardType === "about") {
@@ -136,8 +134,18 @@ export class AddComponent implements OnInit {
       });
     } else if (this.cardType === "professional") {
       this.workexperiencePosition = this.workexperienceForm.get('inputWorkexperiencePosition')?.value;
-      this.workexperienceDateFrom = this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.toISOString().split('T')[0];
-      this.workexperienceDateTo = this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.toISOString().split('T')[0];
+      /*
+      if (!this.isEmpty(this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.toString())) {
+        this.workexperienceDateFrom = this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.toISOString().split('T')[0];
+      }
+      if (!this.isEmpty(this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.toString()))  {
+        this.workexperienceDateTo = this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.toISOString().split('T')[0];
+      }
+      */
+       this.workexperienceDateFrom = this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.toISOString().split('T')[0];
+       this.workexperienceDateTo = this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.toISOString().split('T')[0];
+      // this.workexperienceDateFrom = this.workexperienceForm.get('inputWorkexperienceDateFrom')?.value.toISOString().split('T')[0];
+      // this.workexperienceDateTo = this.workexperienceForm.get('inputWorkexperienceDateTo')?.value.toISOString().split('T')[0];
       this.workexperienceDetails = this.workexperienceForm.get('inputWorkexperienceDetails')?.value;
       this.workexperienceInstitutionId = this.workexperienceForm.get('inputWorkexperienceInstitutionId')?.value;
       this.dataService.postWorkexperience(this.workexperiencePosition, this.workexperienceDateFrom, this.workexperienceDateTo, this.workexperienceDetails, this.workexperienceInstitutionId).subscribe({
@@ -183,9 +191,11 @@ export class AddComponent implements OnInit {
     modalRef.componentInstance.allCities = this.allCities;
     modalRef.result.then((result) => {
       if (result) {
-        console.log(result);
       }
     });
+  }
+  private isEmpty(str: string): boolean {
+    return !str || !str.trim();
   }
 
 }

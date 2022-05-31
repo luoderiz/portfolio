@@ -135,10 +135,10 @@ export class ChangeComponent implements OnInit {
       if (this.patchEducationForm.get('inputPatchEducationDegree')?.value != null) {
         educationDegree = this.patchEducationForm.get('inputPatchEducationDegree')?.value;
       }
-      if (this.patchEducationForm.get('inputPatchEducationDateFrom')?.value != null) {
+      if (!this.isEmpty(this.patchEducationForm.get('inputPatchEducationDateFrom')?.value.toString())) {
         educationDateFrom = this.patchEducationForm.get('inputPatchEducationDateFrom')?.value.toISOString().split('T')[0];
       }
-      if (this.patchEducationForm.get('inputPatchEducationDateTo')?.value != null) {
+      if (!this.isEmpty(this.patchEducationForm.get('inputPatchEducationDateTo')?.value.toString())) {
         educationDateTo = this.patchEducationForm.get('inputPatchEducationDateTo')?.value.toISOString().split('T')[0];
       }
       if (this.patchEducationForm.get('inputPatchEducationInstitutionId')?.value != null) {
@@ -159,10 +159,10 @@ export class ChangeComponent implements OnInit {
       if (this.patchWorkexperienceForm.get('inputPatchWorkexperiencePosition')?.value != null) {
         workexperiencePosition = this.patchWorkexperienceForm.get('inputPatchWorkexperiencePosition')?.value;
       }
-      if (this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateFrom')?.value != null) {
+      if (!this.isEmpty(this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateFrom')?.value.toString())) {
         workexperienceDateFrom = this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateFrom')?.value.toISOString().split('T')[0];
       }
-      if (this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateTo')?.value != null) {
+      if (!this.isEmpty(this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateTo')?.value.toString()))  {
         workexperienceDateTo = this.patchWorkexperienceForm.get('inputPatchWorkexperienceDateTo')?.value.toISOString().split('T')[0];
       }
       if (this.patchWorkexperienceForm.get('inputPatchWorkexperienceDetails')?.value != null) {
@@ -207,4 +207,9 @@ export class ChangeComponent implements OnInit {
     });
   }
 
+  private isEmpty(str: string): boolean {
+    return !str || !str.trim();
+  }
 }
+
+

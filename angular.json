@@ -29,7 +29,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/css/bootstrap.solar.min.css"
+              "src/css/bootstrap.solar.min.css",
+              "node_modules/animate.css/animate.min.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
@@ -99,7 +100,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/css/bootstrap.solar.min.css"
+              "src/css/bootstrap.solar.min.css",
+              "node_modules/animate.css/animate.min.css"
             ],
             "scripts": [
 
