@@ -42,7 +42,7 @@ export class CardComponent implements OnInit {
     workexperience_id: 0,
     position: "",
     date_from: "",
-    date_to: "2",
+    date_to: "",
     details: "",
     person_id:1,
     institution: {institution_id: 1,
