@@ -9,8 +9,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Backend on https://github.com/luoderiz/portfolioservice
 
 
-
-# Portfolio Frontend
+---
 
 Portfolio desarrollado en el marco del curso Argentina Programa, utilizando TypeScript y Angular.
 
